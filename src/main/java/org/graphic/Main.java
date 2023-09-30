@@ -1,8 +1,9 @@
 package org.graphic;
-import static org.graphic.App.runApplication;
+
+import javafx.application.Application;
 
 public class Main {
     public static void main(String[] args) {
-        runApplication();
+        Application.launch(App.class ,args);
     }
 }
