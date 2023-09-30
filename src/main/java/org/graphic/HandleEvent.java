@@ -8,7 +8,6 @@ import javafx.scene.paint.Color;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.graphic.App.scene;
 
 public class HandleEvent {
 

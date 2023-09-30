@@ -5,22 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bd7be58-57b9-4d2c-89bd-bb5b23bc1c24" name="Changes" comment="Command line">
-      <change beforePath="$PROJECT_DIR$/src/main/LOGO.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/graphic/DictionaryManagement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/search.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/HandleEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/HandleEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/Solution.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/LOGO.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/LOGO.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/MyButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/MyButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/main-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/main-screen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/search_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/search_icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/search_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/graphic/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/graphic/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/graphic/LOGO.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/graphic/LOGO.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/graphic/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/graphic/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/graphic/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/graphic/HandleEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/graphic/HandleEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/graphic/MyButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/graphic/MyButton.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/graphic/main-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/graphic/main-screen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/graphic/search_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/graphic/search_icon.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +23,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -37,11 +31,32 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;WindBow27&quot;
+  }
+}</component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="main" />
+      </list>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="2549c0a7-fe6b-48ce-a165-a73eada9dfff" />
+        <option name="url" value="https://github.com/WindBow27/ProjectGrimoire" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -54,18 +69,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Cheesedz-patch-1&quot;,
-    &quot;last_opened_file_path&quot;: &quot;G:/Workspace/ProjectGrimoire&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Cheesedz-patch-1",
+    "last_opened_file_path": "G:/Workspace/ProjectGrimoire",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.JavaFX"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.graphic.App" />
@@ -142,11 +157,31 @@
       <option name="project" value="LOCAL" />
       <updated>1694939202350</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Command line">
+      <option name="closed" value="true" />
+      <created>1696060125382</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1696060125383</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Command line">
+      <option name="closed" value="true" />
+      <created>1696060140596</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1696060140596</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Command line" />
     <option name="LAST_COMMIT_MESSAGE" value="Command line" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

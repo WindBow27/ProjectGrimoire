@@ -3,13 +3,20 @@ package org.graphic;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class MyButton extends HandleEvent{
     @FXML
@@ -17,9 +24,6 @@ public class MyButton extends HandleEvent{
 
     @FXML
     private Button myDictionary;
-
-    @FXML
-    private MenuButton file;
 
     @FXML
     private Button translate;
@@ -37,9 +41,15 @@ public class MyButton extends HandleEvent{
     private Button home;
 
     @FXML
+    private Button confirm;
+
+    @FXML
+    private TextArea textArea;
+
+    @FXML
     public void hovered() {
         changeColor(home);
-        changeColor(file);
+        //changeColor(file);
         changeColor(myDictionary);
         changeColor(translate);
         changeColor(search);
@@ -95,5 +105,31 @@ public class MyButton extends HandleEvent{
             // Set the button's opacity when the mouse exits the image.
             image.setOpacity(1);
         });
+    }
+
+    @FXML
+    private void handleButtonAction (ActionEvent event) throws Exception {
+        Stage stage;
+        Parent root;
+
+        if(event.getSource()== home){
+            stage = (Stage) home.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("main-screen.fxml"));
+        }
+        else{
+            stage = (Stage) myDictionary.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("search.fxml"));
+        }
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void readWordFromTextArea() {
+        TextArea textArea = this.textArea;
+        String text = textArea.getText();
+        DictionaryManagement dictionaryManagement = new DictionaryManagement();
+        dictionaryManagement.insertFromText(text);
+        dictionaryManagement.showALlWords();
     }
 }
