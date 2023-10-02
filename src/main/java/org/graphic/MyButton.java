@@ -1,24 +1,21 @@
 package org.graphic;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
-public class MyButton extends HandleEvent{
+public class MyButton extends HandleEvent {
     @FXML
     private ImageView find;
 
@@ -41,7 +38,7 @@ public class MyButton extends HandleEvent{
     private Button home;
 
     @FXML
-    private Button confirm;
+    private Button confirmTranslate;
 
     @FXML
     private TextArea textArea;
@@ -49,7 +46,6 @@ public class MyButton extends HandleEvent{
     @FXML
     public void hovered() {
         changeColor(home);
-        //changeColor(file);
         changeColor(myDictionary);
         changeColor(translate);
         changeColor(search);
@@ -69,8 +65,7 @@ public class MyButton extends HandleEvent{
                 // Set the button's text fill color to white when the mouse exits the button.
                 button.setTextFill(Color.WHITE);
             });
-        }
-        else {
+        } else {
             button.setOnMouseEntered(event -> {
                 // Set the button's background color to light blue when the mouse enters the button.
                 button.setStyle("-fx-background-color : #dff5f5");
@@ -108,17 +103,21 @@ public class MyButton extends HandleEvent{
     }
 
     @FXML
-    private void handleButtonAction (ActionEvent event) throws Exception {
+    private void handleButtonAction(ActionEvent event) throws Exception {
         Stage stage;
         Parent root;
 
-        if(event.getSource()== home){
+        if (event.getSource() == home) {
             stage = (Stage) home.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("main-screen.fxml"));
-        }
-        else{
+        } else if (event.getSource() == myDictionary) {
             stage = (Stage) myDictionary.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("search.fxml"));
+        } else if (event.getSource() == translate) {
+            stage = (Stage) translate.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("translate-screen.fxml"));
+        } else {
+            throw new Exception("Unknow button clicked");
         }
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -130,6 +129,16 @@ public class MyButton extends HandleEvent{
         String text = textArea.getText();
         DictionaryManagement dictionaryManagement = new DictionaryManagement();
         dictionaryManagement.insertFromText(text);
-        dictionaryManagement.showALlWords();
+        //dictionaryManagement.showALlWords();
+    }
+
+    public void translateWordFromTextArea() throws IOException, InterruptedException, SQLException {
+        TextArea textArea = this.textArea;
+        String text = textArea.getText();
+        Dictionary database = new Dictionary();
+        database.init();
+        DictionaryManagement dictionaryManagement = new DictionaryManagement();
+        String definition = dictionaryManagement.translateWord(text);
+        System.out.println(definition);
     }
 }

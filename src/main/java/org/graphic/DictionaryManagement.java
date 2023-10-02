@@ -1,16 +1,21 @@
 package org.graphic;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class DictionaryManagement {
-    private Dictionary dictionary;
+    private final Dictionary dictionary;
 
     public DictionaryManagement() {
         dictionary = new Dictionary();
@@ -19,6 +24,66 @@ public class DictionaryManagement {
     //Getter
     public Dictionary getDictionary() {
         return dictionary;
+    }
+
+    private static final String API_KEY = "5ebc593204msh6296a4e6abd5b08p1f5294jsn6956ee6fb566";
+
+    private static final String API_URL = "https://api.dictionaryapi.dev/api/v2/entries/en/";
+
+    public static String getDefinition(String word) throws IOException, InterruptedException {
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(/*API_URL*/ "https://translate.google.com/?sl=en&tl=vi&text=" + word + "&op=translate" /*+ word*/))
+                .method("GET", HttpRequest.BodyPublishers.noBody())
+                .build();
+        HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+
+//        HttpRequest request = HttpRequest.newBuilder()
+//                .uri(URI.create("https://google-translate1.p.rapidapi.com/language/translate/v2/detect"))
+//                .header("content-type", "application/x-www-form-urlencoded")
+//                .header("Accept-Encoding", "application/gzip")
+//                .header("X-RapidAPI-Key", "5ebc593204msh6296a4e6abd5b08p1f5294jsn6956ee6fb566")
+//                .header("X-RapidAPI-Host", "google-translate1.p.rapidapi.com")
+//                .method("POST", HttpRequest.BodyPublishers.ofString("q=" + word))
+//                .build();
+//        HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+
+        // Check the response status code
+        if (response.statusCode() == 200) {
+            // The request was successful
+            String data = response.body();
+
+            // Extract the translated text from the response
+            Pattern pattern = Pattern.compile("<div class=\"g\">(.+?)</div>");
+            Matcher matcher = pattern.matcher(data);
+
+            if (matcher.find()) {
+                String translatedText = matcher.group(1);
+                System.out.println(translatedText);
+            } else {
+                System.out.println("Failed to extract translated text from response");
+            }
+        } else {
+            // The request failed
+            System.out.println("Failed to send request to API: {}".format(String.valueOf(response.statusCode())));
+        }
+
+        String definition = response.body();
+
+        return definition;
+    }
+
+    private static String buildHeaders() {
+        Map<String, String> headers = new HashMap<>();
+        headers.put("X-RapidAPI-Key", API_KEY);
+        headers.put("X-RapidAPI-Host", "mashape-community-urban-dictionary.p.rapidapi.com");
+        return headers.toString();
+    }
+
+    public String translateWord(String word) throws IOException, InterruptedException {
+//        Dictionary dictionary = new Dictionary();
+//        return dictionary.findWord(word);
+        TranslatorAPI translator = new TranslatorAPI();
+        return translator.translateEnToVi(word);
     }
 
     //Insert word from commandline
