@@ -93,6 +93,7 @@ public class Dictionary {
     }
 
     public String findWord(String target) {
+        double startTime = System.currentTimeMillis();
         String SQL_QUERY = "SELECT definition FROM dictionary WHERE target = ?";
 
         try {
@@ -104,6 +105,8 @@ public class Dictionary {
 
                 try {
                     if (rs.next()) {
+                        double endTime = System.currentTimeMillis();
+                        System.out.println(endTime - startTime);
                         return rs.getString("definition");
                     } else {
                         return "404";

@@ -37,16 +37,6 @@ public class DictionaryManagement {
                 .build();
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
 
-//        HttpRequest request = HttpRequest.newBuilder()
-//                .uri(URI.create("https://google-translate1.p.rapidapi.com/language/translate/v2/detect"))
-//                .header("content-type", "application/x-www-form-urlencoded")
-//                .header("Accept-Encoding", "application/gzip")
-//                .header("X-RapidAPI-Key", "5ebc593204msh6296a4e6abd5b08p1f5294jsn6956ee6fb566")
-//                .header("X-RapidAPI-Host", "google-translate1.p.rapidapi.com")
-//                .method("POST", HttpRequest.BodyPublishers.ofString("q=" + word))
-//                .build();
-//        HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-
         // Check the response status code
         if (response.statusCode() == 200) {
             // The request was successful
@@ -79,11 +69,12 @@ public class DictionaryManagement {
         return headers.toString();
     }
 
-    public String translateWord(String word) throws IOException, InterruptedException {
+    public String translateWord(String word, String tl) throws IOException, InterruptedException {
 //        Dictionary dictionary = new Dictionary();
 //        return dictionary.findWord(word);
         TranslatorAPI translator = new TranslatorAPI();
-        return translator.translateEnToVi(word);
+        if (tl.equals("vi")) return translator.translateEnToVi(word);
+        else return translator.translateViToEn(word);
     }
 
     //Insert word from commandline

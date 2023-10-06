@@ -4,8 +4,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -20,16 +18,7 @@
         <Label layoutY="-8.0" prefHeight="62.0" prefWidth="1280.0" style="-fx-background-color: #1D2A57;" />
         <Label layoutY="54.0" prefHeight="62.0" prefWidth="1280.0" style="-fx-background-color: #0F173B;" />
         <ScrollBar layoutX="1266.0" layoutY="-4.0" orientation="VERTICAL" prefHeight="808.0" prefWidth="19.0" unitIncrement="10.0" />
-        <HBox layoutX="372.0" layoutY="67.0" prefHeight="39.0" prefWidth="288.0">
-            <children>
-                <TextField focusTraversable="false" prefHeight="39.0" prefWidth="267.0" promptText="Search" style="-fx-background-color: White; -fx-font-family: Arial; -fx-font-size: 16;" />
-                <Button fx:id="delete" minWidth="24.0" mnemonicParsing="false" onAction="#hovered" onMouseEntered="#hovered" onMouseExited="#hovered" prefHeight="38.0" prefWidth="34.0" style="-fx-background-color: White; -fx-font-weight: Bolder;" text="X">
-                    <effect>
-                        <DropShadow />
-                    </effect>
-                </Button>
-            </children>
-        </HBox>
+        <HBox layoutX="372.0" layoutY="67.0" prefHeight="39.0" prefWidth="288.0" />
         <HBox layoutX="159.0" prefHeight="53.0" prefWidth="625.0">
             <children>
                 <StackPane prefHeight="53.0" prefWidth="177.0">
@@ -43,11 +32,6 @@
                 <Button fx:id="game" mnemonicParsing="false" onAction="#hovered" onMouseEntered="#hovered" onMouseExited="#hovered" prefHeight="53.0" prefWidth="110.0" style="-fx-background-color: #1D2A57; -fx-font-size: 18; -fx-font-weight: Bolder;" text="Game" textFill="WHITE" />
             </children>
         </HBox>
-        <ImageView fx:id="find" fitHeight="38.0" fitWidth="36.0" layoutX="671.0" layoutY="70.0" onMouseEntered="#hovered" onMouseExited="#hovered" pickOnBounds="true" preserveRatio="true" smooth="false">
-            <image>
-                <Image url="@search_icon.png" />
-            </image>
-        </ImageView>
         <ImageView fitHeight="53.0" fitWidth="80.0" layoutX="24.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@home.png" />
