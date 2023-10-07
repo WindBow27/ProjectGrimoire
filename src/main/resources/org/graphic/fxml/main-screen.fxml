@@ -10,14 +10,14 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.graphic.MyButton">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.graphic.MainScreenController">
    <children>
       <Label layoutY="-8.0" prefHeight="62.0" prefWidth="1280.0" style="-fx-background-color: #1D2A57;" />
       <Label layoutY="54.0" prefHeight="62.0" prefWidth="1280.0" style="-fx-background-color: #0F173B;" />
       <ScrollBar layoutX="1266.0" layoutY="-4.0" orientation="VERTICAL" prefHeight="808.0" prefWidth="19.0" unitIncrement="2.0" />
       <ImageView fitHeight="273.0" fitWidth="299.0" layoutX="495.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@background.png" />
+            <Image url="@../image/background.png" />
          </image>
       </ImageView>
       <Label alignment="CENTER" layoutX="142.0" layoutY="400.0" prefHeight="94.0" prefWidth="978.0" style="-fx-font-weight: Bolder; -fx-font-size: 45;" text="WELCOME TO EASY ENGLISH DICTIONARY" textAlignment="CENTER" wrapText="true" />
@@ -31,7 +31,7 @@
       </HBox>
       <ImageView fitHeight="53.0" fitWidth="80.0" layoutX="24.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@home.png" />
+            <Image url="@../image/home.png" />
          </image>
       </ImageView>
       <VBox layoutX="77.0" layoutY="4.0" prefHeight="53.0" prefWidth="82.0">

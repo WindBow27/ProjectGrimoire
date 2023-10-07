@@ -3,20 +3,64 @@ package org.graphic;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Dictionary {
-    private final List<Word> words;
     private static final String HOST_NAME = "localhost";
     private static final String DB_NAME = "dictionary";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "ChiNghia08062004";
     private static final String PORT = "3307";
     private static final String MYSQL_URL = String.format("jdbc:mysql://%s:%s/%s", HOST_NAME, PORT, DB_NAME);
-    private static Connection connection = null;
+    private final List<Word> words;
+    private final Trie trie = new Trie();
+    private final Logger logger = Logger.getLogger(Dictionary.class.getName());
 
-    //Constructor
+    private Connection connection = null;
+
     public Dictionary() {
         words = new ArrayList<>();
+    }
+
+    public void init() throws SQLException {
+        connectToDB();
+
+        ArrayList<String> targets = getAllWordTargets();
+
+        for (String word : targets) {
+            trie.insert(word);
+        }
+    }
+
+    private void close(Connection connection) {
+        try {
+            if (connection != null) {
+                connection.close();
+            }
+        } catch (SQLException e) {
+            logger.log(Level.SEVERE, "An exception occurred", e);
+        }
+    }
+
+    private void close(PreparedStatement ps) {
+        try {
+            if (ps != null) {
+                ps.close();
+            }
+        } catch (SQLException e) {
+            logger.log(Level.SEVERE, "An exception occurred", e);
+        }
+    }
+
+    private void close(ResultSet ps) {
+        try {
+            if (ps != null) {
+                ps.close();
+            }
+        } catch (SQLException e) {
+            logger.log(Level.SEVERE, "An exception occurred", e);
+        }
     }
 
     //Add word
@@ -44,52 +88,8 @@ public class Dictionary {
         return null;
     }
 
-    private static void close(Connection connection) {
-        try {
-            if (connection != null) {
-                connection.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private static void close(PreparedStatement ps) {
-        try {
-            if (ps != null) {
-                ps.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private static void close(ResultSet ps) {
-        try {
-            if (ps != null) {
-                ps.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void close() {
-        close(connection);
-    }
-
     private void connectToDB() throws SQLException {
         connection = DriverManager.getConnection(MYSQL_URL, USERNAME, PASSWORD);
-    }
-
-    public void init() throws SQLException {
-        connectToDB();
-
-        ArrayList<String> targets = getAllWordTargets();
-
-        for (String word : targets) {
-            Trie.insert(word);
-        }
     }
 
     public String findWord(String target) {
@@ -118,7 +118,7 @@ public class Dictionary {
                 close(ps);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "An exception occurred", e);
         }
 
         return "404";
@@ -140,12 +140,11 @@ public class Dictionary {
                 close(ps);
             }
 
-            Trie.insert(target);
+            trie.insert(target);
 
             return true;
         } catch (SQLException e) {
-            e.printStackTrace();
-
+            logger.log(Level.SEVERE, "An exception occurred", e);
             return false;
         }
     }
@@ -168,12 +167,11 @@ public class Dictionary {
                 close(ps);
             }
 
-            Trie.delete(target);
+            trie.delete(target);
 
             return true;
         } catch (SQLException e) {
-            e.printStackTrace();
-
+            logger.log(Level.SEVERE, "An exception occurred", e);
             return false;
         }
     }
@@ -197,12 +195,11 @@ public class Dictionary {
                 close(ps);
             }
 
-            Trie.insert(target);
+            trie.insert(target);
 
             return true;
         } catch (SQLException e) {
-            e.printStackTrace();
-
+            logger.log(Level.SEVERE, "An exception occurred", e);
             return false;
         }
     }
@@ -236,7 +233,7 @@ public class Dictionary {
 
             return getWordsFromResultSet(ps);
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "An exception occurred", e);
         }
 
         return new ArrayList<>();
@@ -267,7 +264,7 @@ public class Dictionary {
                 close(ps);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "An exception occurred", e);
         }
 
         return new ArrayList<>();

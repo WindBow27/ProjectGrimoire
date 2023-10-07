@@ -3,25 +3,16 @@ package org.graphic;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
+
 public class Trie {
-    public static class TrieNode {
-        Map<Character, TrieNode> children = new TreeMap<>();
+    private final TrieNode root = new TrieNode();
+    private final ArrayList<String> searchedWords = new ArrayList<>();
 
-        boolean isEndOfWord;
-
-        TrieNode() {
-            isEndOfWord = false;
-        }
-    }
-
-    private static TrieNode root = new TrieNode();
-    private static ArrayList<String> searchedWords = new ArrayList<>();
-
-    public static ArrayList<String> getSearchedWords() {
+    public ArrayList<String> getSearchedWords() {
         return searchedWords;
     }
 
-    public static void insert(String target) {
+    public void insert(String target) {
         TrieNode p = root;
 
         int n = target.length();
@@ -38,7 +29,7 @@ public class Trie {
         p.isEndOfWord = true;
     }
 
-    private static void dfsGetWordsSubtree(TrieNode p, String current) {
+    private void dfsGetWordsSubtree(TrieNode p, String current) {
         if (p.isEndOfWord) {
             searchedWords.add(current);
         }
@@ -50,7 +41,7 @@ public class Trie {
         }
     }
 
-    public static ArrayList<String> search(String prefix) {
+    public ArrayList<String> search(String prefix) {
         if (prefix.isEmpty()) {
             return new ArrayList<>();
         }
@@ -74,7 +65,7 @@ public class Trie {
         return getSearchedWords();
     }
 
-    public static void delete(String target) {
+    public void delete(String target) {
         TrieNode p = root;
 
         int n = target.length();
@@ -95,5 +86,15 @@ public class Trie {
         }
 
         p.isEndOfWord = false;
+    }
+
+    public static class TrieNode {
+        Map<Character, TrieNode> children = new TreeMap<>();
+
+        boolean isEndOfWord;
+
+        TrieNode() {
+            isEndOfWord = false;
+        }
     }
 }

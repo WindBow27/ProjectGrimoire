@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.graphic.MyButton">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.graphic.TranslateScreenController">
     <children>
         <Label layoutY="-8.0" prefHeight="62.0" prefWidth="1280.0" style="-fx-background-color: #1D2A57;" />
         <Label layoutY="54.0" prefHeight="62.0" prefWidth="1280.0" style="-fx-background-color: #0F173B;" />
@@ -34,7 +34,7 @@
         </HBox>
         <ImageView fitHeight="53.0" fitWidth="80.0" layoutX="24.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@home.png" />
+                <Image url="@../image/home.png" />
             </image>
         </ImageView>
         <VBox layoutX="77.0" layoutY="4.0" prefHeight="53.0" prefWidth="82.0">
@@ -67,7 +67,7 @@
                   </Button>
                   <ImageView fx:id="soundEnglish" fitHeight="33.0" fitWidth="42.0" onMouseEntered="#hovered" onMouseExited="#hovered" onMousePressed="#playSoundEn" onMouseReleased="#playSoundEn" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: -200; -fx-translate-y: 75;">
                      <image>
-                        <Image url="@sound.png" />
+                        <Image url="@../image/sound.png" />
                      </image>
                   </ImageView>
                </children>
@@ -111,7 +111,7 @@
             </Label>
             <ImageView fx:id="soundVietnamese" fitHeight="33.0" fitWidth="42.0" onMouseEntered="#hovered" onMouseExited="#hovered" onMousePressed="#playSoundVi" onMouseReleased="#playSoundVi" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: -200; -fx-translate-y: 75;">
                <image>
-                  <Image url="@sound.png" />
+                  <Image url="@../image/sound.png" />
                </image>
             </ImageView>
          </children>

@@ -15,14 +15,14 @@ import java.io.InputStream;
 import java.util.Objects;
 
 public class App extends Application {
-    static int width = 1280;
-    static int length = 720;
-    static BorderPane root = new BorderPane();
-    static Scene scene = new Scene(root, length, width);
+    private final int width = 1280;
+    private final int length = 720;
+    private final BorderPane root = new BorderPane();
+    private final Scene scene = new Scene(root, length, width);
 
     public void start(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(App.class.getResource("main-screen.fxml")));
-        InputStream stream = new FileInputStream("src/main/resources/org/graphic/icon.png");
+        Parent root = FXMLLoader.load(Objects.requireNonNull(App.class.getResource("fxml/main-screen.fxml")));
+        InputStream stream = new FileInputStream("src/main/resources/org/graphic/image/icon.png");
         Image icon = new Image(stream);
         ImageView imageView = new ImageView();
 
