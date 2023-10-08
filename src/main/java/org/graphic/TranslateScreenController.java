@@ -17,41 +17,26 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class TranslateScreenController extends ControllersManager {
+    private final Logger logger = Logger.getLogger(TranslateScreenController.class.getName());
     @FXML
     private Label swapLang;
-
     @FXML
     private Label response;
-
     @FXML
     private Label en;
-
     @FXML
     private Label vi;
-
     @FXML
     private ImageView soundEnglish;
-
     @FXML
     private ImageView soundVietnamese;
-
     @FXML
     private TextArea textArea;
-
     private String definition;
-
     private String tl = "vi";
-    private final Logger logger = Logger.getLogger(Dictionary.class.getName());
-
-    @FXML
-    public void hovered() {
-        super.hovered();
-        changeColor(swapLang);
-        changeColor(soundEnglish);
-        changeColor(soundVietnamese);
-    }
 
     public void playSoundGoogleTranslate(String text, String tl) {
+        if (text == null || text.isEmpty()) return;
         try {
             String urlStr = "https://translate.google.com/translate_tts?ie=UTF-8&tl=" + tl + "&client=tw-ob&q="
                     + URLEncoder.encode(text, StandardCharsets.UTF_8);
@@ -62,16 +47,18 @@ public class TranslateScreenController extends ControllersManager {
             new Player(audio).play();
             connection.disconnect();
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "An exception occurred", e);;
+            logger.log(Level.SEVERE, "An exception occurred", e);
         }
     }
 
     public void deleteWordInTextArea() {
         TextArea textArea = this.textArea;
         textArea.setText("");
+        response.setText("");
     }
 
     public void translateWordFromTextArea() throws IOException, InterruptedException, SQLException {
+        if (textArea.getText() == null || textArea.getText().isEmpty()) return;
         TextArea textArea = this.textArea;
         String text = textArea.getText();
         DictionaryManagement dictionaryManagement = new DictionaryManagement();

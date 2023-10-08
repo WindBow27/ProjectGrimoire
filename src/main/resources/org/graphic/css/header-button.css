@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Bellota&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Comfortaa&display=swap&subset=vietnamese');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
+.button {
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-font-family: 'Bellota', Regular 400;
+    -fx-font-weight: bold;
+    -fx-font-size: 22px;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-border-style: solid;
+}
+
+.button:hover {
+    -fx-border-color: black;
+    -fx-border-width: 0 0 2 0;
+    -fx-background-color: transparent;
+}
+
+.button:pressed {
+    -fx-border-color: black;
+    -fx-border-width: 0 0 2 0;
+    -fx-background-color: transparent;
+}

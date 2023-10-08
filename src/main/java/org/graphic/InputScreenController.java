@@ -1,11 +1,14 @@
 package org.graphic;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 
 import java.io.IOException;
 
 public class InputScreenController extends ControllersManager {
+    @FXML
+    private Button confirm;
     @FXML
     private TextArea textArea;
 
