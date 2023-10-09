@@ -73,17 +73,17 @@
                         <center>
                            <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                               <children>
+                                   <TextArea fx:id="textArea" styleClass="text-area" stylesheets="@../css/common.css">
+                                       <font>
+                                           <Font size="18.0" />
+                                       </font>
+                                   </TextArea>
                                    <ImageView fitHeight="32.0" fitWidth="32.0" onMousePressed="#deleteWordInTextArea" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: -5; -fx-translate-y: 5;" StackPane.alignment="TOP_RIGHT">
                                        <Image url="@../image/flower.png" />
                                    </ImageView>
                                    <ImageView fx:id="soundEnglish" fitHeight="33.0" fitWidth="42.0" onMousePressed="#playSoundEn" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: 5; -fx-translate-y: -5;" StackPane.alignment="BOTTOM_LEFT">
                                        <Image url="@../image/sound.png" />
                                    </ImageView>
-                                   <TextArea fx:id="textArea" styleClass="text-area" stylesheets="@../css/common.css">
-                                       <font>
-                                           <Font size="18.0" />
-                                       </font>
-                                   </TextArea>
                               </children>
                            </StackPane>
                         </center>
@@ -92,7 +92,7 @@
                   <VBox prefWidth="400.0">
                      <children>
                         <Region prefHeight="200.0" prefWidth="50.0" />
-                         <Label fx:id="swapLang" accessibleRole="BUTTON" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#swapLanguage" onMousePressed="#swapLanguage" onMouseReleased="#swapLanguage" prefHeight="80.0" prefWidth="50.0" style="-fx-font-size: 50;" styleClass="text-header" text="⇄">
+                         <Label fx:id="swapLang" accessibleRole="BUTTON" alignment="CENTER" contentDisplay="CENTER" onMousePressed="#swapLanguage" prefHeight="80.0" prefWidth="50.0" style="-fx-font-size: 50;" styleClass="text-header" text="⇄">
                              <font>
                                  <Font size="54.0" />
                              </font>
@@ -105,14 +105,14 @@
                         <center>
                            <StackPane prefHeight="400.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                               <children>
-                                   <ImageView fx:id="soundVietnamese" fitHeight="33.0" fitWidth="42.0" onMousePressed="#playSoundVi" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: 5; -fx-translate-y: -5;" StackPane.alignment="BOTTOM_LEFT">
-                                       <Image url="@../image/sound.png" />
-                                   </ImageView>
                                    <Label fx:id="response" alignment="TOP_LEFT" prefHeight="1000.0" prefWidth="1500.0" stylesheets="@../css/common.css">
                                        <font>
                                            <Font size="18.0" />
                                        </font>
                                    </Label>
+                                   <ImageView fx:id="soundVietnamese" fitHeight="33.0" fitWidth="42.0" onMousePressed="#playSoundVi" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: 5; -fx-translate-y: -5;" StackPane.alignment="BOTTOM_LEFT">
+                                       <Image url="@../image/sound.png" />
+                                   </ImageView>
                               </children>
                            </StackPane>
                         </center>

@@ -7,13 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bd7be58-57b9-4d2c-89bd-bb5b23bc1c24" name="Changes" comment="qol update">
+    <list default="true" id="6bd7be58-57b9-4d2c-89bd-bb5b23bc1c24" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/ControllersManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/ControllersManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/DictionaryManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/DictionaryManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/HeaderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/graphic/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/graphic/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/translate-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/translate-screen.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -272,7 +268,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696862926518</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="update">
+      <option name="closed" value="true" />
+      <created>1696863786324</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1696863786324</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -292,9 +296,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Command line" />
-    <MESSAGE value="update" />
     <MESSAGE value="qol update" />
-    <option name="LAST_COMMIT_MESSAGE" value="qol update" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
