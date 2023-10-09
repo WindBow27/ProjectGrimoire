@@ -1,11 +1,8 @@
 package org.graphic;
 
 import javafx.fxml.FXML;
-import javafx.scene.image.Image;
-import javafx.scene.layout.*;
+import javafx.scene.layout.HBox;
 import javafx.scene.shape.Rectangle;
-
-import java.util.Random;
 
 public class HeaderController extends ControllersManager {
     private final AppConfig appConfig = new AppConfig();
@@ -31,7 +28,7 @@ public class HeaderController extends ControllersManager {
         game_line.setVisible(false);
 
         String currentScreen = getCurrentScreen();
-        if (currentScreen == null) return;
+        if (currentScreen == null) currentScreen = "home";
 
         switch (currentScreen) {
             case "home" -> home_line.setVisible(true);

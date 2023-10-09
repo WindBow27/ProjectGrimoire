@@ -1,5 +1,6 @@
 package org.graphic;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -34,6 +35,12 @@ public class TranslateScreenController extends ControllersManager {
     private TextArea textArea;
     private String definition;
     private String tl = "vi";
+
+    public void initialize() {
+        Platform.runLater(() -> textArea.requestFocus());
+        textArea.setWrapText(true);
+        response.setWrapText(true);
+    }
 
     public void playSoundGoogleTranslate(String text, String tl) {
         if (text == null || text.isEmpty()) return;

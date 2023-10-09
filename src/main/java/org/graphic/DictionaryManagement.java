@@ -64,7 +64,7 @@ public class DictionaryManagement {
 
     public String translateWord(String word, String tl) throws IOException, InterruptedException {
         if (tl.equals("vi")) return translatorAPI.translateEnToVi(word);
-        else return translatorAPI.translateViToEn(word);
+        return translatorAPI.translateViToEn(word);
     }
 
     public void insertFromText(String text) {

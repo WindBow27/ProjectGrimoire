@@ -6,66 +6,57 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
-import java.util.Random;
+import java.util.Objects;
 
 public class ControllersManager {
     private static String currentScreen;
     private final AppConfig appConfig = new AppConfig();
     @FXML
-    private Button input;
+    private Button home;
     @FXML
     private Button translate;
     @FXML
     private Button search;
     @FXML
+    private Button input;
+    @FXML
     private Button game;
     @FXML
-    private Button delete;
-    @FXML
-    private Button home;
-//    private final String[] backgroundImages = {
-//            "/org/graphic/image/background-0.jpg",
-//            "/org/graphic/image/background-1.jpg",
-//            "/org/graphic/image/background-2.jpg",
-//            "/org/graphic/image/background-3.jpg",
-//            "/org/graphic/image/background-4.jpg"
-//    };
-
-    @FXML
     private void handleButtonAction(ActionEvent event) throws Exception {
-        Stage stage;
-        Parent root;
-
         if (event.getSource() == home) {
-            currentScreen = "home";
-            stage = (Stage) home.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("fxml/home-screen.fxml"));
-        } else if (event.getSource() == input) {
-            currentScreen = "input";
-            stage = (Stage) input.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("fxml/input-screen.fxml"));
-        } else if (event.getSource() == translate) {
-            currentScreen = "translate";
-            stage = (Stage) translate.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("fxml/translate-screen.fxml"));
-        } else if (event.getSource() == search) {
-            currentScreen = "search";
-            stage = (Stage) search.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("fxml/search-screen.fxml"));
-        } else if (event.getSource() == game) {
-            currentScreen = "game";
-            stage = (Stage) game.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("fxml/game-screen.fxml"));
-        } else {
-            throw new Exception("Unknown button clicked");
+            loadScreen("home", home);
+            return;
         }
+        if (event.getSource() == input) {
+            loadScreen("input", input);
+            return;
+        }
+        if (event.getSource() == translate) {
+            loadScreen("translate", translate);
+            return;
+        }
+        if (event.getSource() == search) {
+            loadScreen("search", search);
+            return;
+        }
+        if (event.getSource() == game) {
+            loadScreen("game", game);
+            return;
+        }
+        throw new Exception("Unknown button clicked");
+    }
 
+    private void loadScreen(String typeofScreen, Button typeofButton) throws Exception {
+        currentScreen = typeofScreen;
+        Stage stage = (Stage) typeofButton.getScene().getWindow();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/" + typeofScreen + "-screen.fxml")));
+        loadStage(stage, root);
+    }
+
+    private void loadStage(Stage stage, Parent root) {
         Scene scene = new Scene(root, appConfig.getUIWidth(), appConfig.getUIHeight());
-        scene.getStylesheets().add(getClass().getResource("css/background.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
     }
@@ -74,6 +65,13 @@ public class ControllersManager {
         return currentScreen;
     }
 
+//    private final String[] backgroundImages = {
+//            "/org/graphic/image/background-0.jpg",
+//            "/org/graphic/image/background-1.jpg",
+//            "/org/graphic/image/background-2.jpg",
+//            "/org/graphic/image/background-3.jpg",
+//            "/org/graphic/image/background-4.jpg"
+//    };
 //    public void setRandomBackground(BorderPane container) {
 //        if (container == null) return;
 //        Random random = new Random();
