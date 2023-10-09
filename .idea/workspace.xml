@@ -8,54 +8,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bd7be58-57b9-4d2c-89bd-bb5b23bc1c24" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/graphic/HeaderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/graphic/InputScreenController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/graphic/MainScreenController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/graphic/TranslateScreenController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/header-screen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/Dictionary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/Dictionary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/ControllersManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/ControllersManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/DictionaryManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/DictionaryManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/ExportToFile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/Game.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/HandleEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/ImportFromFile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/Lookup.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/MyButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/ControllersManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/Search.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/TextToSpeech.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/TranslatorAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/TranslatorAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/Trie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/Trie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/LOGO.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/image/LOGO.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/background.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/image/background.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/home.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/image/home.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/image/icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/logo.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/image/logo.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/main-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/main-screen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/search.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/input-screen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/search_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/image/search_icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/sound.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/image/sound.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/translate-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/translate-screen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/graphic/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/graphic/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/graphic/Dictionary.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/graphic/Dictionary.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/graphic/ExportToFile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/graphic/Game.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/graphic/HandleEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/graphic/ImportFromFile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/graphic/LOGO.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/graphic/Lookup.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/graphic/MyButton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/graphic/Search.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/graphic/background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/graphic/home.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/graphic/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/graphic/logo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/graphic/main-screen.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/graphic/search_icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/HeaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/HomeScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/HomeScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/InputScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/InputScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/TranslateScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/TranslateScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/css/common.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +25,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="FxmlFile" />
         <option value="Class" />
       </list>
@@ -114,19 +75,23 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;graphic&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/NAM-2/KI-1/OOP/jlayer-1.0.1.jar&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/Workspace/ProjectGrimoire&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\Workspace\ProjectGrimoire\src\main\resources\org\graphic\css" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="G:\Workspace\ProjectGrimoire\src\main\resources\org\graphic\fxml" />
       <recent name="G:\Workspace\ProjectGrimoire\src\main\resources\org\graphic\image" />
@@ -172,6 +137,42 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="All in demo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="org.graphic in demo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.graphic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.graphic" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="org.graphic.fonts in demo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.graphic.fonts.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.graphic.fonts" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -187,7 +188,9 @@
       <list>
         <item itemvalue="Application.App" />
         <item itemvalue="Application.org.graphic.Main" />
-        <item itemvalue="Application.org.graphic.Main" />
+        <item itemvalue="JUnit.org.graphic in demo" />
+        <item itemvalue="JUnit.All in demo" />
+        <item itemvalue="JUnit.org.graphic.fonts in demo" />
       </list>
     </recent_temporary>
   </component>
@@ -231,7 +234,39 @@
       <option name="project" value="LOCAL" />
       <updated>1696253866784</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="update">
+      <option name="closed" value="true" />
+      <created>1696653689604</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1696653689604</updated>
+    </task>
+    <task id="LOCAL-00006" summary="update">
+      <option name="closed" value="true" />
+      <created>1696779417790</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1696779417790</updated>
+    </task>
+    <task id="LOCAL-00007" summary="update">
+      <option name="closed" value="true" />
+      <created>1696819200040</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1696819200040</updated>
+    </task>
+    <task id="LOCAL-00008" summary="update">
+      <option name="closed" value="true" />
+      <created>1696848282042</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1696848282042</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -253,6 +288,16 @@
     <MESSAGE value="Command line" />
     <MESSAGE value="update" />
     <option name="LAST_COMMIT_MESSAGE" value="update" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

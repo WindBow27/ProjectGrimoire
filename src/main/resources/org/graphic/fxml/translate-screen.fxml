@@ -2,119 +2,147 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.graphic.TranslateScreenController">
-    <children>
-        <Label layoutY="-8.0" prefHeight="62.0" prefWidth="1280.0" style="-fx-background-color: #1D2A57;" />
-        <Label layoutY="54.0" prefHeight="62.0" prefWidth="1280.0" style="-fx-background-color: #0F173B;" />
-        <ScrollBar layoutX="1266.0" layoutY="-4.0" orientation="VERTICAL" prefHeight="808.0" prefWidth="19.0" unitIncrement="10.0" />
-        <HBox layoutX="372.0" layoutY="67.0" prefHeight="39.0" prefWidth="288.0" />
-        <HBox layoutX="159.0" prefHeight="53.0" prefWidth="625.0">
-            <children>
-                  <Button fx:id="myDictionary" mnemonicParsing="false" onAction="#handleButtonAction" onMouseEntered="#hovered" onMouseExited="#hovered" prefHeight="53.0" prefWidth="177.0" style="-fx-background-color: #1D2A57; -fx-font-size: 18; -fx-font-weight: Bolder;" text="My Dictionary" textFill="WHITE" />
-                <StackPane prefHeight="53.0" prefWidth="92.0">
-                    <children>
-                      <Button fx:id="translate" mnemonicParsing="false" onAction="#handleButtonAction" onMouseEntered="#hovered" onMouseExited="#hovered" prefHeight="53.0" prefWidth="110.0" style="-fx-background-color: #2e467d; -fx-font-size: 18; -fx-font-weight: Bolder;" text="Translate" textFill="WHITE" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffb1f" height="8.0" stroke="#fff200" strokeType="INSIDE" style="-fx-translate-y: -25;" width="103.0" />
-                    </children>
-                </StackPane>
-                <Button fx:id="search" mnemonicParsing="false" onAction="#hovered" onMouseEntered="#hovered" onMouseExited="#hovered" prefHeight="53.0" prefWidth="112.0" style="-fx-background-color: #1D2A57; -fx-font-size: 18; -fx-font-weight: Bolder;" text="Search" textFill="WHITE" />
-                <Button fx:id="game" mnemonicParsing="false" onAction="#hovered" onMouseEntered="#hovered" onMouseExited="#hovered" prefHeight="53.0" prefWidth="110.0" style="-fx-background-color: #1D2A57; -fx-font-size: 18; -fx-font-weight: Bolder;" text="Game" textFill="WHITE" />
-            </children>
-        </HBox>
-        <ImageView fitHeight="53.0" fitWidth="80.0" layoutX="24.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../image/home.png" />
-            </image>
-        </ImageView>
-        <VBox layoutX="77.0" layoutY="4.0" prefHeight="53.0" prefWidth="82.0">
-            <children>
-                <Button fx:id="home" mnemonicParsing="false" onAction="#handleButtonAction" onMouseEntered="#hovered" onMouseExited="#hovered" prefHeight="50.0" prefWidth="82.0" style="-fx-background-color: #1D2A57; -fx-font-size: 18; -fx-font-weight: Bolder;" text="Home" textFill="WHITE" />
-            </children>
-        </VBox>
-        <Label alignment="TOP_LEFT" layoutX="118.0" layoutY="150.0" prefHeight="42.0" prefWidth="186.0" text="Translator">
-            <font>
-                <Font name="Arial Bold" size="36.0" />
-            </font>
-        </Label>
-      <Label layoutX="118.0" layoutY="194.0" prefHeight="33.0" prefWidth="466.0" text="Type your text and click Translate to see the translation">
-         <font>
-            <Font name="Arial" size="18.0" />
-         </font>
-      </Label>
-      <VBox layoutX="118.0" layoutY="289.0" prefHeight="247.0" prefWidth="474.0" style="-fx-border-color: WHITE; -fx-border-radius: 5px; -fx-border-width: 0.25px;">
-         <children>
-            <StackPane prefHeight="205.0" prefWidth="474.0">
+<BorderPane prefHeight="720.0" prefWidth="1280.0" styleClass="background1" stylesheets="@../css/background.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.graphic.TranslateScreenController">
+   <center>
+      <BorderPane prefHeight="720.0" prefWidth="1280.0" styleClass="root" stylesheets="@../css/common.css">
+         <top>
+            <BorderPane prefHeight="300.0">
+               <center>
+                  <StackPane prefHeight="266.0" prefWidth="1080.0">
+                     <children>
+                          <Label fx:id="vi" style="-fx-translate-x: -10;" styleClass="text-normal" stylesheets="@../css/common.css" text="Vietnamese" StackPane.alignment="BOTTOM_RIGHT">
+                              <font>
+                                  <Font name="System Bold" size="15.0" />
+                              </font>
+                          </Label>
+                          <Label fx:id="en" style="-fx-translate-x: 10;" styleClass="text-normal" stylesheets="@../css/common.css" text="English" StackPane.alignment="BOTTOM_LEFT">
+                              <font>
+                                  <Font name="System Bold" size="15.0" />
+                              </font>
+                          </Label>
+                        <VBox alignment="CENTER" prefHeight="166.0" prefWidth="1080.0">
+                           <children>
+                               <Label alignment="TOP_LEFT" prefHeight="42.0" prefWidth="133.0" styleClass="text-header" stylesheets="@../css/common.css" text="Translator" />
+                               <Label prefHeight="44.0" prefWidth="474.0" styleClass="text-normal" stylesheets="@../css/common.css" text="Type your text and click Translate to see the translation" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </StackPane>
+               </center>
+               <left>
+                  <Region prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+               </left>
+               <right>
+                  <Region prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+               </right>
+               <top>
+                  <Region prefHeight="90.0" prefWidth="1280.0" BorderPane.alignment="CENTER" />
+               </top>
+            </BorderPane>
+         </top>
+         <center>
+            <HBox BorderPane.alignment="CENTER">
                <children>
-                  <TextArea fx:id="textArea" prefHeight="177.0" prefWidth="474.0" style="-fx-border-style: none;">
-                     <font>
-                        <Font size="18.0" />
-                     </font></TextArea>
-                  <Button fx:id="delete" defaultButton="true" mnemonicParsing="false" onAction="#deleteWordInTextArea" onMouseEntered="#hovered" onMouseExited="#hovered" style="-fx-translate-x: 220; -fx-translate-y: -85; -fx-border-color: WHITE; -fx-background-color: WHITE;" text="X">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <ImageView fx:id="soundEnglish" fitHeight="33.0" fitWidth="42.0" onMouseEntered="#hovered" onMouseExited="#hovered" onMousePressed="#playSoundEn" onMouseReleased="#playSoundEn" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: -200; -fx-translate-y: 75;">
-                     <image>
-                        <Image url="@../image/sound.png" />
-                     </image>
-                  </ImageView>
+                   <StackPane prefHeight="230.0" prefWidth="1280.0">
+                     <BorderPane prefHeight="200.0" prefWidth="200.0">
+                        <bottom>
+                           <StackPane BorderPane.alignment="CENTER">
+                              <children>
+                                 <Region prefHeight="50.0" prefWidth="434.0" />
+                                   <Button alignment="CENTER" mnemonicParsing="false" onAction="#translateWordFromTextArea" prefHeight="34.0" prefWidth="94.0" style="-fx-translate-x: -50;" stylesheets="@../css/common.css" text="Translate" StackPane.alignment="CENTER_RIGHT">
+                                       <font>
+                                           <Font name="System Bold" size="15.0" />
+                                       </font>
+                                   </Button>
+                              </children>
+                           </StackPane>
+                        </bottom>
+                        <right>
+                           <Region prefHeight="200.0" prefWidth="50.0" BorderPane.alignment="CENTER" />
+                        </right>
+                        <center>
+                           <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                              <children>
+                                   <ImageView fitHeight="32.0" fitWidth="32.0" onMousePressed="#deleteWordInTextArea" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: -5; -fx-translate-y: 5;" StackPane.alignment="TOP_RIGHT">
+                                       <Image url="@../image/flower.png" />
+                                   </ImageView>
+                                   <ImageView fx:id="soundEnglish" fitHeight="33.0" fitWidth="42.0" onMousePressed="#playSoundEn" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: 5; -fx-translate-y: -5;" StackPane.alignment="BOTTOM_LEFT">
+                                       <Image url="@../image/sound.png" />
+                                   </ImageView>
+                                   <TextArea fx:id="textArea" styleClass="text-area" stylesheets="@../css/common.css">
+                                       <font>
+                                           <Font size="18.0" />
+                                       </font>
+                                   </TextArea>
+                              </children>
+                           </StackPane>
+                        </center>
+                     </BorderPane>
+                   </StackPane>
+                  <VBox prefWidth="400.0">
+                     <children>
+                        <Region prefHeight="200.0" prefWidth="50.0" />
+                         <Label fx:id="swapLang" accessibleRole="BUTTON" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#swapLanguage" onMousePressed="#swapLanguage" onMouseReleased="#swapLanguage" prefHeight="80.0" prefWidth="50.0" style="-fx-font-size: 50;" styleClass="text-header" text="⇄">
+                             <font>
+                                 <Font size="54.0" />
+                             </font>
+                         </Label>
+                        <Region layoutX="10.0" layoutY="10.0" prefHeight="250.0" prefWidth="50.0" />
+                     </children>
+                  </VBox>
+                   <StackPane prefHeight="230.0" prefWidth="1280.0">
+                     <BorderPane prefHeight="200.0" prefWidth="200.0">
+                        <center>
+                           <StackPane prefHeight="400.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+                              <children>
+                                   <ImageView fx:id="soundVietnamese" fitHeight="33.0" fitWidth="42.0" onMousePressed="#playSoundVi" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: 5; -fx-translate-y: -5;" StackPane.alignment="BOTTOM_LEFT">
+                                       <Image url="@../image/sound.png" />
+                                   </ImageView>
+                                   <Label fx:id="response" alignment="TOP_LEFT" prefHeight="1000.0" prefWidth="1500.0" stylesheets="@../css/common.css">
+                                       <font>
+                                           <Font size="18.0" />
+                                       </font>
+                                   </Label>
+                              </children>
+                           </StackPane>
+                        </center>
+                        <left>
+                           <Region prefHeight="200.0" prefWidth="50.0" BorderPane.alignment="CENTER" />
+                        </left>
+                        <bottom>
+                           <Region prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                        </bottom>
+                     </BorderPane>
+                   </StackPane>
                </children>
-            </StackPane>
-            <Button fx:id="confirmTranslate" alignment="CENTER" mnemonicParsing="false" onAction="#translateWordFromTextArea" prefHeight="36.0" prefWidth="92.0" style="-fx-translate-x: 382; -fx-translate-y: 3;" text="Translate">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Button>
-         </children>
-      </VBox>
-      <Label fx:id="swapLang" accessibleRole="BUTTON" alignment="CENTER" contentDisplay="CENTER" layoutX="614.0" layoutY="373.0" onMouseClicked="#swapLanguage" onMouseEntered="#hovered" onMouseExited="#hovered" onMousePressed="#swapLanguage" onMouseReleased="#swapLanguage" prefHeight="80.0" prefWidth="53.0" text="⇄">
-         <font>
-            <Font size="54.0" />
-         </font>
-      </Label>
-      <VBox layoutX="118.0" layoutY="259.0" prefHeight="21.0" prefWidth="100.0">
+            </HBox>
+         </center>
+         <right>
+            <Region prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+         </right>
+         <left>
+            <Region prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+         </left>
+         <bottom>
+            <Region prefHeight="100.0" prefWidth="1280.0" BorderPane.alignment="CENTER" />
+         </bottom>
+      </BorderPane>
+   </center>
+   <top>
+      <StackPane prefHeight="60.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="en" text="ENGLISH">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Label>
-         </children>
-      </VBox>
-      <VBox layoutX="690.0" layoutY="259.0" prefHeight="21.0" prefWidth="100.0">
-         <children>
-            <Label fx:id="vi" text="VIETNAMESE">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Label>
-         </children>
-      </VBox>
-      <StackPane layoutX="690.0" layoutY="289.0" prefHeight="205.0" prefWidth="474.0">
-         <children>
-            <Label fx:id="response" alignment="TOP_LEFT" prefHeight="205.0" prefWidth="474.0" style="-fx-border-width: 0.25px; -fx-border-color: GREY; -fx-border-radius: 5px; -fx-padding: 5;">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <ImageView fx:id="soundVietnamese" fitHeight="33.0" fitWidth="42.0" onMouseEntered="#hovered" onMouseExited="#hovered" onMousePressed="#playSoundVi" onMouseReleased="#playSoundVi" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: -200; -fx-translate-y: 75;">
-               <image>
-                  <Image url="@../image/sound.png" />
-               </image>
-            </ImageView>
+             <fx:include source="header-screen.fxml" />
          </children>
       </StackPane>
-    </children>
-</AnchorPane>
+   </top>
+</BorderPane>

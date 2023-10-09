@@ -2,8 +2,8 @@ package org.graphic;
 
 public class Word {
 
-    private String word_target;
     private String word_explain;
+    private String word_target;
 
     //Constructor
     public Word(String word_target, String word_explain) {
