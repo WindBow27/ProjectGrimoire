@@ -28,7 +28,6 @@ public class HeaderController extends ControllersManager {
         game_line.setVisible(false);
 
         String currentScreen = getCurrentScreen();
-        if (currentScreen == null) currentScreen = "home";
 
         switch (currentScreen) {
             case "home" -> home_line.setVisible(true);

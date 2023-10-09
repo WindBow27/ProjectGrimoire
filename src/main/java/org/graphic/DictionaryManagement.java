@@ -62,7 +62,7 @@ public class DictionaryManagement {
         return headers.toString();
     }
 
-    public String translateWord(String word, String tl) throws IOException, InterruptedException {
+    public String translateWord(String word, String tl) throws IOException {
         if (tl.equals("vi")) return translatorAPI.translateEnToVi(word);
         return translatorAPI.translateViToEn(word);
     }

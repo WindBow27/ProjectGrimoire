@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 import java.util.Objects;
 
 public class ControllersManager {
-    private static String currentScreen;
+    private static String currentScreen = "home";
     private final AppConfig appConfig = new AppConfig();
     @FXML
     private Button home;
