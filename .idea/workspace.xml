@@ -8,36 +8,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bd7be58-57b9-4d2c-89bd-bb5b23bc1c24" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/graphic/AppConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/graphic/GameScreenController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/graphic/SearchScreenController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/config.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/css/common.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/css/header-button.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/game-screen.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/home-screen.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/search-screen.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/css/background.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/ControllersManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/ControllersManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/HeaderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/InputScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/InputScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/MainScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/HomeScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/TranslateScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/TranslateScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/Word.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/Word.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/header-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/header-screen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/HomeScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/HomeScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/css/common.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/game-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/game-screen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/home-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/home-screen.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/input-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/input-screen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/main-screen.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/search-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/search-screen.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/translate-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/translate-screen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/image/LOGO.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/image/LOGO.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/image/background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/image/home.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/image/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/image/icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/image/logo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/image/search_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/image/sound.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/image/sound.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/graphic/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/graphic/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/graphic/Word.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/graphic/Word.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,21 +76,21 @@
     <option name="showLibraryContents" value="true" />
     <option name="showScratchesAndConsoles" value="false" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "graphic",
-    "last_opened_file_path": "G:/Workspace/ProjectGrimoire",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "project.propCompiler"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;graphic&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/Workspace/ProjectGrimoire&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="G:\Workspace\ProjectGrimoire\src\main\resources\org\graphic\css" />
@@ -264,7 +245,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696653689604</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="update">
+      <option name="closed" value="true" />
+      <created>1696779417790</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1696779417790</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="UnknownFeatures">

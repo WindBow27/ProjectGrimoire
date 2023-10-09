@@ -2,7 +2,7 @@
 
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.graphic.SearchScreenController">
+<BorderPane styleClass="background2" stylesheets="@../css/background.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.graphic.SearchScreenController">
     <top>
     <fx:include prefHeight="60.0" source="header-screen.fxml" />
     </top>

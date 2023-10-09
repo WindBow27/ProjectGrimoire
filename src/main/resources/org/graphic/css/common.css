@@ -87,7 +87,7 @@
 }
 
 .border-pane {
-    -fx-background-image: url('../image/background-0.jpg'), url('../image/butterfly-2.png'), url('../image/butterfly-3.png');
+    -fx-background-image: url('../image/butterfly-2.png'), url('../image/butterfly-3.png');
     -fx-background-size: cover;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;

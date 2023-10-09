@@ -2,14 +2,14 @@ package org.graphic;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.layout.Border;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 
 public class HomeScreenController extends ControllersManager {
     @FXML
-    public static BorderPane homePane;
-//
+    private BorderPane homePane;
+
 //    public void initialize() {
-////        setRandomBackground(homePane);
+//        setRandomBackground(homePane);
 //    }
 }

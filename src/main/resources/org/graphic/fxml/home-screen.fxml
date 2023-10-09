@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
 
-<BorderPane fx:id="homePane" styleClass="border-pane" stylesheets="@../css/common.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.graphic.HomeScreenController">
+<BorderPane fx:id="homePane" styleClass="background0" stylesheets="@../css/background.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.graphic.HomeScreenController">
    <center>
-      <StackPane prefHeight="690.0" prefWidth="1280.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" BorderPane.alignment="CENTER">
+      <StackPane prefHeight="690.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
          <children>
              <ImageView fitHeight="429.0" fitWidth="480.0" pickOnBounds="true" preserveRatio="true">
                  <Image url="@../image/loader-symbol.png" />

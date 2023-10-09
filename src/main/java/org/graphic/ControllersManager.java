@@ -12,8 +12,6 @@ import javafx.stage.Stage;
 
 import java.util.Random;
 
-import static org.graphic.HomeScreenController.homePane;
-
 public class ControllersManager {
     private static String currentScreen;
     private final AppConfig appConfig = new AppConfig();
@@ -67,6 +65,7 @@ public class ControllersManager {
         }
 
         Scene scene = new Scene(root, appConfig.getUIWidth(), appConfig.getUIHeight());
+        scene.getStylesheets().add(getClass().getResource("css/background.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
     }
@@ -77,7 +76,6 @@ public class ControllersManager {
 
 //    public void setRandomBackground(BorderPane container) {
 //        if (container == null) return;
-//        System.out.println(container);
 //        Random random = new Random();
 //        int randomIndex = random.nextInt(backgroundImages.length);
 //        String backgroundImagePath = backgroundImages[randomIndex];
@@ -96,7 +94,7 @@ public class ControllersManager {
 //        );
 //
 //        Background background = new Background(backgroundImage);
-//        homePane.setBackground(background);
+//        container.setBackground(background);
 //    }
 }
 
