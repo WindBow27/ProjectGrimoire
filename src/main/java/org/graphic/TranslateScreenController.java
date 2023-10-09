@@ -70,7 +70,7 @@ public class TranslateScreenController extends ControllersManager {
         String text = textArea.getText();
         DictionaryManagement dictionaryManagement = new DictionaryManagement();
         String definition = dictionaryManagement.translateWord(text, tl);
-        response.setText(definition);
+        response.setText(definition.toLowerCase());
         System.out.println(definition);
     }
 
