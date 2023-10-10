@@ -64,36 +64,6 @@ public class ControllersManager {
     public String getCurrentScreen() {
         return currentScreen;
     }
-
-//    private final String[] backgroundImages = {
-//            "/org/graphic/image/background-0.jpg",
-//            "/org/graphic/image/background-1.jpg",
-//            "/org/graphic/image/background-2.jpg",
-//            "/org/graphic/image/background-3.jpg",
-//            "/org/graphic/image/background-4.jpg"
-//    };
-//    public void setRandomBackground(BorderPane container) {
-//        if (container == null) return;
-//        Random random = new Random();
-//        int randomIndex = random.nextInt(backgroundImages.length);
-//        String backgroundImagePath = backgroundImages[randomIndex];
-//        Image image = new Image(getClass().getResourceAsStream(backgroundImagePath));
-//
-//        // Create a new Image with the desired dimensions.
-//        Image scaledImage = new Image(getClass().getResourceAsStream(backgroundImagePath), appConfig.getUIWidth(), appConfig.getUIHeight(), true, true);
-//
-//        // Create a Background with the scaled image.
-//        BackgroundImage backgroundImage = new BackgroundImage(
-//                scaledImage,
-//                BackgroundRepeat.NO_REPEAT,
-//                BackgroundRepeat.NO_REPEAT,
-//                BackgroundPosition.DEFAULT,
-//                BackgroundSize.DEFAULT
-//        );
-//
-//        Background background = new Background(backgroundImage);
-//        container.setBackground(background);
-//    }
 }
 
 

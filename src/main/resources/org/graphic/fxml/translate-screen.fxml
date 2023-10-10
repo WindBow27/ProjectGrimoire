@@ -58,8 +58,8 @@
                         <bottom>
                            <StackPane BorderPane.alignment="CENTER">
                               <children>
-                                 <Region prefHeight="50.0" prefWidth="434.0" />
-                                   <Button alignment="CENTER" mnemonicParsing="false" onAction="#translateWordFromTextArea" prefHeight="34.0" prefWidth="94.0" style="-fx-translate-x: -50;" stylesheets="@../css/common.css" text="Translate" StackPane.alignment="CENTER_RIGHT">
+                                 <Region prefHeight="50.0" prefWidth="434.0" StackPane.alignment="TOP_CENTER" />
+                                   <Button alignment="CENTER" mnemonicParsing="false" onAction="#translateWordFromTextArea" prefHeight="34.0" prefWidth="94.0" style="-fx-translate-x: -50;" stylesheets="@../css/common.css" text="Translate" StackPane.alignment="BOTTOM_RIGHT">
                                        <font>
                                            <Font name="System Bold" size="15.0" />
                                        </font>
