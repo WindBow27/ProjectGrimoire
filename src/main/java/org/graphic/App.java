@@ -6,7 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.FileInputStream;
@@ -16,8 +15,6 @@ import java.util.Objects;
 
 public class App extends Application {
     private final AppConfig appConfig = new AppConfig();
-    private final BorderPane root = new BorderPane();
-    private final Scene scene = new Scene(root, appConfig.getUIWidth(), appConfig.getUIHeight());
 
     public void start(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(App.class.getResource("fxml/home-screen.fxml")));
@@ -32,10 +29,5 @@ public class App extends Application {
         else System.out.println("Failed to load image");
         primaryStage.setResizable(appConfig.getUIFullscreen());
         primaryStage.show();
-    }
-
-    public void init(Stage primaryStage) {
-        primaryStage.setTitle(appConfig.getAppName());
-        primaryStage.setScene(scene);
     }
 }
