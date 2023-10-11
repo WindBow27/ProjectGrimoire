@@ -22,12 +22,16 @@
                   <Region prefHeight="75.0" prefWidth="200.0" />
                   <StackPane prefHeight="180.0" prefWidth="1080.0">
                      <children>
-                        <Label alignment="CENTER" prefHeight="62.0" prefWidth="91.0" styleClass="text-header" stylesheets="@../css/common.css" text="Input" textAlignment="CENTER" />
-                         <Label alignment="CENTER" prefHeight="50.0" prefWidth="354.0" styleClass="text-normal" text="Adding new words from text or txt file" StackPane.alignment="BOTTOM_CENTER">
-                           <stylesheets>
-                              <URL value="@../css/common.css" />
-                           </stylesheets>
-                         </Label>
+                        <VBox alignment="CENTER">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="62.0" prefWidth="91.0" styleClass="text-header" stylesheets="@../css/common.css" text="Input" textAlignment="CENTER" />
+                               <Label alignment="CENTER" prefHeight="50.0" prefWidth="354.0" styleClass="text-normal" text="Adding new words from text or txt file">
+                                 <stylesheets>
+                                    <URL value="@../css/common.css" />
+                                 </stylesheets>
+                               </Label>
+                           </children>
+                        </VBox>
                      </children>
                   </StackPane>
                </children>
