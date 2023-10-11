@@ -25,7 +25,7 @@ public class SearchScreenController extends ControllersManager {
         dictionary.init();
         response.setText("Please wait for a moment...");
         String definition = dictionary.findWord(text).toLowerCase();
-        response.setText(displayResult(definition));
+        response.setText(reFormat(definition));
         //System.out.println(definition);
     }
 
@@ -43,7 +43,7 @@ public class SearchScreenController extends ControllersManager {
                 part = part.substring(0, part.length() - 8);
 
             //Split string by "<br />"
-            String[] lines = "\\<br />".split(part);
+            String[] lines = part.split("\\<br />");
             for (String line : lines) {
                 line = line.replace('+', ':');
                 line = line.replace('=', '*');

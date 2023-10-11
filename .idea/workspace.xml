@@ -8,14 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bd7be58-57b9-4d2c-89bd-bb5b23bc1c24" name="Changes" comment="update">
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/ControllersManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/ControllersManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/GameScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/GameScreenController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/SearchScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/SearchScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/header-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/header-screen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/input-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/input-screen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/search-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/search-screen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/translate-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/translate-screen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/image/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/image/icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/TranslateScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/TranslateScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/game-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/game-screen.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,24 +32,25 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;WindBow27&quot;
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "history": [
+    {
+      "state": "OPEN",
+      "assignee": "WindBow27",
+      "author": "Cheesedz"
+    }
+  ],
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "WindBow27",
+    "author": "Cheesedz"
   }
-}</component>
-  <component name="GithubProjectSettings">
-    <option name="branchProtectionPatterns">
-      <list>
-        <option value="main" />
-      </list>
-    </option>
-  </component>
+}]]></component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
-        <option name="accountId" value="2549c0a7-fe6b-48ce-a165-a73eada9dfff" />
-        <option name="url" value="https://github.com/WindBow27/ProjectGrimoire" />
+        <option name="accountId" value="93ef0b70-0f3c-49d6-ac2c-328319f1ae72" />
+        <option name="url" value="https://github.com/WindBow27/ProjectGrimoire.git" />
       </UrlAndAccount>
     </option>
   </component>
@@ -73,21 +72,21 @@
     <option name="showLibraryContents" value="true" />
     <option name="showScratchesAndConsoles" value="false" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "graphic",
-    "last_opened_file_path": "G:/Workspace/ProjectGrimoire",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;graphic&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/Workspace/ProjectGrimoire&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="G:\Workspace\ProjectGrimoire\src\main\resources\org\graphic\css" />
@@ -288,6 +287,17 @@
   <component name="UnknownFeatures">
     <option featureType="dependencySupport" implementationName="java:com.google.protobuf:protobuf-java" />
     <option featureType="dependencySupport" implementationName="java:org.openjfx:javafx-base" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
