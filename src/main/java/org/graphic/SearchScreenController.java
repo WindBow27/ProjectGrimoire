@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class SearchScreenController extends ControllersManager {
@@ -18,7 +19,7 @@ public class SearchScreenController extends ControllersManager {
         TextArea.setText("");
     }
 
-    public void searchWordFromTextArea() throws SQLException {
+    public void searchWordFromTextArea() throws SQLException, IOException {
         TextArea TextArea = this.TextArea;
         String text = TextArea.getText();
         Dictionary dictionary = new Dictionary();

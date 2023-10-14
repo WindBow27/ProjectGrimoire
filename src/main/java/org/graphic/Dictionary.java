@@ -1,5 +1,9 @@
 package org.graphic;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,8 +14,8 @@ public class Dictionary {
     private static final String HOST_NAME = "localhost";
     private static final String DB_NAME = "dictionary";
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "ChiNghia08062004";
-    private static final String PORT = "3307";
+    private static final String PASSWORD = null;
+    private static final String PORT = "3306";
     private static final String MYSQL_URL = String.format("jdbc:mysql://%s:%s/%s", HOST_NAME, PORT, DB_NAME);
     private final List<Word> words;
     private final Trie trie = new Trie();
@@ -23,8 +27,21 @@ public class Dictionary {
         words = new ArrayList<>();
     }
 
-    public void init() throws SQLException {
+    public void init() throws SQLException, IOException {
+        // Read the SQL script from the file.
+//        StringBuilder sqlScript = new StringBuilder();
+//        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/java/org/graphic/dictionary.sql"))) {
+//            String line;
+//            while ((line = reader.readLine()) != null) {
+//                sqlScript.append(line).append("\n");
+//            }
+//        }
         connectToDB();
+//        // Create a statement object.
+//        Statement statement = connection.createStatement();
+//
+//        // Execute the SQL script using the statement object.
+//        statement.execute(sqlScript.toString());
 
         ArrayList<String> targets = getAllWordTargets();
 

@@ -7,6 +7,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javazoom.jl.player.Player;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -103,7 +104,7 @@ public class TranslateScreenController extends ControllersManager {
         else playSoundGoogleTranslate(response.getText(), "en");
     }
 
-    public String getPronunciation(String word) throws SQLException {
+    public String getPronunciation(String word) throws SQLException, IOException {
         StringBuilder result = new StringBuilder();
         result.append(word + "\n");
         Dictionary dictionary = new Dictionary();

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="DBNavigator.Project.DataEditorManager">
     <record-view-column-sorting-type value="BY_INDEX" />
-    <value-preview-text-wrapping value="true" />
+    <value-preview-text-wrapping value="false" />
     <value-preview-pinned value="false" />
   </component>
   <component name="DBNavigator.Project.DatabaseBrowserManager">
@@ -22,6 +22,13 @@
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files />
   </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="b7e99b7a-25c5-4e4d-885f-b13959075cac" dataset="dictionary.dictionary" active-filter-id="849af3a2-7f36-4066-a39e-228fbce08727">
+      <filter id="849af3a2-7f36-4066-a39e-228fbce08727" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="id" operator="=" value="" active="true" />
+      </filter>
+    </filter-actions>
+  </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />
     <filters />
@@ -40,13 +47,13 @@
           <driver value="" />
           <url-type value="DATABASE" />
           <host value="localhost" />
-          <port value="3307" />
+          <port value="3306" />
           <database value="dictionary" />
           <tns-folder value="" />
           <tns-profile value="" />
-          <type value="USER_PASSWORD" />
+          <type value="USER" />
           <user value="root" />
-          <deprecated-pwd value="Q2hpTmdoaWEwODA2MjAwNA==" />
+          <deprecated-pwd value="" />
         </database>
         <properties>
           <auto-commit value="false" />

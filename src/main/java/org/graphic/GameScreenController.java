@@ -37,6 +37,7 @@ public class GameScreenController extends ControllersManager {
     private void playGame(ActionEvent event) throws Exception {
         if (event.getSource() == quiz) {
             System.out.println("Play quiz");
+            MatchingCard matchingCard = new MatchingCard();
             return;
         }
         if (event.getSource() == matchingCard) {
