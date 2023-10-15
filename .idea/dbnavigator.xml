@@ -46,7 +46,7 @@
           <driver-library value="" />
           <driver value="" />
           <url-type value="DATABASE" />
-          <host value="localhost" />
+          <host value="root" />
           <port value="3306" />
           <database value="dictionary" />
           <tns-folder value="" />

@@ -4,7 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
@@ -12,7 +11,6 @@ import java.util.Objects;
 
 public class ControllersManager {
     private static String currentScreen = "home";
-    private final AppConfig appConfig = new AppConfig();
     @FXML
     private Button home;
     @FXML
@@ -23,14 +21,11 @@ public class ControllersManager {
     private Button input;
     @FXML
     private Button game;
+
     @FXML
     private void handleButtonAction(ActionEvent event) throws Exception {
         if (event.getSource() == home) {
             loadScreen("home", home);
-            return;
-        }
-        if (event.getSource() == input) {
-            loadScreen("input", input);
             return;
         }
         if (event.getSource() == translate) {
@@ -39,6 +34,10 @@ public class ControllersManager {
         }
         if (event.getSource() == search) {
             loadScreen("search", search);
+            return;
+        }
+        if (event.getSource() == input) {
+            loadScreen("input", input);
             return;
         }
         if (event.getSource() == game) {
@@ -52,12 +51,7 @@ public class ControllersManager {
         currentScreen = typeofScreen;
         Stage stage = (Stage) typeofButton.getScene().getWindow();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/" + typeofScreen + "-screen.fxml")));
-        loadStage(stage, root);
-    }
-
-    private void loadStage(Stage stage, Parent root) {
-        Scene scene = new Scene(root, appConfig.getUIWidth(), appConfig.getUIHeight());
-        stage.setScene(scene);
+        stage.getScene().setRoot(root);
         stage.show();
     }
 

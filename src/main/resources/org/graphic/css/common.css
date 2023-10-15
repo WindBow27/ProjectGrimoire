@@ -22,6 +22,19 @@
     -fx-background-color: #f6f6f6;
 }
 
+.button-big {
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-font-family: 'Bellota', Select Bold 700;
+    -fx-font-weight: bold;
+    -fx-font-size: 22px;
+    -fx-border-color: black;
+    -fx-border-width: 1 1 1 1;
+    -fx-border-style: solid;
+    -fx-pref-width: 180;
+    -fx-pref-height: 50;
+}
+
 .text-area {
     -fx-font-family: 'Comfortaa', Sans-serif;
     -fx-font-size: 16px;

@@ -1,8 +1,5 @@
 package org.graphic;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
@@ -16,7 +13,7 @@ public class Dictionary {
     private static final String USERNAME = "root";
     private static final String PASSWORD = null;
     private static final String PORT = "3306";
-    private static final String MYSQL_URL = String.format("jdbc:mysql://%s:%s/%s", HOST_NAME, PORT, DB_NAME);
+    private static final String MYSQL_URL = String.format("jdbc:mysql://%s:%s/%s", HOST_NAME, PORT, DB_NAME) + "?useSSL=false&allowPublicKeyRetrieval=true";
     private final List<Word> words;
     private final Trie trie = new Trie();
     private final Logger logger = Logger.getLogger(Dictionary.class.getName());
@@ -36,7 +33,7 @@ public class Dictionary {
 //                sqlScript.append(line).append("\n");
 //            }
 //        }
-        connectToDB();
+//       connectToDB();
 //        // Create a statement object.
 //        Statement statement = connection.createStatement();
 //

@@ -16,8 +16,9 @@ public class InputScreenController extends ControllersManager {
 
     public void initialize() {
         Platform.runLater(() -> textArea.requestFocus());
-       textArea.setWrapText(true);
+        textArea.setWrapText(true);
     }
+
     @FXML
     private void handleSearchButtonAction() throws IOException {
         // Handle the search button action here

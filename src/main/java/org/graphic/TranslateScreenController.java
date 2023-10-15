@@ -7,7 +7,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javazoom.jl.player.Player;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -72,7 +71,7 @@ public class TranslateScreenController extends ControllersManager {
         DictionaryManagement dictionaryManagement = new DictionaryManagement();
         String definition = dictionaryManagement.translateWord(text, tl);
         response.setText(definition.toLowerCase());
-        this.textArea.setText(getPronunciation(text));
+        //this.textArea.setText(getPronunciation(text));
         System.out.println(definition);
     }
 

@@ -1,74 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
 
-<BorderPane prefHeight="720.0" prefWidth="1280.0" styleClass="background2" stylesheets="@../css/background.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.graphic.SearchScreenController">
+<BorderPane prefHeight="720.0" prefWidth="1280.0" styleClass="background2" stylesheets="@../css/background.css" xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.graphic.SearchScreenController">
     <top>
     <fx:include prefHeight="60.0" source="header-screen.fxml" />
     </top>
    <center>
-      <BorderPane BorderPane.alignment="CENTER">
-         <top>
-            <BorderPane BorderPane.alignment="CENTER">
-               <center>
-                  <BorderPane>
-                     <center>
-                        <TextArea fx:id="TextArea" prefHeight="50.0" promptText="Search dictionary" styleClass="text-area" stylesheets="@../css/common.css" />
-                     </center>
-                     <right>
-                        <HBox BorderPane.alignment="CENTER">
-                           <children>
-                              <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#searchWordFromTextArea" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../image/icon.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="50.0" fitWidth="50.0" onMousePressed="#deleteWordInTextArea" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../image/flower.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </HBox>
-                     </right>
-                  </BorderPane>
-               </center>
-               <top>
-                  <Region prefHeight="50.0" BorderPane.alignment="CENTER" />
-               </top>
-               <left>
-                  <Region prefWidth="400.0" BorderPane.alignment="CENTER" />
-               </left>
-               <right>
-                  <Region prefWidth="400.0" BorderPane.alignment="CENTER" />
-               </right>
-               <bottom>
-                  <Region prefHeight="50.0" BorderPane.alignment="CENTER" />
-               </bottom>
-            </BorderPane>
-         </top>
+      <BorderPane>
          <center>
-            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <left>
-                  <Region prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-               </left>
-               <right>
-                  <Region prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-               </right>
-               <center>
-                  <Label fx:id="response" prefHeight="1000.0" prefWidth="1600.0" stylesheets="@../css/common.css" BorderPane.alignment="TOP_LEFT" />
-               </center>
-            </BorderPane>
+            <StackPane>
+               <children>
+                  <Label fx:id="response" prefHeight="2000.0" prefWidth="2000.0" stylesheets="@../css/common.css" />
+               </children>
+               <padding>
+                  <Insets bottom="100.0" left="100.0" right="100.0" top="50.0" />
+               </padding>
+            </StackPane>
          </center>
+         <top>
+            <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+               <children>
+                  <TextArea fx:id="TextArea" prefHeight="50.0" promptText="Search dictionary" styleClass="text-area" stylesheets="@../css/common.css" />
+                  <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#searchWordFromTextArea" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/icon.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" onMousePressed="#deleteWordInTextArea" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/flower.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <BorderPane.margin>
+                  <Insets top="50.0" />
+               </BorderPane.margin>
+            </HBox>
+         </top>
       </BorderPane>
    </center>
-   <bottom>
-      <Region prefHeight="70.0" prefWidth="1280.0" BorderPane.alignment="CENTER" />
-   </bottom>
 </BorderPane>

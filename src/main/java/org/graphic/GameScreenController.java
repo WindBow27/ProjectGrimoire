@@ -1,12 +1,10 @@
 package org.graphic;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 public class GameScreenController extends ControllersManager {
-    private final double zoomScale = 2;
 
     @FXML
     private Button quiz;
@@ -14,24 +12,6 @@ public class GameScreenController extends ControllersManager {
     private Button matchingCard;
     @FXML
     private Button wordle;
-
-    @FXML
-    public void hovered() {
-        zoom(quiz);
-        zoom(matchingCard);
-        zoom(wordle);
-    }
-
-    public void zoom(Button button) {
-        button.setOnMouseEntered(event -> {
-            button.setScaleX(zoomScale);
-            button.setScaleY(zoomScale);
-        });
-        button.setOnMouseExited(event -> {
-            button.setScaleX(1);
-            button.setScaleY(1);
-        });
-    }
 
     @FXML
     private void playGame(ActionEvent event) throws Exception {
