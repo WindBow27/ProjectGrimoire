@@ -33,16 +33,24 @@ public class AppConfig {
         return properties.getProperty("app.author");
     }
 
-    public String getDbUrl() {
-        return properties.getProperty("db.url");
+    public String getDBHost() {
+        return properties.getProperty("db.host");
     }
 
-    public String getDbUsername() {
-        return properties.getProperty("db.username");
+    public String getDBName() {
+        return properties.getProperty("db.name");
     }
 
-    public String getDbPassword() {
-        return properties.getProperty("db.password");
+    public String getDBUser() {
+        return properties.getProperty("db.user");
+    }
+
+    public String getDBPass() {
+        return properties.getProperty("db.pass");
+    }
+
+    public String getDBPort() {
+        return properties.getProperty("db.port");
     }
 
     public int getUIWidth() {

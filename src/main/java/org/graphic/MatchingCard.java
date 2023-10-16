@@ -2,18 +2,19 @@ package org.graphic;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Random;
 
 public class MatchingCard extends GameScreenController {
-    private ArrayList<String> words = new ArrayList<>();
-    private ArrayList<String> meanings = new ArrayList<>();
+    private static int count = 2;
+    private final int numberOfCard = 10;
+    private final ArrayList<String> words = new ArrayList<>();
+    private final ArrayList<String> meanings = new ArrayList<>();
     private Button selected1;
     private Button selected2;
-    private final int numberOfCard = 10;
-    private static int count = 2;
 
     MatchingCard() throws SQLException, IOException {
         startGame();
@@ -83,10 +84,10 @@ public class MatchingCard extends GameScreenController {
     }
 
     public void removeCard(Button card1, Button card2) {
-        if (words.contains(card1.getText())) words.remove(card1.getText());
-        if (words.contains(card2.getText())) words.remove(card2.getText());
-        if (meanings.contains(card1.getText())) meanings.remove(card1.getText());
-        if (meanings.contains(card2.getText())) meanings.remove(card2.getText());
+        words.remove(card1.getText());
+        words.remove(card2.getText());
+        meanings.remove(card1.getText());
+        meanings.remove(card2.getText());
         card1.setVisible(false);
         card2.setVisible(false);
     }

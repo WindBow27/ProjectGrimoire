@@ -1,21 +1,29 @@
 package org.graphic;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.layout.HBox;
+import javafx.scene.control.Button;
 import javafx.scene.shape.Rectangle;
 
 public class HeaderController extends ControllersManager {
-    private final AppConfig appConfig = new AppConfig();
     @FXML
-    private HBox container;
+    private Button home;
+    @FXML
+    private Button translate;
+    @FXML
+    private Button search;
+    @FXML
+    private Button input;
+    @FXML
+    private Button game;
     @FXML
     private Rectangle home_line;
-    @FXML
-    private Rectangle input_line;
     @FXML
     private Rectangle translate_line;
     @FXML
     private Rectangle search_line;
+    @FXML
+    private Rectangle input_line;
     @FXML
     private Rectangle game_line;
 
@@ -36,5 +44,30 @@ public class HeaderController extends ControllersManager {
             case "search" -> search_line.setVisible(true);
             case "game" -> game_line.setVisible(true);
         }
+    }
+
+    @FXML
+    private void changeScreen(ActionEvent event) throws Exception {
+        if (event.getSource() == home) {
+            loadScreen("home", home);
+            return;
+        }
+        if (event.getSource() == translate) {
+            loadScreen("translate", translate);
+            return;
+        }
+        if (event.getSource() == search) {
+            loadScreen("search", search);
+            return;
+        }
+        if (event.getSource() == input) {
+            loadScreen("input", input);
+            return;
+        }
+        if (event.getSource() == game) {
+            loadScreen("game", game);
+            return;
+        }
+        throw new Exception("Unknown button clicked");
     }
 }

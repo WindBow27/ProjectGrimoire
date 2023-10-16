@@ -8,16 +8,16 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Dictionary {
-    private static final String HOST_NAME = "127.0.0.1";
-    private static final String DB_NAME = "dictionary";
-    private static final String USERNAME = "root";
-    private static final String PASSWORD = null;
-    private static final String PORT = "3306";
-    private static final String MYSQL_URL = String.format("jdbc:mysql://%s:%s/%s", HOST_NAME, PORT, DB_NAME) + "?useSSL=false&allowPublicKeyRetrieval=true";
     private final List<Word> words;
     private final Trie trie = new Trie();
     private final Logger logger = Logger.getLogger(Dictionary.class.getName());
-
+    AppConfig appConfig = new AppConfig();
+    private final String HOST_NAME = appConfig.getDBHost();
+    private final String DB_NAME = appConfig.getDBName();
+    private final String USERNAME = appConfig.getDBUser();
+    private final String PASSWORD = appConfig.getDBPass();
+    private final String PORT = appConfig.getDBPort();
+    private final String MYSQL_URL = String.format("jdbc:mysql://%s:%s/%s", HOST_NAME, PORT, DB_NAME) + "?useSSL=false&allowPublicKeyRetrieval=true";
     private Connection connection = null;
 
     public Dictionary() {
