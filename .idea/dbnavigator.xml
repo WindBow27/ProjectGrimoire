@@ -41,12 +41,12 @@
           <description value="" />
           <database-type value="MYSQL" />
           <config-type value="BASIC" />
-          <database-version value="8.1" />
+          <database-version value="5.5" />
           <driver-source value="BUNDLED" />
           <driver-library value="" />
           <driver value="" />
           <url-type value="DATABASE" />
-          <host value="root" />
+          <host value="127.0.0.1" />
           <port value="3306" />
           <database value="dictionary" />
           <tns-folder value="" />

@@ -126,3 +126,7 @@
 .root {
     -fx-background-color: transparent;
 }
+
+.card-button {
+    -fx-background-image: url('../image/card.png');
+}

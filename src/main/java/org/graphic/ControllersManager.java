@@ -47,7 +47,7 @@ public class ControllersManager {
         throw new Exception("Unknown button clicked");
     }
 
-    private void loadScreen(String typeofScreen, Button typeofButton) throws Exception {
+    public void loadScreen(String typeofScreen, Button typeofButton) throws Exception {
         currentScreen = typeofScreen;
         Stage stage = (Stage) typeofButton.getScene().getWindow();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/" + typeofScreen + "-screen.fxml")));

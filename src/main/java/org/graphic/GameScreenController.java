@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 public class GameScreenController extends ControllersManager {
-
+    private static String currentScreen = "home";
     @FXML
     private Button quiz;
     @FXML
@@ -17,10 +17,11 @@ public class GameScreenController extends ControllersManager {
     private void playGame(ActionEvent event) throws Exception {
         if (event.getSource() == quiz) {
             System.out.println("Play quiz");
-            MatchingCard matchingCard = new MatchingCard();
             return;
         }
         if (event.getSource() == matchingCard) {
+            loadScreen("matchingCard", matchingCard);
+            //MatchingCard matchingCard = new MatchingCard();
             System.out.println("Play matching cards");
             return;
         }

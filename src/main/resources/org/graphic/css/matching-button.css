@@ -1,0 +1,32 @@
+.button {
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-background-image: url('../image/card.png');
+    -fx-text-fill: black;
+    -fx-font-family: 'Bellota', Regular 400;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-border-style: solid;
+    -fx-transition: transform 0.2s;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 5, 0, 0, 1);
+}
+
+.button:hover {
+    -fx-border-color: yellow;
+    -fx-border-width: 2 2 2 2;
+    -fx-background-color: transparent;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.button:pressed {
+    -fx-border-color: yellow;
+    -fx-border-width: 2 2 2 2;
+    -fx-background-color: transparent;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}

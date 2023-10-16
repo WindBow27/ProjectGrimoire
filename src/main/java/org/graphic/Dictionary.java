@@ -8,7 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Dictionary {
-    private static final String HOST_NAME = "localhost";
+    private static final String HOST_NAME = "127.0.0.1";
     private static final String DB_NAME = "dictionary";
     private static final String USERNAME = "root";
     private static final String PASSWORD = null;
@@ -25,21 +25,7 @@ public class Dictionary {
     }
 
     public void init() throws SQLException, IOException {
-        // Read the SQL script from the file.
-//        StringBuilder sqlScript = new StringBuilder();
-//        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/java/org/graphic/dictionary.sql"))) {
-//            String line;
-//            while ((line = reader.readLine()) != null) {
-//                sqlScript.append(line).append("\n");
-//            }
-//        }
-//       connectToDB();
-//        // Create a statement object.
-//        Statement statement = connection.createStatement();
-//
-//        // Execute the SQL script using the statement object.
-//        statement.execute(sqlScript.toString());
-
+        connectToDB();
         ArrayList<String> targets = getAllWordTargets();
 
         for (String word : targets) {
@@ -282,5 +268,37 @@ public class Dictionary {
         }
 
         return new ArrayList<>();
+    }
+
+    public String findWordByID(int id) {
+        double startTime = System.currentTimeMillis();
+        String SQL_QUERY = "SELECT definition FROM dictionary WHERE id = ?";
+
+        try {
+            PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
+            ps.setString(1, String.valueOf(id));
+
+            try {
+                ResultSet rs = ps.executeQuery();
+
+                try {
+                    if (rs.next()) {
+                        double endTime = System.currentTimeMillis();
+                        System.out.println(endTime - startTime);
+                        return rs.getString("definition");
+                    } else {
+                        return "404";
+                    }
+                } finally {
+                    close(rs);
+                }
+            } finally {
+                close(ps);
+            }
+        } catch (SQLException e) {
+            logger.log(Level.SEVERE, "An exception occurred", e);
+        }
+
+        return "404";
     }
 }
