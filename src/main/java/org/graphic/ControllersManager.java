@@ -8,14 +8,23 @@ import javafx.stage.Stage;
 import java.util.Objects;
 
 public class ControllersManager {
-    private String currentScreen = "home";
+    private static String currentScreen = "home";
 
-    public void loadScreen(String typeofScreen, Button typeofButton) throws Exception {
-        currentScreen = typeofScreen;
+    public void loadStage(String typeofScreen, Button typeofButton) throws Exception {
         Stage stage = (Stage) typeofButton.getScene().getWindow();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/" + typeofScreen + "-screen.fxml")));
         stage.getScene().setRoot(root);
         stage.show();
+    }
+
+    public void loadScreen(String typeofScreen, Button typeofButton) throws Exception {
+        currentScreen = typeofScreen;
+        loadStage(typeofScreen, typeofButton);
+    }
+
+    public void loadGameScreen(String typeofScreen, Button typeofButton) throws Exception {
+        currentScreen = "game";
+        loadStage(typeofScreen, typeofButton);
     }
 
     public String getCurrentScreen() {

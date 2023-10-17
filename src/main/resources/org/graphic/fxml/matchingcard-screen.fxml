@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="720.0" prefWidth="1280.0" styleClass="background4" stylesheets="@../css/background.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.graphic.GameScreenController">
+    <top>
+        <fx:include prefHeight="60.0" source="header-screen.fxml" />
+    </top>
+   <center>
+      <GridPane alignment="CENTER" BorderPane.alignment="CENTER">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="361.0" minHeight="10.0" prefHeight="221.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="306.0" minHeight="10.0" prefHeight="217.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <StackPane prefHeight="222.0" prefWidth="125.0">
+               <children>
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="222.0" prefWidth="125.0" styleClass="card-button" stylesheets="@../css/matching-button.css" />
+               </children>
+            </StackPane>
+            <StackPane prefHeight="222.0" prefWidth="125.0" GridPane.columnIndex="1">
+               <children>
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="222.0" prefWidth="125.0" styleClass="card-button" stylesheets="@../css/matching-button.css" />
+               </children>
+            </StackPane>
+            <StackPane prefHeight="222.0" prefWidth="125.0" GridPane.columnIndex="2">
+               <children>
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="222.0" prefWidth="125.0" styleClass="card-button" stylesheets="@../css/matching-button.css" />
+               </children>
+            </StackPane>
+            <StackPane prefHeight="222.0" prefWidth="125.0" GridPane.columnIndex="3">
+               <children>
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="222.0" prefWidth="125.0" styleClass="card-button" stylesheets="@../css/matching-button.css" />
+               </children>
+            </StackPane>
+            <StackPane prefHeight="222.0" prefWidth="125.0" GridPane.columnIndex="4">
+               <children>
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="222.0" prefWidth="125.0" styleClass="card-button" stylesheets="@../css/matching-button.css" />
+               </children>
+            </StackPane>
+            <StackPane prefHeight="222.0" prefWidth="125.0" GridPane.rowIndex="1">
+               <children>
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="222.0" prefWidth="125.0" styleClass="card-button" stylesheets="@../css/matching-button.css" />
+               </children>
+            </StackPane>
+            <StackPane prefHeight="222.0" prefWidth="125.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="222.0" prefWidth="125.0" styleClass="card-button" stylesheets="@../css/matching-button.css" />
+               </children>
+            </StackPane>
+            <StackPane prefHeight="222.0" prefWidth="125.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <children>
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="222.0" prefWidth="125.0" styleClass="card-button" stylesheets="@../css/matching-button.css" />
+               </children>
+            </StackPane>
+            <StackPane prefHeight="222.0" prefWidth="125.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <children>
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="222.0" prefWidth="125.0" styleClass="card-button" stylesheets="@../css/matching-button.css" />
+               </children>
+            </StackPane>
+            <StackPane prefHeight="222.0" prefWidth="125.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+               <children>
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="222.0" prefWidth="125.0" styleClass="card-button" stylesheets="@../css/matching-button.css" />
+               </children>
+            </StackPane>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="50.0" top="100.0" />
+         </BorderPane.margin>
+      </GridPane>
+   </center>
+</BorderPane>

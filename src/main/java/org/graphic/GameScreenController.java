@@ -15,15 +15,15 @@ public class GameScreenController extends ControllersManager {
     @FXML
     private void playGame(ActionEvent event) throws Exception {
         if (event.getSource() == quiz) {
-            //loadScreen("quiz", quiz);
+            //loadGameScreen("quiz", quiz);
             return;
         }
         if (event.getSource() == matchingCard) {
-            loadScreen("matchingCard", matchingCard);
+            loadGameScreen("matchingCard", matchingCard);
             return;
         }
         if (event.getSource() == wordle) {
-            //loadScreen("wordle", wordle);
+            //loadGameScreen("wordle", wordle);
             return;
         }
         throw new Exception("Unknown button clicked");

@@ -17,7 +17,8 @@ public class Dictionary {
     private final String USERNAME = appConfig.getDBUser();
     private final String PASSWORD = appConfig.getDBPass();
     private final String PORT = appConfig.getDBPort();
-    private final String MYSQL_URL = String.format("jdbc:mysql://%s:%s/%s", HOST_NAME, PORT, DB_NAME) + "?useSSL=false&allowPublicKeyRetrieval=true";
+    //private final String MYSQL_URL = String.format("jdbc:mysql://%s:%s/%s", HOST_NAME, PORT, DB_NAME) + "?useSSL=false&allowPublicKeyRetrieval=true";
+    private final String MYDB_URL = "jdbc:sqlite:dict_hh.db";
     private Connection connection = null;
 
     public Dictionary() {
@@ -27,7 +28,6 @@ public class Dictionary {
     public void init() throws SQLException, IOException {
         connectToDB();
         ArrayList<String> targets = getAllWordTargets();
-
         for (String word : targets) {
             trie.insert(word);
         }
@@ -89,16 +89,17 @@ public class Dictionary {
     }
 
     private void connectToDB() throws SQLException {
-        connection = DriverManager.getConnection(MYSQL_URL, USERNAME, PASSWORD);
+        //connection = DriverManager.getConnection(MYSQL_URL, USERNAME, PASSWORD);
+        connection = DriverManager.getConnection(MYDB_URL);
     }
 
-    public String findWord(String target) {
+    public String findWord(String word) {
         double startTime = System.currentTimeMillis();
-        String SQL_QUERY = "SELECT definition FROM dictionary WHERE target = ?";
+        String SQL_QUERY = "SELECT description FROM av WHERE word = ?";
 
         try {
             PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
-            ps.setString(1, target);
+            ps.setString(1, word);
 
             try {
                 ResultSet rs = ps.executeQuery();
@@ -107,7 +108,7 @@ public class Dictionary {
                     if (rs.next()) {
                         double endTime = System.currentTimeMillis();
                         System.out.println(endTime - startTime);
-                        return rs.getString("definition");
+                        return rs.getString("description");
                     } else {
                         return "404";
                     }
@@ -124,12 +125,12 @@ public class Dictionary {
         return "404";
     }
 
-    public boolean addWord(String target, String explain) {
-        String SQL_QUERY = "INSERT INTO dictionary (target, definition) VALUES (?, ?)";
+    public boolean addWord(String word, String explain) {
+        String SQL_QUERY = "INSERT INTO av (word, description) VALUES (?, ?)";
 
         try {
             PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
-            ps.setString(1, target);
+            ps.setString(1, word);
             ps.setString(2, explain);
 
             try {
@@ -140,7 +141,7 @@ public class Dictionary {
                 close(ps);
             }
 
-            trie.insert(target);
+            trie.insert(word);
 
             return true;
         } catch (SQLException e) {
@@ -150,12 +151,12 @@ public class Dictionary {
     }
 
 
-    public boolean deleteWord(String target) {
-        String SQL_QUERY = "DELETE FROM dictionary WHERE target = ?";
+    public boolean deleteWord(String word) {
+        String SQL_QUERY = "DELETE FROM av WHERE word = ?";
 
         try {
             PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
-            ps.setString(1, target);
+            ps.setString(1, word);
 
             try {
                 int deletedRow = ps.executeUpdate();
@@ -167,7 +168,7 @@ public class Dictionary {
                 close(ps);
             }
 
-            trie.delete(target);
+            trie.delete(word);
 
             return true;
         } catch (SQLException e) {
@@ -177,12 +178,12 @@ public class Dictionary {
     }
 
 
-    public boolean updateWord(String target, String explain) {
-        String SQL_QUERY = "UPDATE dictionary SET definition = ? WHERE target = ?";
+    public boolean updateWord(String word, String explain) {
+        String SQL_QUERY = "UPDATE av SET description = ? WHERE word = ?";
 
         try {
             PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
-            ps.setString(1, target);
+            ps.setString(1, word);
             ps.setString(2, explain);
 
             try {
@@ -195,7 +196,7 @@ public class Dictionary {
                 close(ps);
             }
 
-            trie.insert(target);
+            trie.insert(word);
 
             return true;
         } catch (SQLException e) {
@@ -226,7 +227,7 @@ public class Dictionary {
 
 
     public ArrayList<Word> getAllWords() {
-        String SQL_QUERY = "SELECT * FROM dictionary";
+        String SQL_QUERY = "SELECT * FROM av";
 
         try {
             PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
@@ -241,7 +242,7 @@ public class Dictionary {
 
 
     public ArrayList<String> getAllWordTargets() {
-        String SQL_QUERY = "SELECT * FROM dictionary";
+        String SQL_QUERY = "SELECT * FROM av";
 
         try {
             PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
@@ -272,7 +273,7 @@ public class Dictionary {
 
     public String findWordByID(int id) {
         double startTime = System.currentTimeMillis();
-        String SQL_QUERY = "SELECT definition FROM dictionary WHERE id = ?";
+        String SQL_QUERY = "SELECT description FROM av WHERE id = ?";
 
         try {
             PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
@@ -285,7 +286,7 @@ public class Dictionary {
                     if (rs.next()) {
                         double endTime = System.currentTimeMillis();
                         System.out.println(endTime - startTime);
-                        return rs.getString("definition");
+                        return rs.getString("description");
                     } else {
                         return "404";
                     }
