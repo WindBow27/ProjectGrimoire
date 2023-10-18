@@ -3,7 +3,6 @@ package org.graphic;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -49,7 +48,7 @@ public class Dictionary {
         }
     }
 
-    public String translateWord(String word, String tl) throws IOException, InterruptedException {
+    public String translateWord(String word, String tl) throws IOException {
         if (tl.equals("vi")) return translatorAPI.translateEnToVi(word);
         return translatorAPI.translateViToEn(word);
     }

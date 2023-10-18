@@ -12,10 +12,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TranslatorAPI {
-    private static final String GOOGLE_TRANSLATE_API = "https://script.google.com/macros/s/AKfycbxzCfT78zpe2hPNd75uEzo7Joq2m-ach6UxoEuKpnf0JEgUcBc4C7SKL6QFeZ5ghDJM/exec";
+    private final AppConfig appConfig = new AppConfig();
+    private final String GOOGLE_TRANSLATE_API = appConfig.getAPIUrl();
     private final Map<String, String> cache = new HashMap<>();
 
-    public String translateTo(String text, String from, String to) throws IOException, InterruptedException {
+    public String translateTo(String text, String from, String to) throws IOException {
         String translation = cache.get(text);
         if (translation == null) {
             translation = translate(from, to, text);
@@ -24,11 +25,11 @@ public class TranslatorAPI {
         return translation;
     }
 
-    public String translateEnToVi(String text) throws IOException, InterruptedException {
+    public String translateEnToVi(String text) throws IOException {
         return translateTo(text, "en", "vi");
     }
 
-    public String translateViToEn(String text) throws IOException, InterruptedException {
+    public String translateViToEn(String text) throws IOException {
         return translateTo(text, "vi", "en");
     }
 

@@ -58,7 +58,7 @@ public class TranslateScreenController extends ControllersManager {
         response.setText("");
     }
 
-    public void translateWordFromTextArea() throws IOException, InterruptedException {
+    public void translateWordFromTextArea() throws IOException {
         if (textArea.getText() == null || textArea.getText().isEmpty()) return;
         TextArea textArea = this.textArea;
         String text = textArea.getText();
@@ -80,11 +80,7 @@ public class TranslateScreenController extends ControllersManager {
         response.setText(tmp);
 
         //Swap language
-        if (tl.equals("vi")) {
-            tl = "en";
-            return;
-        }
-        tl = "vi";
+        tl = tl.equals("vi") ? "en" : "vi";
     }
 
     public void playSound(String current, String alt, String text) {
@@ -94,6 +90,7 @@ public class TranslateScreenController extends ControllersManager {
             return;
         }
         playSoundGoogleTranslate(text, alt);
+
     }
 
     public void playSoundLeft() {
