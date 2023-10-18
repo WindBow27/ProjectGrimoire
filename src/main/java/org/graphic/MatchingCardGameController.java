@@ -3,6 +3,7 @@ package org.graphic;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -11,23 +12,33 @@ import java.util.Random;
 
 public class MatchingCardGameController extends GameScreenController {
     private int count = 2;
-    private final int numberOfCard = 10;
+    private final int numberOfCard = 14;
+    private final int limitLength = 10;
     private final ArrayList<String> words = new ArrayList<>();
     private final ArrayList<String> meanings = new ArrayList<>();
-    @FXML
+    private ArrayList<Button> buttons = new ArrayList<>();
     private Button selected1;
-    @FXML
     private Button selected2;
+    private boolean endGame = false;
+    private boolean startTimer = false;
+    private double startTime;
+    private double endTime;
+    @FXML
+    private Button playAgain;
+    @FXML
+    private Button restart;
+    @FXML
+    private Button exit;
+    @FXML
+    private Label message;
 
-    MatchingCardGameController() throws SQLException, IOException {
-        startGame();
-    }
-
-    public void startGame() throws SQLException, IOException {
-        getDataFromDB();
-        while (true) {
-            if (words.isEmpty() && meanings.isEmpty()) return;
+    public void timer() {
+        while(!endGame) {
+            Label message = this.message;
+            endTime = (double) System.currentTimeMillis() / 1000;
+            if (message != null) message.setText(String.valueOf(endTime - startTime));
         }
+//        System.out.println(this.message.getText());
     }
 
     public void getDataFromDB() throws SQLException, IOException {
@@ -35,32 +46,20 @@ public class MatchingCardGameController extends GameScreenController {
 
             //Random a number to choose a word from DB
             Random random = new Random();
-            int temp = random.nextInt(80, 138480);
+            int temp = random.nextInt(0, 1000);
             Dictionary dictionary = new Dictionary();
             dictionary.init();
 
             //Find word by ID
-            String result = dictionary.findWordByID(temp);
+            String result = dictionary.findWordByID(temp, limitLength);
 
-            //Extract word and meaning from result
-            String word = getWord(result);
             DictionaryManagement dictionaryManagement = new DictionaryManagement();
-            String meaning = dictionaryManagement.translateWord(word, "en");
-            words.add(word);
+            String meaning = dictionaryManagement.translateWord(result, "en");
+            words.add(result);
             meanings.add(meaning);
         }
-    }
-
-    public String getWord(String sample) {
-        for (int i = 0; i < sample.length(); i++) {
-            if (sample.charAt(i) == '@') {
-                int j = i + 1;
-                while (sample.charAt(j) != ' ') j++;
-                String word = sample.substring(i + 1, j);
-                return word;
-            }
-        }
-        return null;
+        for (String x : words) System.out.println(x);
+        for (String x : meanings) System.out.println(x);
     }
 
     public boolean checkMatch(String text1, String text2) {
@@ -71,7 +70,10 @@ public class MatchingCardGameController extends GameScreenController {
         return false;
     }
 
-    public void handleAction(ActionEvent event) {
+    public void handleAction(ActionEvent event) throws Exception {
+        if (!startTimer) {
+            startTime = (double) System.currentTimeMillis() / 1000;
+        }
         if (count == 2) {
             selected1 = (Button) event.getSource();
             count--;
@@ -80,9 +82,23 @@ public class MatchingCardGameController extends GameScreenController {
             selected2 = (Button) event.getSource();
             if (checkMatch(selected1.getText(), selected2.getText())) {
                 removeCards(selected1, selected2);
-                if (words.isEmpty() && meanings.isEmpty()) return;
             }
             count = 2;
+        }
+        if (words.isEmpty() && meanings.isEmpty()) {
+            Label message = this.message;
+            startTimer = false;
+            endTime = (double) System.currentTimeMillis() / 1000;
+            message.setText("GAME OVER\n" + (endTime - startTime));
+            if (event.getSource() == playAgain || event.getSource() == restart) {
+                message.setText("Ready !");
+                //getDataFromDB();
+                endGame = false;
+            }
+            if (event.getSource() == exit) {
+                endGame = true;
+                loadScreen("game", exit);
+            }
         }
     }
 

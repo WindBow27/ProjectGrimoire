@@ -20,6 +20,8 @@ public class GameScreenController extends ControllersManager {
         }
         if (event.getSource() == matchingCard) {
             loadGameScreen("matchingCard", matchingCard);
+            MatchingCardGameController game = new MatchingCardGameController();
+            game.getDataFromDB();
             return;
         }
         if (event.getSource() == wordle) {

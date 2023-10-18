@@ -9,13 +9,14 @@
   <component name="ChangeListManager">
     <list default="true" id="6bd7be58-57b9-4d2c-89bd-bb5b23bc1c24" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/ControllersManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/ControllersManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/Dictionary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/Dictionary.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/GameScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/GameScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/MatchingCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/MatchingCardGameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/matchingCard-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/matchingcard-screen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/MatchingCardGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/MatchingCardGameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/SearchScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/SearchScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/TranslateScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/TranslateScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/dictionary.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/dictionary.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/matchingcard-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/matchingcard-screen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/search-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/search-screen.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/graphic/Dictionary.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/graphic/Dictionary.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

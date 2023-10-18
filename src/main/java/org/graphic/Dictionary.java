@@ -95,7 +95,7 @@ public class Dictionary {
 
     public String findWord(String word) {
         double startTime = System.currentTimeMillis();
-        String SQL_QUERY = "SELECT description FROM av WHERE word = ?";
+        String SQL_QUERY = "SELECT html FROM av WHERE word = ?";
 
         try {
             PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
@@ -108,7 +108,7 @@ public class Dictionary {
                     if (rs.next()) {
                         double endTime = System.currentTimeMillis();
                         System.out.println(endTime - startTime);
-                        return rs.getString("description");
+                        return rs.getString("html");
                     } else {
                         return "404";
                     }
@@ -271,9 +271,9 @@ public class Dictionary {
         return new ArrayList<>();
     }
 
-    public String findWordByID(int id) {
+    public String findWordByID(int id, int limitLength) {
         double startTime = System.currentTimeMillis();
-        String SQL_QUERY = "SELECT description FROM av WHERE id = ?";
+        String SQL_QUERY = "SELECT word FROM av WHERE id = ? AND LENGTH(word) <= " + limitLength;
 
         try {
             PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
@@ -286,7 +286,7 @@ public class Dictionary {
                     if (rs.next()) {
                         double endTime = System.currentTimeMillis();
                         System.out.println(endTime - startTime);
-                        return rs.getString("description");
+                        return rs.getString("word");
                     } else {
                         return "404";
                     }

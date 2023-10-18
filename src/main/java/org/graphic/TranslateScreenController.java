@@ -6,14 +6,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javazoom.jl.player.Player;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -64,14 +62,13 @@ public class TranslateScreenController extends ControllersManager {
         response.setText("");
     }
 
-    public void translateWordFromTextArea() throws IOException, InterruptedException, SQLException {
+    public void translateWordFromTextArea() throws IOException {
         if (textArea.getText() == null || textArea.getText().isEmpty()) return;
         TextArea textArea = this.textArea;
         String text = textArea.getText();
         DictionaryManagement dictionaryManagement = new DictionaryManagement();
         String definition = dictionaryManagement.translateWord(text, tl);
         response.setText(definition.toLowerCase());
-        //this.textArea.setText(getPronunciation(text));
         System.out.println(definition);
     }
 
@@ -101,24 +98,6 @@ public class TranslateScreenController extends ControllersManager {
         if (response.getText() == null) return;
         if (tl.equals("vi")) playSoundGoogleTranslate(response.getText(), "vi");
         else playSoundGoogleTranslate(response.getText(), "en");
-    }
-
-    public String getPronunciation(String word) throws SQLException, IOException {
-        StringBuilder result = new StringBuilder();
-        result.append(word + "\n");
-        Dictionary dictionary = new Dictionary();
-        dictionary.init();
-        String temp = dictionary.findWord(word);
-        for (int i = 0; i < temp.length(); i++) {
-            if (temp.charAt(i) == '/') {
-                int j = i + 1;
-                while (temp.charAt(j) != '/') j++;
-                temp = temp.substring(i, j + 1);
-                break;
-            }
-        }
-        result.append(temp);
-        return result.toString();
     }
 }
 
