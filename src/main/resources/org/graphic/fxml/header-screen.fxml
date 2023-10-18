@@ -29,8 +29,8 @@
       </StackPane>
       <StackPane alignment="BOTTOM_CENTER">
          <children>
-              <Button fx:id="input" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#changeScreen" prefWidth="160.0" stylesheets="@../css/header-button.css" text="Input" textAlignment="CENTER" />
-            <Rectangle fx:id="input_line" arcHeight="5.0" arcWidth="5.0" fill="BLACK" height="2.0" stroke="BLACK" strokeType="INSIDE" width="160.0" />
+              <Button fx:id="modify" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#changeScreen" prefWidth="160.0" stylesheets="@../css/header-button.css" text="Input" textAlignment="CENTER" />
+            <Rectangle fx:id="modify_line" arcHeight="5.0" arcWidth="5.0" fill="BLACK" height="2.0" stroke="BLACK" strokeType="INSIDE" width="160.0" />
          </children>
       </StackPane>
       <StackPane alignment="BOTTOM_CENTER">

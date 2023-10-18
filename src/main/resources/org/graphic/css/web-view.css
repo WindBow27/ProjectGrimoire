@@ -1,0 +1,22 @@
+body {
+    font-family: Comfortaa, sans-serif;
+}
+
+h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #A9A9A9;
+    border-radius: 6px;
+}
+

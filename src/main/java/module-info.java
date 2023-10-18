@@ -8,8 +8,6 @@ module com.example.demo {
     requires net.synedra.validatorfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
-    requires com.almasb.fxgl.all;
-    requires async.http.client;
     requires java.net.http;
     requires java.logging;
     requires java.sql;

@@ -8,38 +8,24 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Dictionary {
-    private final List<Word> words;
     private final Trie trie = new Trie();
     private final Logger logger = Logger.getLogger(Dictionary.class.getName());
-    AppConfig appConfig = new AppConfig();
-    private final String HOST_NAME = appConfig.getDBHost();
-    private final String DB_NAME = appConfig.getDBName();
-    private final String USERNAME = appConfig.getDBUser();
-    private final String PASSWORD = appConfig.getDBPass();
-    private final String PORT = appConfig.getDBPort();
-    //private final String MYSQL_URL = String.format("jdbc:mysql://%s:%s/%s", HOST_NAME, PORT, DB_NAME) + "?useSSL=false&allowPublicKeyRetrieval=true";
-    private final String MYDB_URL = "jdbc:sqlite:dict_hh.db";
+    private final AppConfig appConfig = new AppConfig();
+    private final TranslatorAPI translatorAPI = new TranslatorAPI();
+    private final String DATABASE_URL = appConfig.getDBUrl();
+    private final String target = "word";
+    private final String description = "description";
+    private final String table = "av";
     private Connection connection = null;
 
     public Dictionary() {
-        words = new ArrayList<>();
     }
 
-    public void init() throws SQLException, IOException {
+    public void init() throws SQLException {
         connectToDB();
         ArrayList<String> targets = getAllWordTargets();
         for (String word : targets) {
             trie.insert(word);
-        }
-    }
-
-    private void close(Connection connection) {
-        try {
-            if (connection != null) {
-                connection.close();
-            }
-        } catch (SQLException e) {
-            logger.log(Level.SEVERE, "An exception occurred", e);
         }
     }
 
@@ -63,39 +49,19 @@ public class Dictionary {
         }
     }
 
-    //Add word
-    public void addWord(Word word) {
-        words.add(word);
-    }
-
-    //Get all words
-    public List<Word> getWords() {
-        return words;
-    }
-
-    //Get word by index
-    public Word getWord(int index) {
-        return words.get(index);
-    }
-
-    //Get word by target
-    public Word getWord(String target) {
-        for (Word word : words) {
-            if (word.getWordTarget().equals(target)) {
-                return word;
-            }
-        }
-        return null;
+    public String translateWord(String word, String tl) throws IOException, InterruptedException {
+        if (tl.equals("vi")) return translatorAPI.translateEnToVi(word);
+        return translatorAPI.translateViToEn(word);
     }
 
     private void connectToDB() throws SQLException {
-        //connection = DriverManager.getConnection(MYSQL_URL, USERNAME, PASSWORD);
-        connection = DriverManager.getConnection(MYDB_URL);
+        connection = DriverManager.getConnection(DATABASE_URL);
     }
 
     public String findWord(String word) {
         double startTime = System.currentTimeMillis();
-        String SQL_QUERY = "SELECT html FROM av WHERE word = ?";
+        String html = "html";
+        String SQL_QUERY = "SELECT " + html + " FROM " + table + " WHERE " + target + " = " + "?";
 
         try {
             PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
@@ -110,7 +76,7 @@ public class Dictionary {
                         System.out.println(endTime - startTime);
                         return rs.getString("html");
                     } else {
-                        return "404";
+                        return "Not found";
                     }
                 } finally {
                     close(rs);
@@ -122,11 +88,11 @@ public class Dictionary {
             logger.log(Level.SEVERE, "An exception occurred", e);
         }
 
-        return "404";
+        return "Not found";
     }
 
     public boolean addWord(String word, String explain) {
-        String SQL_QUERY = "INSERT INTO av (word, description) VALUES (?, ?)";
+        String SQL_QUERY = "INSERT INTO " + table + " (" + target + ", " + description + ") VALUES (?, ?)";
 
         try {
             PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
@@ -152,7 +118,7 @@ public class Dictionary {
 
 
     public boolean deleteWord(String word) {
-        String SQL_QUERY = "DELETE FROM av WHERE word = ?";
+        String SQL_QUERY = "DELETE FROM " + table + " WHERE " + target + " = " + "?";
 
         try {
             PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
@@ -179,7 +145,7 @@ public class Dictionary {
 
 
     public boolean updateWord(String word, String explain) {
-        String SQL_QUERY = "UPDATE av SET description = ? WHERE word = ?";
+        String SQL_QUERY = "UPDATE " + table + " SET " + description + " = " + "?" + " WHERE " + target + " = " + "?";
 
         try {
             PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
@@ -227,7 +193,7 @@ public class Dictionary {
 
 
     public ArrayList<Word> getAllWords() {
-        String SQL_QUERY = "SELECT * FROM av";
+        String SQL_QUERY = "SELECT * FROM " + table;
 
         try {
             PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
@@ -242,7 +208,7 @@ public class Dictionary {
 
 
     public ArrayList<String> getAllWordTargets() {
-        String SQL_QUERY = "SELECT * FROM av";
+        String SQL_QUERY = "SELECT * FROM " + table;
 
         try {
             PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
@@ -273,7 +239,7 @@ public class Dictionary {
 
     public String findWordByID(int id, int limitLength) {
         double startTime = System.currentTimeMillis();
-        String SQL_QUERY = "SELECT word FROM av WHERE id = ? AND LENGTH(word) <= " + limitLength;
+        String SQL_QUERY = "SELECT " + target + " FROM " + table + " WHERE " + id + " = " + "?";
 
         try {
             PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
@@ -288,7 +254,7 @@ public class Dictionary {
                         System.out.println(endTime - startTime);
                         return rs.getString("word");
                     } else {
-                        return "404";
+                        return "Not found";
                     }
                 } finally {
                     close(rs);
@@ -300,6 +266,6 @@ public class Dictionary {
             logger.log(Level.SEVERE, "An exception occurred", e);
         }
 
-        return "404";
+        return "Not found";
     }
 }

@@ -4,11 +4,12 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.image.ImageView;
 import javazoom.jl.player.Player;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
@@ -18,20 +19,13 @@ import java.util.logging.Logger;
 public class TranslateScreenController extends ControllersManager {
     private final Logger logger = Logger.getLogger(TranslateScreenController.class.getName());
     @FXML
-    private Label swapLang;
-    @FXML
     private Label response;
     @FXML
     private Label en;
     @FXML
     private Label vi;
     @FXML
-    private ImageView soundEnglish;
-    @FXML
-    private ImageView soundVietnamese;
-    @FXML
     private TextArea textArea;
-    private String definition;
     private String tl = "vi";
 
     public void initialize() {
@@ -43,10 +37,12 @@ public class TranslateScreenController extends ControllersManager {
     public void playSoundGoogleTranslate(String text, String tl) {
         if (text == null || text.isEmpty()) return;
         try {
-            String urlStr = "https://translate.google.com/translate_tts?ie=UTF-8&tl=" + tl + "&client=tw-ob&q="
+            String soundAPI = "https://translate.google.com/translate_tts?ie=UTF-8&tl=";
+            String urlStr = soundAPI + tl + "&client=tw-ob&q="
                     + URLEncoder.encode(text, StandardCharsets.UTF_8);
 
-            URL url = new URL(urlStr);
+            URI uri = URI.create(urlStr);
+            URL url = uri.toURL();
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             InputStream audio = connection.getInputStream();
             new Player(audio).play();
@@ -62,12 +58,12 @@ public class TranslateScreenController extends ControllersManager {
         response.setText("");
     }
 
-    public void translateWordFromTextArea() throws IOException {
+    public void translateWordFromTextArea() throws IOException, InterruptedException {
         if (textArea.getText() == null || textArea.getText().isEmpty()) return;
         TextArea textArea = this.textArea;
         String text = textArea.getText();
-        DictionaryManagement dictionaryManagement = new DictionaryManagement();
-        String definition = dictionaryManagement.translateWord(text, tl);
+        Dictionary dictionary = new Dictionary();
+        String definition = dictionary.translateWord(text, tl);
         response.setText(definition.toLowerCase());
         System.out.println(definition);
     }
@@ -84,20 +80,25 @@ public class TranslateScreenController extends ControllersManager {
         response.setText(tmp);
 
         //Swap language
-        if (tl.equals("vi")) tl = "en";
-        else tl = "vi";
+        if (tl.equals("vi")) {
+            tl = "en";
+            return;
+        }
+        tl = "vi";
+    }
+
+    public void playSound(String from, String to) {
+        if (response.getText() == null) return;
+        if (tl.equals("vi")) playSoundGoogleTranslate(response.getText(), to);
+        else playSoundGoogleTranslate(response.getText(), from);
     }
 
     public void playSoundEn() {
-        String[] words = this.textArea.getText().split("\n");
-        if (tl.equals("vi")) playSoundGoogleTranslate(words[0], "en");
-        else playSoundGoogleTranslate(words[0], "vi");
+        playSound("vi", "en");
     }
 
     public void playSoundVi() {
-        if (response.getText() == null) return;
-        if (tl.equals("vi")) playSoundGoogleTranslate(response.getText(), "vi");
-        else playSoundGoogleTranslate(response.getText(), "en");
+        playSound("en", "vi");
     }
 }
 

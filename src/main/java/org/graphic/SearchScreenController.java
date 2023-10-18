@@ -2,10 +2,11 @@ package org.graphic;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
-import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Objects;
 
 public class SearchScreenController extends ControllersManager {
     @FXML
@@ -13,6 +14,10 @@ public class SearchScreenController extends ControllersManager {
 
     @FXML
     private WebView response;
+
+    public void initialize() {
+        response.getEngine().setUserStyleSheetLocation(Objects.requireNonNull(getClass().getResource("css/web-view.css")).toString());
+    }
 
     public void deleteWordInTextArea() {
         TextArea TextArea = this.TextArea;
@@ -25,7 +30,6 @@ public class SearchScreenController extends ControllersManager {
         Dictionary dictionary = new Dictionary();
         dictionary.init();
         String definition = dictionary.findWord(text).toLowerCase();
-        WebEngine webEngine = response.getEngine();
-        webEngine.loadContent(definition, "text/html");
+        response.getEngine().loadContent(definition, "text/html");
     }
 }

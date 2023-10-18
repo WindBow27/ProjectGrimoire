@@ -8,7 +8,7 @@ public class GameScreenController extends ControllersManager {
     @FXML
     private Button quiz;
     @FXML
-    private Button matchingCard;
+    private Button matching;
     @FXML
     private Button wordle;
 
@@ -18,9 +18,9 @@ public class GameScreenController extends ControllersManager {
             //loadGameScreen("quiz", quiz);
             return;
         }
-        if (event.getSource() == matchingCard) {
-            loadGameScreen("matchingCard", matchingCard);
-            MatchingCardGameController game = new MatchingCardGameController();
+        if (event.getSource() == matching) {
+            loadGameScreen("matching", matching);
+            MatchingGameController game = new MatchingGameController();
             game.getDataFromDB();
             return;
         }

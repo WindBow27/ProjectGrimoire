@@ -13,7 +13,7 @@
    <center>
       <HBox alignment="CENTER" spacing="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="matchingCard" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#playGame" prefHeight="200.0" prefWidth="200.0" stylesheets="@../css/game-button.css" text="MATCHING">
+            <Button fx:id="matching" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#playGame" prefHeight="200.0" prefWidth="200.0" stylesheets="@../css/game-button.css" text="MATCHING">
                <styleClass>
                   <String fx:value="matching-button" />
                   <String fx:value="button" />

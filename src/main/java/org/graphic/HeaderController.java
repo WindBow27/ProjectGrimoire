@@ -13,7 +13,7 @@ public class HeaderController extends ControllersManager {
     @FXML
     private Button search;
     @FXML
-    private Button input;
+    private Button modify;
     @FXML
     private Button game;
     @FXML
@@ -23,14 +23,14 @@ public class HeaderController extends ControllersManager {
     @FXML
     private Rectangle search_line;
     @FXML
-    private Rectangle input_line;
+    private Rectangle modify_line;
     @FXML
     private Rectangle game_line;
 
     public void initialize() {
         //Don't use list, it could be null
         home_line.setVisible(false);
-        input_line.setVisible(false);
+        modify_line.setVisible(false);
         translate_line.setVisible(false);
         search_line.setVisible(false);
         game_line.setVisible(false);
@@ -39,9 +39,9 @@ public class HeaderController extends ControllersManager {
 
         switch (currentScreen) {
             case "home" -> home_line.setVisible(true);
-            case "input" -> input_line.setVisible(true);
             case "translate" -> translate_line.setVisible(true);
             case "search" -> search_line.setVisible(true);
+            case "modify" -> modify_line.setVisible(true);
             case "game" -> game_line.setVisible(true);
         }
     }
@@ -60,8 +60,8 @@ public class HeaderController extends ControllersManager {
             loadScreen("search", search);
             return;
         }
-        if (event.getSource() == input) {
-            loadScreen("input", input);
+        if (event.getSource() == modify) {
+            loadScreen("modify", modify);
             return;
         }
         if (event.getSource() == game) {
