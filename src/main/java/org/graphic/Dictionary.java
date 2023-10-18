@@ -57,7 +57,7 @@ public class Dictionary {
         connection = DriverManager.getConnection(DATABASE_URL);
     }
 
-    public String findWord(String word) {
+    public String findWordHTML(String word) {
         double startTime = System.currentTimeMillis();
         String html = "html";
         String SQL_QUERY = "SELECT " + html + " FROM " + table + " WHERE " + target + " = " + "?";
@@ -86,8 +86,38 @@ public class Dictionary {
         } catch (SQLException e) {
             logger.log(Level.SEVERE, "An exception occurred", e);
         }
-
         return "Not found";
+    }
+
+    public String findWord(String word) {
+        double startTime = System.currentTimeMillis();
+        String SQL_QUERY = "SELECT description FROM av WHERE word = ?";
+
+        try {
+            PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
+            ps.setString(1, word);
+
+            try {
+                ResultSet rs = ps.executeQuery();
+
+                try {
+                    if (rs.next()) {
+                        double endTime = System.currentTimeMillis();
+                        System.out.println(endTime - startTime);
+                        return rs.getString("description");
+                    } else {
+                        return "404";
+                    }
+                } finally {
+                    close(rs);
+                }
+            } finally {
+                close(ps);
+            }
+        } catch (SQLException e) {
+            logger.log(Level.SEVERE, "An exception occurred", e);
+        }
+        return "404";
     }
 
     public boolean addWord(String word, String explain) {
@@ -99,7 +129,11 @@ public class Dictionary {
             ps.setString(2, explain);
 
             try {
-                ps.executeUpdate();
+                int addedRow = ps.executeUpdate();
+
+                if (addedRow == 0) {
+                    return false;
+                }
             } catch (SQLIntegrityConstraintViolationException e) {
                 return false;
             } finally {
@@ -148,8 +182,8 @@ public class Dictionary {
 
         try {
             PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
-            ps.setString(1, word);
-            ps.setString(2, explain);
+            ps.setString(1, explain);
+            ps.setString(2, word);
 
             try {
                 int updatedRow = ps.executeUpdate();
@@ -162,7 +196,6 @@ public class Dictionary {
             }
 
             trie.insert(word);
-
             return true;
         } catch (SQLException e) {
             logger.log(Level.SEVERE, "An exception occurred", e);

@@ -28,7 +28,12 @@ public class SearchScreenController extends ControllersManager {
         String text = TextArea.getText();
         Dictionary dictionary = new Dictionary();
         dictionary.init();
-        String definition = dictionary.findWord(text).toLowerCase();
+        String definition;
+        if (dictionary.findWordHTML(text) != null){
+            definition = dictionary.findWordHTML(text);
+        } else {
+            definition = dictionary.findWord(text);
+        }
         response.getEngine().loadContent(definition, "text/html");
     }
 }

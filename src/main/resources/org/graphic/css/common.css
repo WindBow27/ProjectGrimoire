@@ -135,5 +135,11 @@
     -fx-background-image: url('../image/card.png');
 }
 
-
-
+.label-boderless {
+    -fx-font-family: 'Comfortaa', Sans-serif;
+    -fx-font-size: 16px;
+    -fx-text-fill: black;
+    -fx-padding: 10px;
+    -fx-border-color: #ffffff;
+    -fx-border-radius: 10px;
+}
