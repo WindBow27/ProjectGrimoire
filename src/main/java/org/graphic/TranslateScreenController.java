@@ -87,18 +87,21 @@ public class TranslateScreenController extends ControllersManager {
         tl = "vi";
     }
 
-    public void playSound(String from, String to) {
-        if (response.getText() == null) return;
-        if (tl.equals("vi")) playSoundGoogleTranslate(response.getText(), to);
-        else playSoundGoogleTranslate(response.getText(), from);
+    public void playSound(String current, String alt, String text) {
+        if (text == null) return;
+        if (tl.equals("vi")) {
+            playSoundGoogleTranslate(text, current);
+            return;
+        }
+        playSoundGoogleTranslate(text, alt);
     }
 
-    public void playSoundEn() {
-        playSound("vi", "en");
+    public void playSoundLeft() {
+        playSound("en", "vi", textArea.getText());
     }
 
-    public void playSoundVi() {
-        playSound("en", "vi");
+    public void playSoundRight() {
+        playSound("vi", "en", response.getText());
     }
 }
 
