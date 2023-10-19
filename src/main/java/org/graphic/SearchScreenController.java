@@ -26,13 +26,15 @@ public class SearchScreenController extends ControllersManager {
     public void searchWordFromTextArea() throws SQLException {
         TextArea TextArea = this.TextArea;
         String text = TextArea.getText();
+        Word word = new Word(text, "");
+        word.removeSpace(word);
         Dictionary dictionary = new Dictionary();
         dictionary.init();
         String definition;
-        if (dictionary.findWordHTML(text) != null){
-            definition = dictionary.findWordHTML(text);
+        if (dictionary.findWordHTML(word) != null) {
+            definition = dictionary.findWordHTML(word);
         } else {
-            definition = dictionary.findWord(text);
+            definition = dictionary.findWord(word);
         }
         response.getEngine().loadContent(definition, "text/html");
     }

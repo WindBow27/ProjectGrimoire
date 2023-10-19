@@ -15,6 +15,7 @@ public class Dictionary {
     private final String target = "word";
     private final String description = "description";
     private final String table = "av";
+    private final String error = appConfig.getDBError();
     private Connection connection = null;
 
     public Dictionary() {
@@ -57,25 +58,22 @@ public class Dictionary {
         connection = DriverManager.getConnection(DATABASE_URL);
     }
 
-    public String findWordHTML(String word) {
-        double startTime = System.currentTimeMillis();
+    public String findWordHTML(Word word) {
         String html = "html";
         String SQL_QUERY = "SELECT " + html + " FROM " + table + " WHERE " + target + " = " + "?";
 
         try {
             PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
-            ps.setString(1, word);
+            ps.setString(1, word.getWordTarget());
 
             try {
                 ResultSet rs = ps.executeQuery();
 
                 try {
                     if (rs.next()) {
-                        double endTime = System.currentTimeMillis();
-                        System.out.println(endTime - startTime);
                         return rs.getString("html");
                     } else {
-                        return "Not found";
+                        return error;
                     }
                 } finally {
                     close(rs);
@@ -86,27 +84,24 @@ public class Dictionary {
         } catch (SQLException e) {
             logger.log(Level.SEVERE, "An exception occurred", e);
         }
-        return "Not found";
+        return error;
     }
 
-    public String findWord(String word) {
-        double startTime = System.currentTimeMillis();
-        String SQL_QUERY = "SELECT description FROM av WHERE word = ?";
+    public String findWord(Word word) {
+        String SQL_QUERY = "SELECT " + description + " FROM " + table + " WHERE " + target + " = ?";
 
         try {
             PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
-            ps.setString(1, word);
+            ps.setString(1, word.getWordTarget());
 
             try {
                 ResultSet rs = ps.executeQuery();
 
                 try {
                     if (rs.next()) {
-                        double endTime = System.currentTimeMillis();
-                        System.out.println(endTime - startTime);
-                        return rs.getString("description");
+                        return rs.getString(description);
                     } else {
-                        return "404";
+                        return error;
                     }
                 } finally {
                     close(rs);
@@ -117,16 +112,16 @@ public class Dictionary {
         } catch (SQLException e) {
             logger.log(Level.SEVERE, "An exception occurred", e);
         }
-        return "404";
+        return error;
     }
 
-    public boolean addWord(String word, String explain) {
+    public boolean addWord(Word word) {
         String SQL_QUERY = "INSERT INTO " + table + " (" + target + ", " + description + ") VALUES (?, ?)";
 
         try {
             PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
-            ps.setString(1, word);
-            ps.setString(2, explain);
+            ps.setString(1, word.getWordTarget());
+            ps.setString(2, word.getWordExplain());
 
             try {
                 int addedRow = ps.executeUpdate();
@@ -140,7 +135,7 @@ public class Dictionary {
                 close(ps);
             }
 
-            trie.insert(word);
+            trie.insert(word.getWordTarget());
 
             return true;
         } catch (SQLException e) {
@@ -150,12 +145,12 @@ public class Dictionary {
     }
 
 
-    public boolean deleteWord(String word) {
+    public boolean deleteWord(Word word) {
         String SQL_QUERY = "DELETE FROM " + table + " WHERE " + target + " = " + "?";
 
         try {
             PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
-            ps.setString(1, word);
+            ps.setString(1, word.getWordTarget());
 
             try {
                 int deletedRow = ps.executeUpdate();
@@ -167,7 +162,7 @@ public class Dictionary {
                 close(ps);
             }
 
-            trie.delete(word);
+            trie.delete(word.getWordTarget());
 
             return true;
         } catch (SQLException e) {
@@ -177,13 +172,13 @@ public class Dictionary {
     }
 
 
-    public boolean updateWord(String word, String explain) {
+    public boolean updateWord(Word word) {
         String SQL_QUERY = "UPDATE " + table + " SET " + description + " = " + "?" + " WHERE " + target + " = " + "?";
 
         try {
             PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
-            ps.setString(1, explain);
-            ps.setString(2, word);
+            ps.setString(1, word.getWordTarget());
+            ps.setString(2, word.getWordExplain());
 
             try {
                 int updatedRow = ps.executeUpdate();
@@ -195,49 +190,13 @@ public class Dictionary {
                 close(ps);
             }
 
-            trie.insert(word);
+            trie.insert(word.getWordTarget());
             return true;
         } catch (SQLException e) {
             logger.log(Level.SEVERE, "An exception occurred", e);
             return false;
         }
     }
-
-    private ArrayList<Word> getWordsFromResultSet(PreparedStatement ps) throws SQLException {
-        try {
-            ResultSet rs = ps.executeQuery();
-
-            try {
-                ArrayList<Word> res = new ArrayList<>();
-
-                while (rs.next()) {
-                    res.add(new Word(rs.getString(2), rs.getString(3)));
-                }
-
-                return res;
-            } finally {
-                close(rs);
-            }
-        } finally {
-            close(ps);
-        }
-    }
-
-
-    public ArrayList<Word> getAllWords() {
-        String SQL_QUERY = "SELECT * FROM " + table;
-
-        try {
-            PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
-
-            return getWordsFromResultSet(ps);
-        } catch (SQLException e) {
-            logger.log(Level.SEVERE, "An exception occurred", e);
-        }
-
-        return new ArrayList<>();
-    }
-
 
     public ArrayList<String> getAllWordTargets() {
         String SQL_QUERY = "SELECT * FROM " + table;
@@ -269,8 +228,7 @@ public class Dictionary {
         return new ArrayList<>();
     }
 
-    public String findWordByID(int id, int limitLength) {
-        double startTime = System.currentTimeMillis();
+    public String findWordByID(int id) {
         String SQL_QUERY = "SELECT " + target + " FROM " + table + " WHERE " + id + " = " + "?";
 
         try {
@@ -282,11 +240,9 @@ public class Dictionary {
 
                 try {
                     if (rs.next()) {
-                        double endTime = System.currentTimeMillis();
-                        System.out.println(endTime - startTime);
                         return rs.getString("word");
                     } else {
-                        return "Not found";
+                        return error;
                     }
                 } finally {
                     close(rs);
@@ -298,6 +254,6 @@ public class Dictionary {
             logger.log(Level.SEVERE, "An exception occurred", e);
         }
 
-        return "Not found";
+        return error;
     }
 }

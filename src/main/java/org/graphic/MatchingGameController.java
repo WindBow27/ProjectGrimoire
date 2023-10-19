@@ -51,7 +51,7 @@ public class MatchingGameController extends GameScreenController {
             dictionary.init();
 
             //Find word by ID
-            String result = dictionary.findWordByID(temp, limitLength);
+            String result = dictionary.findWordByID(temp);
             String meaning = dictionary.translateWord(result, "en");
             words.add(result);
             meanings.add(meaning);

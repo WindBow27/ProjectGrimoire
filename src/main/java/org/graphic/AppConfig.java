@@ -37,6 +37,10 @@ public class AppConfig {
         return properties.getProperty("db.url");
     }
 
+    public String getDBError() {
+        return properties.getProperty("db.error");
+    }
+
     public String getAPIUrl() {
         return properties.getProperty("api.url");
     }
