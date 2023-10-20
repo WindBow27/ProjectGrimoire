@@ -21,7 +21,7 @@ public class GameScreenController extends ControllersManager {
         if (event.getSource() == matching) {
             loadGameScreen("matching", matching);
             MatchingGameController game = new MatchingGameController();
-            game.getDataFromDB();
+            game.startGame();
             return;
         }
         if (event.getSource() == wordle) {

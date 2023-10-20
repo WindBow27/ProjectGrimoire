@@ -4,74 +4,80 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Random;
 
 public class MatchingGameController extends GameScreenController {
-    private final int numberOfCard = 14;
-    private final int limitLength = 10;
-    private final ArrayList<String> words = new ArrayList<>();
-    private final ArrayList<String> meanings = new ArrayList<>();
-    private final ArrayList<Button> buttons = new ArrayList<>();
-    private int count = 2;
-    private Button selected1;
-    private Button selected2;
-    private boolean endGame = false;
-    private boolean startTimer = false;
-    private double startTime;
-    private double endTime;
+    protected final String dataPath = "src/main/resources/org/graphic/matching-data.txt";
+    protected final int numberOfWord = 7;
+    protected final int numberOfCard = 14;
+    protected final ArrayList<String> targets = new ArrayList<>();
+    protected final ArrayList<String> definitions = new ArrayList<>();
+    protected final ArrayList<Word> words = new ArrayList<>();
+    protected final ArrayList<Button> cards = new ArrayList<>();
+    protected int count = 2;
+    protected Button selected1;
+    protected Button selected2;
+    protected boolean endGame = false;
+    protected boolean startTimer = false;
+    protected double startTime;
+    protected double endTime;
     @FXML
-    private Button playAgain;
+    protected Button playAgain;
     @FXML
-    private Button restart;
+    protected Button restart;
     @FXML
-    private Button exit;
+    protected Button exit;
     @FXML
-    private Label message;
+    protected Label message;
+    @FXML
+    protected Button card1 = new Button();
+    @FXML
+    protected Button card2 = new Button();
+    @FXML
+    protected Button card3 = new Button();
+    @FXML
+    protected Button card4 = new Button();
+    @FXML
+    protected Button card5 = new Button();
+    @FXML
+    protected Button card6 = new Button();
+    @FXML
+    protected Button card7 = new Button();
+    @FXML
+    protected Button card8 = new Button();
+    @FXML
+    protected Button card9 = new Button();
+    @FXML
+    protected Button card10 = new Button();
+    @FXML
+    protected Button card11 = new Button();
+    @FXML
+    protected Button card12 = new Button();
+    @FXML
+    protected Button card13 = new Button();
+    @FXML
+    protected Button card14 = new Button();
 
-    public void timer() {
-        while (!endGame) {
-            Label message = this.message;
-            endTime = (double) System.currentTimeMillis() / 1000;
-            if (message != null) message.setText(String.valueOf(endTime - startTime));
-        }
-//        System.out.println(this.message.getText());
+    public void startGame() {
+        LoadMatchingDataThread loadThread = new LoadMatchingDataThread();
+        Thread load = new Thread(loadThread);
+        TimerThread timerThread = new TimerThread();
+        Thread clock = new Thread(timerThread);
+        load.start();
+        clock.start();
     }
-
-    public void getDataFromDB() throws SQLException, IOException, InterruptedException {
-        for (int i = 0; i < numberOfCard; i++) {
-
-            //Random a number to choose a word from DB
-            Random random = new Random();
-            int temp = random.nextInt(0, 1000);
-            Dictionary dictionary = new Dictionary();
-            dictionary.init();
-
-            //Find word by ID
-            String result = dictionary.findWordByID(temp);
-            String meaning = dictionary.translateWord(result, "en");
-            words.add(result);
-            meanings.add(meaning);
-        }
-        for (String x : words) System.out.println(x);
-        for (String x : meanings) System.out.println(x);
-    }
-
     public boolean checkMatch(String text1, String text2) {
-        for (int i = 0; i < words.size(); i++) {
-            if (words.get(i).equals(text1) && meanings.get(i).equals(text2)
-                    || words.get(i).equals(text2) && meanings.get(i).equals(text1)) return true;
+        Word word1 = new Word(text1, text2);
+        Word word2 = new Word(text2, text1);
+        if (words.contains(word1) || words.contains(word2))  {
+            return true;
         }
         return false;
     }
 
     public void handleAction(ActionEvent event) throws Exception {
-        if (!startTimer) {
-            startTime = (double) System.currentTimeMillis() / 1000;
-        }
+        startTimer = true;
+        System.out.println("clicked");
         if (count == 2) {
             selected1 = (Button) event.getSource();
             count--;
@@ -83,21 +89,18 @@ public class MatchingGameController extends GameScreenController {
             }
             count = 2;
         }
-        if (words.isEmpty() && meanings.isEmpty()) {
-            Label message = this.message;
-            startTimer = false;
-            endTime = (double) System.currentTimeMillis() / 1000;
-            message.setText("GAME OVER\n" + (endTime - startTime));
-            if (event.getSource() == playAgain || event.getSource() == restart) {
-                message.setText("Ready !");
-                //getDataFromDB();
-                endGame = false;
-            }
-            if (event.getSource() == exit) {
-                endGame = true;
-                loadScreen("game", exit);
-            }
-        }
+//        if (words.isEmpty()) {
+//            Label message = this.message;
+//            startTimer = false;
+//            if (event.getSource() == playAgain || event.getSource() == restart) {
+//                message.setText("Ready !");
+//                endGame = false;
+//            }
+//            if (event.getSource() == exit) {
+//                endGame = true;
+//                loadScreen("game", exit);
+//            }
+//        }
     }
 
     public void removeCards(Button card1, Button card2) {
@@ -106,8 +109,6 @@ public class MatchingGameController extends GameScreenController {
     }
 
     public void removeCard(Button card) {
-        words.remove(card.getText());
-        meanings.remove(card.getText());
         card.setVisible(false);
     }
 }
