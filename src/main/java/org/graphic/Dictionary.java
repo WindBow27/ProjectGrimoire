@@ -10,7 +10,7 @@ public class Dictionary {
     private final Trie trie = new Trie();
     private final Logger logger = Logger.getLogger(Dictionary.class.getName());
     private final AppConfig appConfig = new AppConfig();
-    private final TranslatorAPI translatorAPI = new TranslatorAPI();
+    private final TranslatorAPIThread translatorAPI = new TranslatorAPIThread();
     private final String DATABASE_URL = appConfig.getDBUrl();
     private final String target = "word";
     private final String description = "description";

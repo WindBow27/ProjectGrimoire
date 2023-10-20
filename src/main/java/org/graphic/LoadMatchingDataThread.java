@@ -69,7 +69,7 @@ public class LoadMatchingDataThread extends MatchingGameController implements Ru
         for (String x : definitions) System.out.println(x);
     }
 
-    public void distributeData() {
+    public synchronized void distributeData() {
         Random random = new Random();
         int curNumOfCard = 0;
         while (curNumOfCard != numberOfCard - 1){

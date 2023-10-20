@@ -17,7 +17,7 @@ public class MatchingGameController extends GameScreenController {
     protected int count = 2;
     protected Button selected1;
     protected Button selected2;
-    protected boolean endGame = false;
+    //protected boolean isRunning = false;
     protected boolean startTimer = false;
     protected double startTime;
     protected double endTime;
@@ -65,6 +65,7 @@ public class MatchingGameController extends GameScreenController {
         Thread clock = new Thread(timerThread);
         load.start();
         clock.start();
+        //isRunning = true;
     }
     public boolean checkMatch(String text1, String text2) {
         Word word1 = new Word(text1, text2);
@@ -75,8 +76,7 @@ public class MatchingGameController extends GameScreenController {
         return false;
     }
 
-    public void handleAction(ActionEvent event) throws Exception {
-        startTimer = true;
+    public synchronized void handleAction(ActionEvent event) throws Exception {
         System.out.println("clicked");
         if (count == 2) {
             selected1 = (Button) event.getSource();
@@ -89,18 +89,17 @@ public class MatchingGameController extends GameScreenController {
             }
             count = 2;
         }
-//        if (words.isEmpty()) {
-//            Label message = this.message;
-//            startTimer = false;
-//            if (event.getSource() == playAgain || event.getSource() == restart) {
-//                message.setText("Ready !");
-//                endGame = false;
-//            }
-//            if (event.getSource() == exit) {
-//                endGame = true;
-//                loadScreen("game", exit);
-//            }
-//        }
+        if (words.isEmpty()) {
+            Label message = this.message;
+            startTimer = false;
+            if (event.getSource() == playAgain || event.getSource() == restart) {
+                message.setText("Ready !");
+                startGame();
+            }
+            if (event.getSource() == exit) {
+                loadScreen("game", exit);
+            }
+        }
     }
 
     public void removeCards(Button card1, Button card2) {

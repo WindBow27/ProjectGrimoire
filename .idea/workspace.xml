@@ -7,14 +7,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bd7be58-57b9-4d2c-89bd-bb5b23bc1c24" name="Changes" comment="polish">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/graphic/LoadMatchingDataThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/graphic/TimerThread.java" afterDir="false" />
+    <list default="true" id="6bd7be58-57b9-4d2c-89bd-bb5b23bc1c24" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/GameScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/GameScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/Dictionary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/Dictionary.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/MatchingGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/MatchingGameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/matching-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/matching-screen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/graphic/Word.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/graphic/Word.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/TimerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/TimerThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/TranslatorAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/TranslatorAPIThread.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -322,7 +320,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697646426072</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="update">
+      <created>1697773943168</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1697773943168</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -354,9 +359,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Command line" />
     <MESSAGE value="qol update" />
-    <MESSAGE value="update" />
     <MESSAGE value="polish" />
-    <option name="LAST_COMMIT_MESSAGE" value="polish" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

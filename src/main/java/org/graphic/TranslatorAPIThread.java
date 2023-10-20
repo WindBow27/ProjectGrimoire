@@ -11,15 +11,25 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TranslatorAPI {
+public class TranslatorAPIThread implements Runnable {
     private final AppConfig appConfig = new AppConfig();
     private final String GOOGLE_TRANSLATE_API = appConfig.getAPIUrl();
     private final Map<String, String> cache = new HashMap<>();
+    private String text;
+    private String from;
+    private String to;
+    private String result;
 
     public String translateTo(String text, String from, String to) throws IOException {
         String translation = cache.get(text);
         if (translation == null) {
-            translation = translate(from, to, text);
+            TranslatorAPIThread translateThread = new TranslatorAPIThread();
+            Thread thread = new Thread(translateThread);
+            this.text = text;
+            this.from = from;
+            this.to = to;
+            thread.start();
+            translation = result;
             cache.put(text, translation);
         }
         return translation;
@@ -54,5 +64,15 @@ public class TranslatorAPI {
         double endTime = System.currentTimeMillis();
         System.out.println(endTime - startTime);
         return response.toString();
+    }
+
+    @Override
+    public void run() {
+        try {
+            System.out.println("Translate thread is running");
+            result = translate(text, from, to);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
