@@ -1,5 +1,6 @@
 package org.graphic;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -8,16 +9,12 @@ import java.util.ArrayList;
 
 public class MatchingGameController extends GameScreenController {
     protected final String dataPath = "src/main/resources/org/graphic/matching-data.txt";
-    protected final int numberOfWord = 7;
-    protected final int numberOfCard = 14;
-    protected final ArrayList<String> targets = new ArrayList<>();
-    protected final ArrayList<String> definitions = new ArrayList<>();
     protected final ArrayList<Word> words = new ArrayList<>();
-    protected final ArrayList<Button> cards = new ArrayList<>();
+    protected ArrayList<Button> cards = new ArrayList<>();
     protected int count = 2;
     protected Button selected1;
     protected Button selected2;
-    //protected boolean isRunning = false;
+    protected boolean isRunning = false;
     protected boolean startTimer = false;
     protected double startTime;
     protected double endTime;
@@ -28,44 +25,41 @@ public class MatchingGameController extends GameScreenController {
     @FXML
     protected Button exit;
     @FXML
-    protected Label message;
+    protected Label message = new Label();
     @FXML
-    protected Button card1 = new Button();
+    protected volatile Button card1 = new Button();
     @FXML
-    protected Button card2 = new Button();
+    protected volatile Button card2 = new Button();
     @FXML
-    protected Button card3 = new Button();
+    protected volatile Button card3 = new Button();
     @FXML
-    protected Button card4 = new Button();
+    protected volatile Button card4 = new Button();
     @FXML
-    protected Button card5 = new Button();
+    protected volatile Button card5 = new Button();
     @FXML
-    protected Button card6 = new Button();
+    protected volatile Button card6 = new Button();
     @FXML
-    protected Button card7 = new Button();
+    protected volatile Button card7 = new Button();
     @FXML
-    protected Button card8 = new Button();
+    protected volatile Button card8 = new Button();
     @FXML
-    protected Button card9 = new Button();
+    protected volatile Button card9 = new Button();
     @FXML
-    protected Button card10 = new Button();
+    protected volatile Button card10 = new Button();
     @FXML
-    protected Button card11 = new Button();
+    protected volatile Button card11 = new Button();
     @FXML
-    protected Button card12 = new Button();
+    protected volatile Button card12 = new Button();
     @FXML
-    protected Button card13 = new Button();
+    protected volatile Button card13 = new Button();
     @FXML
-    protected Button card14 = new Button();
+    protected volatile Button card14 = new Button();
 
-    public void startGame() {
+    public void startGame() throws InterruptedException {
         LoadMatchingDataThread loadThread = new LoadMatchingDataThread();
         Thread load = new Thread(loadThread);
-        TimerThread timerThread = new TimerThread();
-        Thread clock = new Thread(timerThread);
         load.start();
-        clock.start();
-        //isRunning = true;
+        //load.join();
     }
     public boolean checkMatch(String text1, String text2) {
         Word word1 = new Word(text1, text2);
@@ -76,7 +70,14 @@ public class MatchingGameController extends GameScreenController {
         return false;
     }
 
-    public synchronized void handleAction(ActionEvent event) throws Exception {
+    public void handleAction(ActionEvent event) throws Exception {
+        TimerThread timerThread = new TimerThread(message);
+        Thread clock = new Thread(timerThread);
+        if (!isRunning) {
+            clock.start();
+            isRunning = true;
+        }
+        System.out.println(cards.size());
         System.out.println("clicked");
         if (count == 2) {
             selected1 = (Button) event.getSource();
@@ -89,11 +90,14 @@ public class MatchingGameController extends GameScreenController {
             }
             count = 2;
         }
-        if (words.isEmpty()) {
-            Label message = this.message;
-            startTimer = false;
+        if (cards.isEmpty()) {
+//            Label message = this.message;
+//            message.setText("Game over !");
+            //startTimer = false;
+            //isRunning = false;
+            //System.out.println("Timer stopped !");
             if (event.getSource() == playAgain || event.getSource() == restart) {
-                message.setText("Ready !");
+                //message.setText("Ready !");
                 startGame();
             }
             if (event.getSource() == exit) {

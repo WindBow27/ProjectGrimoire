@@ -2,12 +2,19 @@ package org.graphic;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
 public class LoadMatchingDataThread extends MatchingGameController implements Runnable {
+    protected final int numberOfWord = 7;
+    protected final int numberOfCard = 14;
+    protected ArrayList<String> targets = new ArrayList<>();
+    protected ArrayList<String> definitions = new ArrayList<>();
+
     @Override
     public void run() {
+        System.out.println("Load matching data thread is running");
         getDataFromFile();
         loadDataToCards();
     }
@@ -69,7 +76,7 @@ public class LoadMatchingDataThread extends MatchingGameController implements Ru
         for (String x : definitions) System.out.println(x);
     }
 
-    public synchronized void distributeData() {
+    public void distributeData() {
         Random random = new Random();
         int curNumOfCard = 0;
         while (curNumOfCard != numberOfCard - 1){
@@ -78,6 +85,10 @@ public class LoadMatchingDataThread extends MatchingGameController implements Ru
                 System.out.println(ranNum);
                 if (cards.get(ranNum) != null) {
                     if (cards.get(ranNum).getText().equals("")) {
+//                        int finalCurNumOfCard = curNumOfCard;
+//                        Platform.runLater(() -> {
+//                            cards.get(ranNum).setText(targets.get(finalCurNumOfCard % targets.size()));
+//                        });
                         cards.get(ranNum).setText(targets.get(curNumOfCard % targets.size()));
                         System.out.println(targets.get(curNumOfCard % targets.size()));
                         targets.remove(curNumOfCard % targets.size());
@@ -90,6 +101,10 @@ public class LoadMatchingDataThread extends MatchingGameController implements Ru
                 System.out.println(ranNum);
                 if (cards.get(ranNum) != null) {
                     if (cards.get(ranNum).getText().equals("")) {
+//                        int finalCurNumOfCard = curNumOfCard;
+//                        Platform.runLater(() -> {
+//                            cards.get(ranNum).setText(definitions.get(finalCurNumOfCard % definitions.size()));
+//                        });
                         cards.get(ranNum).setText(definitions.get(curNumOfCard % definitions.size()));
                         System.out.println(definitions.get(curNumOfCard % definitions.size()));
                         definitions.remove(curNumOfCard % definitions.size());

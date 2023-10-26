@@ -10,36 +10,34 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
-public class TranslatorAPIThread implements Runnable {
+public class TranslatorAPI {
     private final AppConfig appConfig = new AppConfig();
     private final String GOOGLE_TRANSLATE_API = appConfig.getAPIUrl();
     private final Map<String, String> cache = new HashMap<>();
-    private String text;
-    private String from;
-    private String to;
-    private String result;
 
-    public String translateTo(String text, String from, String to) throws IOException {
+    public String translateTo(String text, String from, String to) throws ExecutionException, InterruptedException {
         String translation = cache.get(text);
         if (translation == null) {
-            TranslatorAPIThread translateThread = new TranslatorAPIThread();
-            Thread thread = new Thread(translateThread);
-            this.text = text;
-            this.from = from;
-            this.to = to;
-            thread.start();
-            translation = result;
+            ExecutorService executorService = Executors.newSingleThreadExecutor();
+            Future<String> future = executorService.submit(() -> {
+                return translate(from, to, text);
+            });
+            translation = future.get();
             cache.put(text, translation);
         }
         return translation;
     }
 
-    public String translateEnToVi(String text) throws IOException {
+    public String translateEnToVi(String text) throws IOException, ExecutionException, InterruptedException {
         return translateTo(text, "en", "vi");
     }
 
-    public String translateViToEn(String text) throws IOException {
+    public String translateViToEn(String text) throws IOException, ExecutionException, InterruptedException {
         return translateTo(text, "vi", "en");
     }
 
@@ -64,15 +62,5 @@ public class TranslatorAPIThread implements Runnable {
         double endTime = System.currentTimeMillis();
         System.out.println(endTime - startTime);
         return response.toString();
-    }
-
-    @Override
-    public void run() {
-        try {
-            System.out.println("Translate thread is running");
-            result = translate(text, from, to);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 }

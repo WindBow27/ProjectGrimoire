@@ -1,20 +1,36 @@
 package org.graphic;
 
+import javafx.application.Platform;
 import javafx.scene.control.Label;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class TimerThread extends MatchingGameController implements Runnable {
-    @Override
-    public void run() {
-        timer();
+    private Timer timer;
+    private long startTime;
+    private Label label;
+
+    public TimerThread(Label timerLabel) {
+        this.timer = new Timer();
+        this.startTime = System.currentTimeMillis();
+        this.label = timerLabel;
     }
 
-    public synchronized void timer() {
-        System.out.println("Timer is running");
-        Label message = this.message;
-        startTime = (double) System.currentTimeMillis() / 1000;
-        while(startTimer) {
-            endTime = (double) System.currentTimeMillis() / 1000;
-            message.setText(String.valueOf(endTime - startTime));
-        }
+    @Override
+    public void run() {
+        // Schedule a task to be executed every second.
+        this.timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                // Update the timer.
+                double elapsedTime = System.currentTimeMillis() - startTime;
+
+                // Display the timer on the screen.
+                Platform.runLater(() -> {
+                    label.setText(String.format("%.1f", elapsedTime / 1000));
+                });
+            }
+        }, 0, 1);
     }
 }

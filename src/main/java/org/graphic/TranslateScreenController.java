@@ -13,13 +13,14 @@ import java.net.URI;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class TranslateScreenController extends ControllersManager {
     private final Logger logger = Logger.getLogger(TranslateScreenController.class.getName());
     @FXML
-    private Label response;
+    private TextArea response;
     @FXML
     private Label en;
     @FXML
@@ -58,13 +59,13 @@ public class TranslateScreenController extends ControllersManager {
         response.setText("");
     }
 
-    public void translateWordFromTextArea() throws IOException {
+    public void translateWordFromTextArea() throws IOException, ExecutionException, InterruptedException {
         if (textArea.getText() == null || textArea.getText().isEmpty()) return;
         TextArea textArea = this.textArea;
         String text = textArea.getText();
         Dictionary dictionary = new Dictionary();
         String definition = dictionary.translateWord(text, tl);
-        response.setText(definition.toLowerCase());
+        response.setText(definition);
         System.out.println(definition);
     }
 

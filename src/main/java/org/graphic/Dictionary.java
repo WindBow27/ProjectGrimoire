@@ -3,6 +3,7 @@ package org.graphic;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -10,7 +11,7 @@ public class Dictionary {
     private final Trie trie = new Trie();
     private final Logger logger = Logger.getLogger(Dictionary.class.getName());
     private final AppConfig appConfig = new AppConfig();
-    private final TranslatorAPIThread translatorAPI = new TranslatorAPIThread();
+    private final TranslatorAPI translatorAPI = new TranslatorAPI();
     private final String DATABASE_URL = appConfig.getDBUrl();
     private final String target = "word";
     private final String description = "description";
@@ -49,7 +50,7 @@ public class Dictionary {
         }
     }
 
-    public String translateWord(String word, String tl) throws IOException {
+    public String translateWord(String word, String tl) throws IOException, ExecutionException, InterruptedException {
         if (tl.equals("vi")) return translatorAPI.translateEnToVi(word);
         return translatorAPI.translateViToEn(word);
     }
