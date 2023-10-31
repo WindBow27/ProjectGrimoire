@@ -15,4 +15,10 @@ module com.example.demo {
 
     opens org.graphic to javafx.fxml;
     exports org.graphic;
+    exports org.graphic.controller;
+    opens org.graphic.controller to javafx.fxml;
+    exports org.graphic.app;
+    opens org.graphic.app to javafx.fxml;
+    exports org.graphic.dictionary;
+    opens org.graphic.dictionary to javafx.fxml;
 }

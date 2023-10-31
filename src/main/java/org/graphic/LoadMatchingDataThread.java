@@ -1,5 +1,8 @@
 package org.graphic;
 
+import org.graphic.controller.MatchingGameController;
+import org.graphic.dictionary.Word;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;

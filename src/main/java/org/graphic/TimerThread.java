@@ -2,6 +2,7 @@ package org.graphic;
 
 import javafx.application.Platform;
 import javafx.scene.control.Label;
+import org.graphic.controller.MatchingGameController;
 
 import java.util.Timer;
 import java.util.TimerTask;
