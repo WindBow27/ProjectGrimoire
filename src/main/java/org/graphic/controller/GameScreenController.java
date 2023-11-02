@@ -11,15 +11,20 @@ public class GameScreenController extends ControllersManager {
     private Button matching;
     @FXML
     private Button wordle;
+    protected static String typeOfData;
 
     @FXML
     private void playGame(ActionEvent event) throws Exception {
         if (event.getSource() == quiz) {
-            //loadGameScreen("quiz", quiz);
+            loadGameScreen("quiz", quiz);
+            typeOfData = "Quiz";
+            QuizScreenController game = new QuizScreenController();
+            game.startGame();
             return;
         }
         if (event.getSource() == matching) {
             loadGameScreen("matching", matching);
+            typeOfData = "Matching";
             MatchingGameController game = new MatchingGameController();
             game.startGame();
             return;

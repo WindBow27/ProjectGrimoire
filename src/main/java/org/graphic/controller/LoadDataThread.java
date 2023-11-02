@@ -1,28 +1,37 @@
-package org.graphic;
+package org.graphic.controller;
 
-import org.graphic.controller.MatchingGameController;
+import org.graphic.dictionary.Question;
 import org.graphic.dictionary.Word;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-public class LoadMatchingDataThread extends MatchingGameController implements Runnable {
+import static org.graphic.controller.QuizScreenController.*;
+
+public class LoadDataThread extends MatchingGameController implements Runnable {
     protected final int numberOfWord = 7;
     protected final int numberOfCard = 14;
-    protected ArrayList<String> targets = new ArrayList<>();
-    protected ArrayList<String> definitions = new ArrayList<>();
+    public LoadDataThread() {
+        //this.cards = cards;
+    }
 
     @Override
     public void run() {
-        System.out.println("Load matching data thread is running");
-        getDataFromFile();
-        loadDataToCards();
+        System.out.println("Loading data thread is running");
+        if (typeOfData.equals("Matching")) {
+            getMatchingData();
+            chooseRandomWords();
+            distributeData();
+        } else {
+            getQuizData();
+            chooseRandomQuestions();
+        }
+        System.out.println("Loading data thread finished");
     }
 
-    public void getDataFromFile() {
+    public void getMatchingData() {
         if (!words.isEmpty()) return;
         File file = new File(dataPath);
         try {
@@ -44,23 +53,42 @@ public class LoadMatchingDataThread extends MatchingGameController implements Ru
         }
     }
 
-    public void loadDataToCards() {
-        cards.add(card1);
-        cards.add(card2);
-        cards.add(card3);
-        cards.add(card4);
-        cards.add(card5);
-        cards.add(card6);
-        cards.add(card7);
-        cards.add(card8);
-        cards.add(card9);
-        cards.add(card10);
-        cards.add(card11);
-        cards.add(card12);
-        cards.add(card13);
-        cards.add(card14);
-        chooseRandomWords();
-        distributeData();
+    public void getQuizData() {
+        if (!questionList.isEmpty()) return;
+        File file = new File(dataPath);
+        try {
+            Scanner fileScanner = new Scanner(file);
+            while (fileScanner.hasNextLine()) {
+                String question, optionA, optionB, optionC, optionD, answer, explain;
+                question = fileScanner.nextLine();
+                optionA = fileScanner.nextLine();
+                optionB = fileScanner.nextLine();
+                optionC = fileScanner.nextLine();
+                optionD = fileScanner.nextLine();
+                answer = fileScanner.nextLine();
+                StringBuilder temp = new StringBuilder();
+                temp.append(fileScanner.nextLine());
+                temp.append(fileScanner.nextLine());
+                explain = temp.toString();
+                questionList.add(new Question(question, optionA, optionB, optionC, optionD, answer, explain));
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found!");
+        }
+    }
+
+    public void chooseRandomQuestions() {
+        Random random = new Random();
+        int curNumOfQues = 0;
+        while (curNumOfQues != numberOfQuestions){
+            int randomNum = random.nextInt(0, questionList.size());
+            if (questionList.get(randomNum) != null) {
+                questions.add(questionList.get(randomNum));
+                questionList.remove(randomNum);
+                curNumOfQues++;
+            }
+        }
+        for (Question x : questions) System.out.println(x.getQuestion());
     }
 
     public void chooseRandomWords() {
@@ -82,21 +110,20 @@ public class LoadMatchingDataThread extends MatchingGameController implements Ru
     public void distributeData() {
         Random random = new Random();
         int curNumOfCard = 0;
-        while (curNumOfCard != numberOfCard - 1){
+        while (curNumOfCard != numberOfCard){
             while (!targets.isEmpty()) {
                 int ranNum = random.nextInt(0, numberOfCard);
                 System.out.println(ranNum);
                 if (cards.get(ranNum) != null) {
                     if (cards.get(ranNum).getText().equals("")) {
-//                        int finalCurNumOfCard = curNumOfCard;
-//                        Platform.runLater(() -> {
-//                            cards.get(ranNum).setText(targets.get(finalCurNumOfCard % targets.size()));
-//                        });
                         cards.get(ranNum).setText(targets.get(curNumOfCard % targets.size()));
                         System.out.println(targets.get(curNumOfCard % targets.size()));
                         targets.remove(curNumOfCard % targets.size());
                         curNumOfCard++;
                     }
+                } else {
+                    System.out.println("Card is null");
+                    return;
                 }
             }
             while (!definitions.isEmpty()) {
@@ -104,15 +131,15 @@ public class LoadMatchingDataThread extends MatchingGameController implements Ru
                 System.out.println(ranNum);
                 if (cards.get(ranNum) != null) {
                     if (cards.get(ranNum).getText().equals("")) {
-//                        int finalCurNumOfCard = curNumOfCard;
-//                        Platform.runLater(() -> {
-//                            cards.get(ranNum).setText(definitions.get(finalCurNumOfCard % definitions.size()));
-//                        });
                         cards.get(ranNum).setText(definitions.get(curNumOfCard % definitions.size()));
                         System.out.println(definitions.get(curNumOfCard % definitions.size()));
                         definitions.remove(curNumOfCard % definitions.size());
                         curNumOfCard++;
                     }
+                }
+                else {
+                    System.out.println("Card is null");
+                    return;
                 }
             }
         }

@@ -1,16 +1,15 @@
-package org.graphic;
+package org.graphic.controller;
 
 import javafx.application.Platform;
 import javafx.scene.control.Label;
-import org.graphic.controller.MatchingGameController;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class TimerThread extends MatchingGameController implements Runnable {
-    private Timer timer;
-    private long startTime;
-    private Label label;
+    private final Timer timer;
+    private final long startTime;
+    private final Label label;
 
     public TimerThread(Label timerLabel) {
         this.timer = new Timer();
@@ -29,7 +28,7 @@ public class TimerThread extends MatchingGameController implements Runnable {
 
                 // Display the timer on the screen.
                 Platform.runLater(() -> {
-                    label.setText(String.format("%.1f", elapsedTime / 1000));
+                    label.setText(String.format("%.1f", elapsedTime / 1000)+ "s") ;
                 });
             }
         }, 0, 1);
