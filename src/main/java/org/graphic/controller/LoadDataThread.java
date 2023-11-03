@@ -13,6 +13,7 @@ import static org.graphic.controller.QuizScreenController.*;
 public class LoadDataThread extends MatchingGameController implements Runnable {
     protected final int numberOfWord = 7;
     protected final int numberOfCard = 14;
+    private String dataPath;
     public LoadDataThread() {
         //this.cards = cards;
     }
@@ -21,10 +22,12 @@ public class LoadDataThread extends MatchingGameController implements Runnable {
     public void run() {
         System.out.println("Loading data thread is running");
         if (typeOfData.equals("Matching")) {
+            dataPath = matchingDataPath;
             getMatchingData();
             chooseRandomWords();
             distributeData();
         } else {
+            dataPath = quizDataPath;
             getQuizData();
             chooseRandomQuestions();
         }
@@ -59,17 +62,17 @@ public class LoadDataThread extends MatchingGameController implements Runnable {
         try {
             Scanner fileScanner = new Scanner(file);
             while (fileScanner.hasNextLine()) {
-                String question, optionA, optionB, optionC, optionD, answer, explain;
-                question = fileScanner.nextLine();
-                optionA = fileScanner.nextLine();
-                optionB = fileScanner.nextLine();
-                optionC = fileScanner.nextLine();
-                optionD = fileScanner.nextLine();
-                answer = fileScanner.nextLine();
+                String question = fileScanner.hasNextLine() ? fileScanner.nextLine() : "";
+                String optionA = fileScanner.hasNextLine() ? fileScanner.nextLine() : "";
+                String optionB = fileScanner.hasNextLine() ? fileScanner.nextLine() : "";
+                String optionC = fileScanner.hasNextLine() ? fileScanner.nextLine() : "";
+                String optionD = fileScanner.hasNextLine() ? fileScanner.nextLine() : "";
+                String answer = fileScanner.hasNextLine() ? fileScanner.nextLine() : "";
                 StringBuilder temp = new StringBuilder();
-                temp.append(fileScanner.nextLine());
-                temp.append(fileScanner.nextLine());
-                explain = temp.toString();
+                temp.append(fileScanner.hasNextLine() ? fileScanner.nextLine() : "");
+                temp.append("\n");
+                temp.append(fileScanner.hasNextLine() ? fileScanner.nextLine() : "");
+                String explain = temp.toString();
                 questionList.add(new Question(question, optionA, optionB, optionC, optionD, answer, explain));
             }
         } catch (FileNotFoundException e) {
@@ -88,7 +91,15 @@ public class LoadDataThread extends MatchingGameController implements Runnable {
                 curNumOfQues++;
             }
         }
-        for (Question x : questions) System.out.println(x.getQuestion());
+        for (int i = 0; i < questions.size(); i++) {
+            System.out.println(questions.get(i).getQuestion());
+            System.out.println(questions.get(i).getOptionA());
+            System.out.println(questions.get(i).getOptionB());
+            System.out.println(questions.get(i).getOptionC());
+            System.out.println(questions.get(i).getOptionD());
+            System.out.println(questions.get(i).getAnswer());
+            System.out.println(questions.get(i).getExplain());
+        }
     }
 
     public void chooseRandomWords() {
@@ -138,6 +149,7 @@ public class LoadDataThread extends MatchingGameController implements Runnable {
                     }
                 }
                 else {
+                    System.out.println(cards.get(ranNum));
                     System.out.println("Card is null");
                     return;
                 }

@@ -8,19 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bd7be58-57b9-4d2c-89bd-bb5b23bc1c24" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/graphic/controller/QuizScreenController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/graphic/dictionary/Question.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/quiz-screen.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/LoadMatchingDataThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/controller/LoadDataThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/TimerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/controller/TimerThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/controller/GameScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/controller/GameScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/controller/LoadDataThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/controller/LoadDataThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/controller/MatchingGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/controller/MatchingGameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/css/common.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/matching-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/matching-screen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/matching-data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/data/matching-data.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/controller/QuizScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/controller/QuizScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/quiz-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/quiz-screen.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,6 +92,7 @@
       <recent name="G:\Workspace\ProjectGrimoire\src\main\resources\org\graphic\css" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\NAM-2\KI-1\OOP\ProjectGrimoire\src\main\resources\org\graphic\data" />
       <recent name="G:\Workspace\ProjectGrimoire\src\main\resources\org\graphic\fxml" />
       <recent name="G:\Workspace\ProjectGrimoire\src\main\resources\org\graphic\image" />
     </key>
@@ -349,7 +342,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698719371495</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="update">
+      <created>1698941209892</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1698941209892</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="UnknownFeatures">

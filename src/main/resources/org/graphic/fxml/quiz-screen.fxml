@@ -20,21 +20,21 @@
                                 <Insets />
                             </HBox.margin>
                      <children>
-                        <Label fx:id="question" prefHeight="150.0" prefWidth="640.0">
+                        <Label fx:id="question" prefHeight="150.0" prefWidth="640.0" visible="false" wrapText="true">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
                         </Label>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
                            <children>
-                              <Label fx:id="optionA" prefWidth="235.0" />
-                              <Label fx:id="optionB" alignment="CENTER" prefWidth="235.0" />
+                              <Label fx:id="optionA" prefWidth="235.0" visible="false" />
+                              <Label fx:id="optionB" alignment="CENTER" prefWidth="235.0" visible="false" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" layoutX="10.0" layoutY="197.0" spacing="50.0">
                            <children>
-                              <Label fx:id="optionC" prefWidth="235.0" />
-                              <Label fx:id="optionD" alignment="CENTER" prefWidth="235.0" />
+                              <Label fx:id="optionC" prefWidth="235.0" visible="false" />
+                              <Label fx:id="optionD" alignment="CENTER" prefWidth="235.0" visible="false" />
                            </children>
                         </HBox>
                      </children>
@@ -62,7 +62,7 @@
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="25.0">
                            <children>
                               <ChoiceBox fx:id="menu" focusTraversable="false" prefHeight="43.0" prefWidth="50.0" />
-                              <Button mnemonicParsing="false" text="Generate" />
+                              <Button mnemonicParsing="false" onAction="#generateQuiz" text="Generate" />
                            </children>
                         </HBox>
                      </children>
@@ -73,9 +73,9 @@
          <bottom>
             <HBox alignment="CENTER" prefHeight="77.0" prefWidth="1280.0" spacing="15.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="prev" mnemonicParsing="false" text="Previous" />
+                  <Button fx:id="prev" mnemonicParsing="false" onAction="#prevQuestion" text="Previous" visible="false" />
                   <Label fx:id="answer" prefHeight="71.0" prefWidth="577.0" visible="false" />
-                  <Button fx:id="next" mnemonicParsing="false" text="Next">
+                  <Button fx:id="next" mnemonicParsing="false" onAction="#nextQuestion" text="Next" visible="false">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin></Button>

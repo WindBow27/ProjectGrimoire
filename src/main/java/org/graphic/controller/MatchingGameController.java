@@ -9,7 +9,7 @@ import org.graphic.dictionary.Word;
 import java.util.ArrayList;
 
 public class MatchingGameController extends GameScreenController {
-    protected final String dataPath = "src/main/resources/org/graphic/data/matching-data.txt";
+    protected final String matchingDataPath = "src/main/resources/org/graphic/data/matching-data.txt";
     protected final ArrayList<Word> words = new ArrayList<>();
     protected static ArrayList<String> targets = new ArrayList<>();
     protected static ArrayList<String> definitions = new ArrayList<>();
@@ -18,13 +18,8 @@ public class MatchingGameController extends GameScreenController {
     protected Button selected1;
     protected Button selected2;
     protected boolean isRunning = false;
-    protected boolean startTimer = false;
-    protected double startTime;
-    protected double endTime;
     @FXML
     protected Button playAgain;
-    @FXML
-    protected Button restart;
     @FXML
     protected Button exit;
     @FXML
@@ -88,6 +83,7 @@ public class MatchingGameController extends GameScreenController {
     public void handleAction(ActionEvent event) throws Exception {
         TimerThread timerThread = new TimerThread(message);
         Thread clock = new Thread(timerThread);
+        System.out.println(cards.size());
         if (!isRunning) {
             clock.start();
             isRunning = true;
@@ -115,13 +111,7 @@ public class MatchingGameController extends GameScreenController {
         }
 
         if (cards.isEmpty()) {
-//            Label message = this.message;
-//            message.setText("Game over !");
-            //startTimer = false;
-            //isRunning = false;
-            //System.out.println("Timer stopped !");
-            if (event.getSource() == playAgain || event.getSource() == restart) {
-                //message.setText("Ready !");
+            if (event.getSource() == playAgain) {
                 startGame();
             }
         }
