@@ -1,38 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Region?>
-<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.Rectangle?>
-
-<HBox xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.graphic.controller.HeaderController">
-   <children>
-      <Region maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="60.0" prefWidth="600.0" />
-      <StackPane>
-         <children>
-              <Button fx:id="home" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#changeScreen" prefWidth="200.0" stylesheets="@../css/header-button.css" text="Home" textAlignment="CENTER" />
-            <Rectangle fx:id="home_line" arcHeight="5.0" arcWidth="5.0" fill="BLACK" height="2.0" stroke="BLACK" strokeType="INSIDE" width="200.0" StackPane.alignment="BOTTOM_CENTER" />
-         </children>
-      </StackPane>
-      <StackPane alignment="BOTTOM_CENTER">
-         <children>
-              <Button fx:id="translate" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#changeScreen" prefWidth="200.0" stylesheets="@../css/header-button.css" text="Translate" textAlignment="CENTER" />
-            <Rectangle fx:id="translate_line" arcHeight="5.0" arcWidth="5.0" fill="BLACK" height="2.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-         </children>
-      </StackPane>
-      <StackPane alignment="BOTTOM_CENTER">
-         <children>
-              <Button fx:id="dictionary" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#changeScreen" prefWidth="200.0" stylesheets="@../css/header-button.css" text="Dictionary" textAlignment="CENTER" />
-            <Rectangle fx:id="dictionary_line" arcHeight="5.0" arcWidth="5.0" fill="BLACK" height="2.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-         </children>
-      </StackPane>
-      <StackPane alignment="BOTTOM_CENTER">
-         <children>
-              <Button fx:id="game" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#changeScreen" prefWidth="200.0" stylesheets="@../css/header-button.css" text="Game" textAlignment="CENTER" />
-            <Rectangle fx:id="game_line" arcHeight="5.0" arcWidth="5.0" fill="BLACK" height="2.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-         </children>
-      </StackPane>
-      <Region maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="60.0" prefWidth="600.0" />
-   </children>
+<HBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20"
+      fx:controller="org.graphic.controller.HeaderController">
+    <children>
+        <Region maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="60.0"
+                prefWidth="600.0"/>
+        <StackPane>
+            <children>
+                <Button fx:id="home" alignment="CENTER" maxHeight="1.7976931348623157E308"
+                        maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#changeScreen"
+                        prefWidth="200.0" stylesheets="@../css/header-button.css" text="Home" textAlignment="CENTER"/>
+                <Rectangle fx:id="home_line" arcHeight="5.0" arcWidth="5.0" fill="BLACK" height="2.0" stroke="BLACK"
+                           strokeType="INSIDE" width="200.0" StackPane.alignment="BOTTOM_CENTER"/>
+            </children>
+        </StackPane>
+        <StackPane alignment="BOTTOM_CENTER">
+            <children>
+                <Button fx:id="translate" alignment="CENTER" maxHeight="1.7976931348623157E308"
+                        maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#changeScreen"
+                        prefWidth="200.0" stylesheets="@../css/header-button.css" text="Translate"
+                        textAlignment="CENTER"/>
+                <Rectangle fx:id="translate_line" arcHeight="5.0" arcWidth="5.0" fill="BLACK" height="2.0"
+                           stroke="BLACK" strokeType="INSIDE" width="200.0"/>
+            </children>
+        </StackPane>
+        <StackPane alignment="BOTTOM_CENTER">
+            <children>
+                <Button fx:id="dictionary" alignment="CENTER" maxHeight="1.7976931348623157E308"
+                        maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#changeScreen"
+                        prefWidth="200.0" stylesheets="@../css/header-button.css" text="Dictionary"
+                        textAlignment="CENTER"/>
+                <Rectangle fx:id="dictionary_line" arcHeight="5.0" arcWidth="5.0" fill="BLACK" height="2.0"
+                           stroke="BLACK" strokeType="INSIDE" width="200.0"/>
+            </children>
+        </StackPane>
+        <StackPane alignment="BOTTOM_CENTER">
+            <children>
+                <Button fx:id="game" alignment="CENTER" maxHeight="1.7976931348623157E308"
+                        maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#changeScreen"
+                        prefWidth="200.0" stylesheets="@../css/header-button.css" text="Game" textAlignment="CENTER"/>
+                <Rectangle fx:id="game_line" arcHeight="5.0" arcWidth="5.0" fill="BLACK" height="2.0" stroke="BLACK"
+                           strokeType="INSIDE" width="200.0"/>
+            </children>
+        </StackPane>
+        <Region maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="60.0"
+                prefWidth="600.0"/>
+    </children>
 </HBox>

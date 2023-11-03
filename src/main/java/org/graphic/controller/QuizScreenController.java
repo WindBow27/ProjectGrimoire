@@ -14,6 +14,11 @@ import java.util.ResourceBundle;
 
 
 public class QuizScreenController extends GameScreenController implements Initializable {
+    protected static int numberOfQuestions;
+    protected static ArrayList<Question> questionList = new ArrayList<>();
+    protected static ArrayList<Question> questions = new ArrayList<>();
+    private final String[] choiceBoxItem = {"5", "10", "15", "20"};
+    private final String dataPath = "src/main/resources/org/graphic/data/quiz-data.txt";
     @FXML
     private Label question;
     @FXML
@@ -32,11 +37,8 @@ public class QuizScreenController extends GameScreenController implements Initia
     private Button next;
     @FXML
     private Button prev;
-    private String[] choiceBoxItem = {"5", "10", "15", "20"};
-    protected static int numberOfQuestions;
-    protected static ArrayList<Question> questionList = new ArrayList<>();
-    protected static ArrayList<Question> questions = new ArrayList<>();
-    private String dataPath = "src/main/resources/org/graphic/data/quiz-data.txt";
+    @FXML
+    private Button exit;
 
     public void startGame() throws InterruptedException {
         typeOfData = "Quiz";
@@ -46,6 +48,10 @@ public class QuizScreenController extends GameScreenController implements Initia
         load.join();
         questionList.forEach(System.out::println);
         //handleAction(event);
+    }
+
+    public void exit() throws Exception {
+        loadScreen("game", exit);
     }
 
     public void getNumberOfQuestions(ActionEvent event) {

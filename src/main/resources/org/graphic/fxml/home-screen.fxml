@@ -1,59 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
-
-<BorderPane prefHeight="720.0" prefWidth="1280.0" styleClass="background0" stylesheets="@../css/background.css" xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.graphic.controller.HomeScreenController">
-   <center>
-      <StackPane prefHeight="525.0">
-         <children>
-             <ImageView pickOnBounds="true" preserveRatio="true">
-                 <Image url="@../image/loader-symbol.png" />
-             </ImageView>
-            <ImageView fitHeight="261.0" fitWidth="786.0" pickOnBounds="true" preserveRatio="true" style="-fx-translate-y: 20;">
-               <image>
-                  <Image url="@../image/logo.png" />
-               </image>
-            </ImageView>
-         </children>
-         <BorderPane.margin>
-            <Insets />
-         </BorderPane.margin>
-      </StackPane>
-   </center>
-   <top>
-      <fx:include prefHeight="60.0" source="header-screen.fxml" />
-   </top>
-   <bottom>
-      <HBox alignment="CENTER" prefHeight="135.0" spacing="50.0">
-         <children>
-            <Button alignment="CENTER" mnemonicParsing="false" styleClass="button-big" stylesheets="@../css/common.css" text="About">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </Button>
-            <Button alignment="CENTER" mnemonicParsing="false" styleClass="button-big" stylesheets="@../css/common.css" text="Settings">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </Button>
-            <Button alignment="CENTER" mnemonicParsing="false" styleClass="button-big" stylesheets="@../css/common.css" text="Exit">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </Button>
-         </children>
-         <BorderPane.margin>
-            <Insets />
-         </BorderPane.margin>
-         <padding>
-            <Insets bottom="75.0" />
-         </padding>
-      </HBox>
-   </bottom>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="720.0" prefWidth="1280.0" styleClass="background0"
+            stylesheets="@../css/background.css" xmlns="http://javafx.com/javafx/20"
+            fx:controller="org.graphic.controller.HomeScreenController">
+    <center>
+        <StackPane prefHeight="525.0">
+            <children>
+                <ImageView pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../image/loader-symbol.png"/>
+                </ImageView>
+                <ImageView fitHeight="261.0" fitWidth="786.0" pickOnBounds="true" preserveRatio="true"
+                           style="-fx-translate-y: 20;">
+                    <image>
+                        <Image url="@../image/logo.png"/>
+                    </image>
+                </ImageView>
+            </children>
+            <BorderPane.margin>
+                <Insets/>
+            </BorderPane.margin>
+        </StackPane>
+    </center>
+    <top>
+        <fx:include prefHeight="60.0" source="header-screen.fxml"/>
+    </top>
+    <bottom>
+        <StackPane>
+            <BorderPane.margin>
+                <Insets/>
+            </BorderPane.margin>
+            <children>
+                <ImageView fx:id="loading" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true"
+                           visible="false" StackPane.alignment="BOTTOM_RIGHT">
+                    <image>
+                        <Image url="@../image/loading.gif"/>
+                    </image>
+                    <StackPane.margin>
+                        <Insets bottom="30.0" right="30.0"/>
+                    </StackPane.margin>
+                </ImageView>
+                <HBox alignment="CENTER" prefHeight="135.0" spacing="50.0">
+                    <children>
+                        <Button fx:id="about" alignment="CENTER" mnemonicParsing="false" onAction="#handleAction"
+                                styleClass="button-big" stylesheets="@../css/common.css" text="About">
+                            <HBox.margin>
+                                <Insets/>
+                            </HBox.margin>
+                        </Button>
+                        <Button fx:id="exit" alignment="CENTER" mnemonicParsing="false" onAction="#handleAction"
+                                styleClass="button-big" stylesheets="@../css/common.css" text="Exit">
+                            <HBox.margin>
+                                <Insets/>
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                    <padding>
+                        <Insets bottom="75.0"/>
+                    </padding>
+                </HBox>
+            </children>
+        </StackPane>
+    </bottom>
 </BorderPane>

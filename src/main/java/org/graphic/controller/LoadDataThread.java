@@ -13,6 +13,7 @@ import static org.graphic.controller.QuizScreenController.*;
 public class LoadDataThread extends MatchingGameController implements Runnable {
     protected final int numberOfWord = 7;
     protected final int numberOfCard = 14;
+
     public LoadDataThread() {
         //this.cards = cards;
     }
@@ -42,7 +43,7 @@ public class LoadDataThread extends MatchingGameController implements Runnable {
                 for (int i = 0; i < line.length(); i++) {
                     if (line.charAt(i) == ' ') {
                         word = line.substring(0, i);
-                        meaning = line.substring(i+1);
+                        meaning = line.substring(i + 1);
                         break;
                     }
                 }
@@ -66,10 +67,9 @@ public class LoadDataThread extends MatchingGameController implements Runnable {
                 optionC = fileScanner.nextLine();
                 optionD = fileScanner.nextLine();
                 answer = fileScanner.nextLine();
-                StringBuilder temp = new StringBuilder();
-                temp.append(fileScanner.nextLine());
-                temp.append(fileScanner.nextLine());
-                explain = temp.toString();
+                String temp = fileScanner.nextLine() +
+                        fileScanner.nextLine();
+                explain = temp;
                 questionList.add(new Question(question, optionA, optionB, optionC, optionD, answer, explain));
             }
         } catch (FileNotFoundException e) {
@@ -80,7 +80,7 @@ public class LoadDataThread extends MatchingGameController implements Runnable {
     public void chooseRandomQuestions() {
         Random random = new Random();
         int curNumOfQues = 0;
-        while (curNumOfQues != numberOfQuestions){
+        while (curNumOfQues != numberOfQuestions) {
             int randomNum = random.nextInt(0, questionList.size());
             if (questionList.get(randomNum) != null) {
                 questions.add(questionList.get(randomNum));
@@ -94,7 +94,7 @@ public class LoadDataThread extends MatchingGameController implements Runnable {
     public void chooseRandomWords() {
         Random random = new Random();
         int curNumOfWord = 0;
-        while (curNumOfWord != numberOfWord){
+        while (curNumOfWord != numberOfWord) {
             int randomNum = random.nextInt(0, words.size());
             if (words.get(randomNum) != null) {
                 targets.add(words.get(randomNum).getWordTarget());
@@ -110,7 +110,7 @@ public class LoadDataThread extends MatchingGameController implements Runnable {
     public void distributeData() {
         Random random = new Random();
         int curNumOfCard = 0;
-        while (curNumOfCard != numberOfCard){
+        while (curNumOfCard != numberOfCard) {
             while (!targets.isEmpty()) {
                 int ranNum = random.nextInt(0, numberOfCard);
                 System.out.println(ranNum);
@@ -136,8 +136,7 @@ public class LoadDataThread extends MatchingGameController implements Runnable {
                         definitions.remove(curNumOfCard % definitions.size());
                         curNumOfCard++;
                     }
-                }
-                else {
+                } else {
                     System.out.println("Card is null");
                     return;
                 }

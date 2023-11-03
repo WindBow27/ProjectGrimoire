@@ -3,15 +3,18 @@ package org.graphic.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 
 public class GameScreenController extends ControllersManager {
+    protected static String typeOfData;
+    @FXML
+    private ImageView loading;
     @FXML
     private Button quiz;
     @FXML
     private Button matching;
     @FXML
     private Button wordle;
-    protected static String typeOfData;
 
     @FXML
     private void playGame(ActionEvent event) throws Exception {
@@ -30,7 +33,7 @@ public class GameScreenController extends ControllersManager {
             return;
         }
         if (event.getSource() == wordle) {
-            //loadGameScreen("wordle", wordle);
+            loadGameScreen("wordle", wordle);
             return;
         }
         throw new Exception("Unknown button clicked");

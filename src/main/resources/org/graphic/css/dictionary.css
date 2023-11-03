@@ -22,6 +22,7 @@ h3 {
 ::-webkit-scrollbar {
     width: 15px;
 }
+
 ::-webkit-scrollbar-track {
     background: transparent;
 }

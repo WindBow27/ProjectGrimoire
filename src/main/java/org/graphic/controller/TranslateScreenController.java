@@ -4,22 +4,17 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javazoom.jl.player.Player;
+import javafx.scene.image.ImageView;
 import org.graphic.dictionary.Dictionary;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URI;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
-import java.util.concurrent.ExecutionException;
+import java.util.concurrent.CompletableFuture;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class TranslateScreenController extends ControllersManager {
     private final Logger logger = Logger.getLogger(TranslateScreenController.class.getName());
+    @FXML
+    private ImageView loading;
     @FXML
     private TextArea response;
     @FXML
@@ -36,38 +31,28 @@ public class TranslateScreenController extends ControllersManager {
         response.setWrapText(true);
     }
 
-    public void playSoundGoogleTranslate(String text, String tl) {
-        if (text == null || text.isEmpty()) return;
-        try {
-            String soundAPI = "https://translate.google.com/translate_tts?ie=UTF-8&tl=";
-            String urlStr = soundAPI + tl + "&client=tw-ob&q="
-                    + URLEncoder.encode(text, StandardCharsets.UTF_8);
-
-            URI uri = URI.create(urlStr);
-            URL url = uri.toURL();
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            InputStream audio = connection.getInputStream();
-            new Player(audio).play();
-            connection.disconnect();
-        } catch (Exception e) {
-            logger.log(Level.SEVERE, "An exception occurred", e);
-        }
-    }
-
     public void deleteWordInTextArea() {
         TextArea textArea = this.textArea;
         textArea.setText("");
         response.setText("");
     }
 
-    public void translateWordFromTextArea() throws IOException, ExecutionException, InterruptedException {
+    public void translateWordFromTextArea() {
+        loading.setVisible(true);
         if (textArea.getText() == null || textArea.getText().isEmpty()) return;
         TextArea textArea = this.textArea;
         String text = textArea.getText();
         Dictionary dictionary = new Dictionary();
-        String definition = dictionary.translateWord(text, tl);
-        response.setText(definition);
-        System.out.println(definition);
+        CompletableFuture<Void> future = CompletableFuture.runAsync(() -> {
+            try {
+                String definition = dictionary.translateWord(text, tl);
+                response.setText(definition);
+                System.out.println(definition);
+            } catch (Exception e) {
+                logger.log(Level.SEVERE, "An exception occurred", e);
+            }
+        });
+        future.thenRun(() -> Platform.runLater(() -> loading.setVisible(false)));
     }
 
     public void swapLanguage() {

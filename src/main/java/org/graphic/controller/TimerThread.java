@@ -28,7 +28,7 @@ public class TimerThread extends MatchingGameController implements Runnable {
 
                 // Display the timer on the screen.
                 Platform.runLater(() -> {
-                    label.setText(String.format("%.1f", elapsedTime / 1000)+ "s") ;
+                    label.setText(String.format("%.1f", elapsedTime / 1000) + "s");
                 });
             }
         }, 0, 1);

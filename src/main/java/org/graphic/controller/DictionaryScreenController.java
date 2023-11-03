@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.web.WebView;
 import org.graphic.app.AppConfig;
@@ -15,13 +16,16 @@ import org.graphic.dictionary.Word;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 
-public class DictionaryScreenController {
+public class DictionaryScreenController extends ControllersManager {
     private final AppConfig appConfig = new AppConfig();
     private final ArrayList<Word> words = new ArrayList<>();
     private final Dictionary dictionary = new Dictionary();
+    @FXML
+    private ImageView loading;
     @FXML
     private ListView<String> suggestions;
     @FXML
@@ -35,9 +39,13 @@ public class DictionaryScreenController {
     @FXML
     private Label announceLabel;
 
+    public ImageView getLoading() {
+        return loading;
+    }
 
     public void initialize() throws SQLException {
         dictionary.init();
+        response.getEngine().setUserStyleSheetLocation(Objects.requireNonNull(getClass().getResource("/org/graphic/css/dictionary.css")).toString());
     }
 
     public void deleteWordSearchField() {
@@ -61,6 +69,16 @@ public class DictionaryScreenController {
         searchWord(suggestions.getItems().get(0));
     }
 
+    public void enterSuggestions() {
+        String text = suggestions.getSelectionModel().getSelectedItem();
+        if (text == null) {
+            return;
+        }
+        searchField.setText(text);
+        searchWord(text);
+        displaySuggestions();
+    }
+
     public void searchWord(String text) {
         if (text.isEmpty()) {
             response.getEngine().loadContent("", "text/html");
@@ -75,6 +93,11 @@ public class DictionaryScreenController {
             definition = dictionary.findWord(word);
         }
         response.getEngine().loadContent(definition, "text/html");
+    }
+
+    public void playSound() {
+        String text = searchField.getText();
+        playSoundGoogleTranslate(text, "en");
     }
 
     public void successAction(String message) {
