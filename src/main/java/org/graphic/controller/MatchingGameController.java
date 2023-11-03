@@ -9,11 +9,11 @@ import org.graphic.dictionary.Word;
 import java.util.ArrayList;
 
 public class MatchingGameController extends GameScreenController {
-    protected final String matchingDataPath = "src/main/resources/org/graphic/data/matching-data.txt";
-    protected final ArrayList<Word> words = new ArrayList<>();
     protected static ArrayList<String> targets = new ArrayList<>();
     protected static ArrayList<String> definitions = new ArrayList<>();
     protected static ArrayList<Button> cards = new ArrayList<>();
+    protected final String matchingDataPath = "src/main/resources/org/graphic/data/matching-data.txt";
+    protected final ArrayList<Word> words = new ArrayList<>();
     protected int count = 2;
     protected Button selected1;
     protected Button selected2;

@@ -9,11 +9,21 @@
   <component name="ChangeListManager">
     <list default="true" id="6bd7be58-57b9-4d2c-89bd-bb5b23bc1c24" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/controller/AboutScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/controller/AboutScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/controller/ControllersManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/controller/ControllersManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/controller/LoadDataThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/controller/LoadDataThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/controller/MatchingGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/controller/MatchingGameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/controller/QuizScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/controller/QuizScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/css/common.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/data/quiz-data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/data/quiz-data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/controller/TranslateScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/controller/TranslateScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/controller/WordleScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/controller/WordleScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/css/background.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/css/background.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/css/web.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/css/web.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/about-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/about-screen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/game-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/game-screen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/matching-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/matching-screen.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/quiz-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/quiz-screen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/wordle-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/wordle-screen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/image/wordle.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/image/wordle.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

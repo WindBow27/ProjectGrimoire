@@ -3,6 +3,7 @@ package org.graphic.controller;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javazoom.jl.player.Player;
 
@@ -15,6 +16,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.CompletableFuture;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -71,6 +73,17 @@ public class ControllersManager {
         } catch (Exception e) {
             logger.log(Level.SEVERE, "An exception occurred", e);
         }
+    }
+
+    public void waitLoading(ImageView loading) {
+        CompletableFuture<Void> future = CompletableFuture.runAsync(() -> {
+            try {
+                Thread.sleep(1500);
+            } catch (InterruptedException e) {
+                System.out.println("Interrupted");
+            }
+        });
+        future.thenRun(() -> loading.setVisible(false));
     }
 }
 

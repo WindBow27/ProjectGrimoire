@@ -38,8 +38,8 @@ public class TranslateScreenController extends ControllersManager {
     }
 
     public void translateWordFromTextArea() {
-        loading.setVisible(true);
         if (textArea.getText() == null || textArea.getText().isEmpty()) return;
+        loading.setVisible(true);
         TextArea textArea = this.textArea;
         String text = textArea.getText();
         Dictionary dictionary = new Dictionary();

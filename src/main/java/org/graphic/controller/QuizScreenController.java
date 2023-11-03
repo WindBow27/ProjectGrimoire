@@ -10,10 +10,18 @@ import org.graphic.dictionary.Question;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 
 public class QuizScreenController extends GameScreenController implements Initializable {
+    protected static int numberOfQuestions;
+    protected static ArrayList<Question> questionList = new ArrayList<>();
+    protected static ArrayList<Question> questions = new ArrayList<>();
+    protected static String quizDataPath = "src/main/resources/org/graphic/data/quiz-data.txt";
+    private static final ArrayList<String> choices = new ArrayList<>();
+    private static int currentQuestion = -1;
+    private static String choice;
     @FXML
     private Label question;
     @FXML
@@ -32,20 +40,20 @@ public class QuizScreenController extends GameScreenController implements Initia
     private Button next;
     @FXML
     private Button prev;
-    private String[] choiceBoxItem = {"5", "10", "15", "20"};
-    protected static int numberOfQuestions;
-    protected static ArrayList<Question> questionList = new ArrayList<>();
-    protected static ArrayList<Question> questions = new ArrayList<>();
-    private static ArrayList<String> choices = new ArrayList<>();
-    private static int currentQuestion = -1;
-    private static String choice;
-    protected static String quizDataPath = "src/main/resources/org/graphic/data/quiz-data.txt";
+    @FXML
+    private Button exit;
+    private final String[] choiceBoxItem = {"5", "10", "15", "20"};
 
     public void startGame() {
         typeOfData = "Quiz";
     }
 
+    public void exit() throws Exception {
+        loadScreen("game", exit);
+    }
+
     public void generateQuiz() throws InterruptedException {
+        if (Objects.equals(menu.getValue(), "")) return;
         LoadDataThread loadThread = new LoadDataThread();
         Thread load = new Thread(loadThread);
         load.start();
@@ -57,7 +65,7 @@ public class QuizScreenController extends GameScreenController implements Initia
         if (currentQuestion <= numberOfQuestions) {
             if (currentQuestion + 1 < numberOfQuestions) currentQuestion++;
             System.out.println(currentQuestion);
-            question.setText("Question " + (currentQuestion + 1) + ": " +questions.get(currentQuestion).getQuestion());
+            question.setText("Question " + (currentQuestion + 1) + ": " + questions.get(currentQuestion).getQuestion());
             optionA.setText(questions.get(currentQuestion).getOptionA());
             optionB.setText(questions.get(currentQuestion).getOptionB());
             optionC.setText(questions.get(currentQuestion).getOptionC());
@@ -82,7 +90,7 @@ public class QuizScreenController extends GameScreenController implements Initia
         if (currentQuestion > 0) {
             currentQuestion--;
             System.out.println(currentQuestion);
-            question.setText("Question " + (currentQuestion + 1) + ": " +questions.get(currentQuestion).getQuestion());
+            question.setText("Question " + (currentQuestion + 1) + ": " + questions.get(currentQuestion).getQuestion());
             optionA.setText(questions.get(currentQuestion).getOptionA());
             optionB.setText(questions.get(currentQuestion).getOptionB());
             optionC.setText(questions.get(currentQuestion).getOptionC());
@@ -120,7 +128,6 @@ public class QuizScreenController extends GameScreenController implements Initia
             optionD.setStyle("-fx-background-color: #FFFFFF");
             choice = "A";
             optionA.setStyle("-fx-background-color: #50ABC7");
-            return;
         });
         optionB.setOnMouseClicked(event -> {
             optionA.setStyle("-fx-background-color: #FFFFFF");
@@ -129,7 +136,6 @@ public class QuizScreenController extends GameScreenController implements Initia
             optionD.setStyle("-fx-background-color: #FFFFFF");
             choice = "B";
             optionB.setStyle("-fx-background-color: #50ABC7");
-            return;
         });
         optionC.setOnMouseClicked(event -> {
             optionA.setStyle("-fx-background-color: #FFFFFF");
@@ -138,7 +144,6 @@ public class QuizScreenController extends GameScreenController implements Initia
             optionD.setStyle("-fx-background-color: #FFFFFF");
             choice = "C";
             optionC.setStyle("-fx-background-color: #50ABC7");
-            return;
         });
         optionD.setOnMouseClicked(event -> {
             optionA.setStyle("-fx-background-color: #FFFFFF");
@@ -147,7 +152,6 @@ public class QuizScreenController extends GameScreenController implements Initia
             optionD.setStyle("-fx-background-color: #FFFFFF");
             choice = "D";
             optionD.setStyle("-fx-background-color: #50ABC7");
-            return;
         });
     }
 
@@ -161,10 +165,7 @@ public class QuizScreenController extends GameScreenController implements Initia
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         menu.getItems().addAll(choiceBoxItem);
+        menu.setValue(choiceBoxItem[1]);
         menu.setOnAction(this::getNumberOfQuestions);
-    }
-
-    public void handleAction(ActionEvent event) {
-
     }
 }

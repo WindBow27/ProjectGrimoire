@@ -32,3 +32,10 @@
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
 }
+
+.background4-no-butterfly {
+    -fx-background-image: url('../image/background-4.jpg');
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
