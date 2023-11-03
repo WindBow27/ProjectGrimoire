@@ -14,11 +14,6 @@ import java.util.ResourceBundle;
 
 
 public class QuizScreenController extends GameScreenController implements Initializable {
-    protected static int numberOfQuestions;
-    protected static ArrayList<Question> questionList = new ArrayList<>();
-    protected static ArrayList<Question> questions = new ArrayList<>();
-    private final String[] choiceBoxItem = {"5", "10", "15", "20"};
-    private final String dataPath = "src/main/resources/org/graphic/data/quiz-data.txt";
     @FXML
     private Label question;
     @FXML
@@ -37,21 +32,58 @@ public class QuizScreenController extends GameScreenController implements Initia
     private Button next;
     @FXML
     private Button prev;
-    @FXML
-    private Button exit;
+    private String[] choiceBoxItem = {"5", "10", "15", "20"};
+    protected static int numberOfQuestions;
+    protected static ArrayList<Question> questionList = new ArrayList<>();
+    protected static ArrayList<Question> questions = new ArrayList<>();
+    private static int currentQuestion = -1;
+    protected static String quizDataPath = "src/main/resources/org/graphic/data/quiz-data.txt";
 
     public void startGame() throws InterruptedException {
         typeOfData = "Quiz";
+    }
+
+    public void generateQuiz() throws InterruptedException {
         LoadDataThread loadThread = new LoadDataThread();
         Thread load = new Thread(loadThread);
         load.start();
         load.join();
-        questionList.forEach(System.out::println);
-        //handleAction(event);
+        displayQuiz();
     }
 
-    public void exit() throws Exception {
-        loadScreen("game", exit);
+    public void nextQuestion() {
+        if (currentQuestion <= numberOfQuestions) {
+            if (currentQuestion + 1 < numberOfQuestions) currentQuestion++;
+            System.out.println(currentQuestion);
+            question.setText("Question " + (currentQuestion + 1) + ": " +questions.get(currentQuestion).getQuestion());
+            optionA.setText(questions.get(currentQuestion).getOptionA());
+            optionB.setText(questions.get(currentQuestion).getOptionB());
+            optionC.setText(questions.get(currentQuestion).getOptionC());
+            optionD.setText(questions.get(currentQuestion).getOptionD());
+        }
+    }
+
+    public void prevQuestion() {
+        if (currentQuestion > 0) {
+            currentQuestion--;
+            System.out.println(currentQuestion);
+            question.setText("Question " + (currentQuestion + 1) + ": " +questions.get(currentQuestion).getQuestion());
+            optionA.setText(questions.get(currentQuestion).getOptionA());
+            optionB.setText(questions.get(currentQuestion).getOptionB());
+            optionC.setText(questions.get(currentQuestion).getOptionC());
+            optionD.setText(questions.get(currentQuestion).getOptionD());
+        }
+    }
+
+    public void displayQuiz() {
+        question.setVisible(true);
+        optionA.setVisible(true);
+        optionB.setVisible(true);
+        optionC.setVisible(true);
+        optionD.setVisible(true);
+        next.setVisible(true);
+        prev.setVisible(true);
+        nextQuestion();
     }
 
     public void getNumberOfQuestions(ActionEvent event) {
@@ -63,5 +95,9 @@ public class QuizScreenController extends GameScreenController implements Initia
     public void initialize(URL url, ResourceBundle resourceBundle) {
         menu.getItems().addAll(choiceBoxItem);
         menu.setOnAction(this::getNumberOfQuestions);
+    }
+
+    public void handleAction(ActionEvent event) {
+
     }
 }
