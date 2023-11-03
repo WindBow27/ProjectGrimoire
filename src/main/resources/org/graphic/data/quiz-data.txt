@@ -498,7 +498,7 @@ __________ problems in sailing in tropical seas is the coral reefs.
 A. One of the biggest
 B. The biggest one
 C. Of the biggest one
-d. There are the biggest
+D. There are the biggest
 Đáp án: A
 Giải thích: one of the + Ns: một trong những...
 Dịch: Một trong những vấn đề trong việc đi thuyền ngoài biển nhiệt đới là những rặng san hô.
@@ -773,7 +773,7 @@ C. reaches-has died
 D. has reached-dies
 Đáp án: B
 Giải thích: before QKĐ, QKHT
-Dịch: Người taddax báo cáo rằng trước khi hỗ trợ tiếp cận được họ, một em bé đã thiệt mạng vì bệnh bại liệt trẻ em.
+Dịch: Người ta đã báo cáo rằng trước khi hỗ trợ tiếp cận được họ, một em bé đã thiệt mạng vì bệnh bại liệt trẻ em.
 - “I _______ you at 9 tomorrow morning. Will that be OK?”  -“At 9? No, I _______ shopping with my mother.”
 A. phone-will go
 B. am phoning- have gone
@@ -781,6 +781,7 @@ C. will phone-will be going
 D. have phoned-am going
 Đáp án: C
 Giải thích: ở ô trống thứ nhất ta có mốc thời gian “tomorrrow morning” nên động từ chia thời tương lai đơn will V. Ta dùng will be Ving để diễn tả hành động sẽ đang diễn ra tại một thời điểm xác định trong tương lai.
+Dịch: "Tôi sẽ gọi cho bạn vào 9h sáng mai. Ổn chứ?" - "9h ư? Không, tôi đang đi mua sắm với anh trai."
 My brother sometimes asked himself what _______ to the trees if spring didn’t come at last.
 A. happened
 B. happens

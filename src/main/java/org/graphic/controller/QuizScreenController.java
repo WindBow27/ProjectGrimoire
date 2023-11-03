@@ -36,10 +36,12 @@ public class QuizScreenController extends GameScreenController implements Initia
     protected static int numberOfQuestions;
     protected static ArrayList<Question> questionList = new ArrayList<>();
     protected static ArrayList<Question> questions = new ArrayList<>();
+    private static ArrayList<String> choices = new ArrayList<>();
     private static int currentQuestion = -1;
+    private static String choice;
     protected static String quizDataPath = "src/main/resources/org/graphic/data/quiz-data.txt";
 
-    public void startGame() throws InterruptedException {
+    public void startGame() {
         typeOfData = "Quiz";
     }
 
@@ -61,9 +63,22 @@ public class QuizScreenController extends GameScreenController implements Initia
             optionC.setText(questions.get(currentQuestion).getOptionC());
             optionD.setText(questions.get(currentQuestion).getOptionD());
         }
+        if (currentQuestion == numberOfQuestions - 1) next.setText("Finish");
+        if (choices.isEmpty()) {
+            choices.add(choice);
+        } else {
+            if (choices.get(currentQuestion - 1) == null) {
+                choices.add(choice);
+            } else {
+                choices.set(currentQuestion - 1, choice);
+            }
+        }
+        choices.forEach(x -> System.out.print(x + " "));
+        System.out.println();
     }
 
     public void prevQuestion() {
+        next.setText("Next");
         if (currentQuestion > 0) {
             currentQuestion--;
             System.out.println(currentQuestion);
@@ -72,6 +87,12 @@ public class QuizScreenController extends GameScreenController implements Initia
             optionB.setText(questions.get(currentQuestion).getOptionB());
             optionC.setText(questions.get(currentQuestion).getOptionC());
             optionD.setText(questions.get(currentQuestion).getOptionD());
+        }
+        if (!choices.isEmpty()) {
+            if (choices.get(currentQuestion) == null) choices.add(choice);
+            else choices.set(currentQuestion, choice);
+        } else {
+            deleteChoiceEffect();
         }
     }
 
@@ -89,6 +110,52 @@ public class QuizScreenController extends GameScreenController implements Initia
     public void getNumberOfQuestions(ActionEvent event) {
         numberOfQuestions = Integer.parseInt(menu.getValue());
         System.out.println(numberOfQuestions);
+    }
+
+    public void getChoice() {
+        optionA.setOnMouseClicked(event -> {
+            optionA.setStyle("-fx-background-color: #FFFFFF");
+            optionB.setStyle("-fx-background-color: #FFFFFF");
+            optionC.setStyle("-fx-background-color: #FFFFFF");
+            optionD.setStyle("-fx-background-color: #FFFFFF");
+            choice = "A";
+            optionA.setStyle("-fx-background-color: #50ABC7");
+            return;
+        });
+        optionB.setOnMouseClicked(event -> {
+            optionA.setStyle("-fx-background-color: #FFFFFF");
+            optionB.setStyle("-fx-background-color: #FFFFFF");
+            optionC.setStyle("-fx-background-color: #FFFFFF");
+            optionD.setStyle("-fx-background-color: #FFFFFF");
+            choice = "B";
+            optionB.setStyle("-fx-background-color: #50ABC7");
+            return;
+        });
+        optionC.setOnMouseClicked(event -> {
+            optionA.setStyle("-fx-background-color: #FFFFFF");
+            optionB.setStyle("-fx-background-color: #FFFFFF");
+            optionC.setStyle("-fx-background-color: #FFFFFF");
+            optionD.setStyle("-fx-background-color: #FFFFFF");
+            choice = "C";
+            optionC.setStyle("-fx-background-color: #50ABC7");
+            return;
+        });
+        optionD.setOnMouseClicked(event -> {
+            optionA.setStyle("-fx-background-color: #FFFFFF");
+            optionB.setStyle("-fx-background-color: #FFFFFF");
+            optionC.setStyle("-fx-background-color: #FFFFFF");
+            optionD.setStyle("-fx-background-color: #FFFFFF");
+            choice = "D";
+            optionD.setStyle("-fx-background-color: #50ABC7");
+            return;
+        });
+    }
+
+    public void deleteChoiceEffect() {
+        optionA.setStyle("none");
+        optionB.setStyle("none");
+        optionC.setStyle("none");
+        optionD.setStyle("none");
     }
 
     @Override
