@@ -9,19 +9,20 @@ import javafx.scene.control.Label;
 import org.graphic.dictionary.Question;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Objects;
-import java.util.ResourceBundle;
+import java.util.*;
 
 
 public class QuizScreenController extends GameScreenController implements Initializable {
-    protected static int numberOfQuestions;
+    protected static int numberOfQuestions = 10;
     protected static ArrayList<Question> questionList = new ArrayList<>();
     protected static ArrayList<Question> questions = new ArrayList<>();
     protected static String quizDataPath = "src/main/resources/org/graphic/data/quiz-data.txt";
     private static final ArrayList<String> choices = new ArrayList<>();
-    private static int currentQuestion = -1;
+    protected static int currentQuestion = -1;
+    private int score = 0;
     private static String choice;
+    @FXML
+    private Label title;
     @FXML
     private Label question;
     @FXML
@@ -42,6 +43,8 @@ public class QuizScreenController extends GameScreenController implements Initia
     private Button prev;
     @FXML
     private Button exit;
+    private boolean review = false;
+    private boolean viewResult = false;
     private final String[] choiceBoxItem = {"5", "10", "15", "20"};
 
     public void startGame() {
@@ -50,6 +53,7 @@ public class QuizScreenController extends GameScreenController implements Initia
 
     public void exit() throws Exception {
         loadScreen("game", exit);
+        currentQuestion = -1;
     }
 
     public void generateQuiz() throws InterruptedException {
@@ -62,45 +66,93 @@ public class QuizScreenController extends GameScreenController implements Initia
     }
 
     public void nextQuestion() {
-        if (currentQuestion <= numberOfQuestions) {
+        if (choices.isEmpty()) {
+            if (choice != null) choices.add(choice);
+            deleteChoiceEffect();
+        }
+        else {
+            if (review) {
+                if (currentQuestion + 1 < choices.size()) {
+                    deleteChoiceEffect();
+                    switch (choices.get(currentQuestion + 1)) {
+                        case "A" -> optionA.setStyle("-fx-background-color: #50ABC7");
+                        case "B" -> optionB.setStyle("-fx-background-color: #50ABC7");
+                        case "C" -> optionC.setStyle("-fx-background-color: #50ABC7");
+                        case "D" -> optionD.setStyle("-fx-background-color: #50ABC7");
+                    }
+                }
+                else {
+                    deleteChoiceEffect();
+                    if (currentQuestion == choices.size()) {
+                        deleteChoiceEffect();
+                        if (choice != null) choices.add(choice);
+                    }
+                    else if (currentQuestion == 0) {
+                        deleteChoiceEffect();
+                        choices.set(currentQuestion, choice);
+                    }
+                    else if (choices.get(currentQuestion - 1) == null) {
+                        if (choice != null) choices.add(choice);
+                        deleteChoiceEffect();
+                    } else {
+                        if (choice != null) choices.set(currentQuestion, choice);
+                    }
+                }
+            }
+            else {
+                if (currentQuestion == choices.size()) {
+                    deleteChoiceEffect();
+                    if (choice != null) choices.add(choice);
+                }
+                else if (currentQuestion == 0) {
+                    deleteChoiceEffect();
+                    choices.set(currentQuestion, choice);
+                }
+                else if (choices.get(currentQuestion - 1) == null) {
+                    if (choice != null) choices.add(choice);
+                    deleteChoiceEffect();
+                } else {
+                    if (choice != null) choices.set(currentQuestion, choice);
+                }
+            }
+        }
+        System.out.println("Choice size: " + choices.size());
+        choices.forEach(x -> System.out.print(x + " "));
+        System.out.println();
+        if (currentQuestion < numberOfQuestions) {
             if (currentQuestion + 1 < numberOfQuestions) currentQuestion++;
-            System.out.println(currentQuestion);
+            System.out.println("Current question:" + currentQuestion);
             question.setText("Question " + (currentQuestion + 1) + ": " + questions.get(currentQuestion).getQuestion());
             optionA.setText(questions.get(currentQuestion).getOptionA());
             optionB.setText(questions.get(currentQuestion).getOptionB());
             optionC.setText(questions.get(currentQuestion).getOptionC());
             optionD.setText(questions.get(currentQuestion).getOptionD());
         }
-        if (currentQuestion == numberOfQuestions - 1) next.setText("Finish");
-        if (choices.isEmpty()) {
-            choices.add(choice);
-        } else {
-            if (choices.get(currentQuestion - 1) == null) {
-                choices.add(choice);
-            } else {
-                choices.set(currentQuestion - 1, choice);
-            }
+        if (next.getText().equals("Finish")) {
+            evaluate();
+            return;
         }
-        choices.forEach(x -> System.out.print(x + " "));
-        System.out.println();
+        if (currentQuestion == numberOfQuestions - 1) next.setText("Finish");
     }
 
     public void prevQuestion() {
+        review = true;
         next.setText("Next");
         if (currentQuestion > 0) {
+            deleteChoiceEffect();
+            switch (choices.get(currentQuestion - 1)) {
+                case "A" -> optionA.setStyle("-fx-background-color: #50ABC7");
+                case "B" -> optionB.setStyle("-fx-background-color: #50ABC7");
+                case "C" -> optionC.setStyle("-fx-background-color: #50ABC7");
+                case "D" -> optionD.setStyle("-fx-background-color: #50ABC7");
+            }
             currentQuestion--;
-            System.out.println(currentQuestion);
+            System.out.println("Current question:" + currentQuestion);
             question.setText("Question " + (currentQuestion + 1) + ": " + questions.get(currentQuestion).getQuestion());
             optionA.setText(questions.get(currentQuestion).getOptionA());
             optionB.setText(questions.get(currentQuestion).getOptionB());
             optionC.setText(questions.get(currentQuestion).getOptionC());
             optionD.setText(questions.get(currentQuestion).getOptionD());
-        }
-        if (!choices.isEmpty()) {
-            if (choices.get(currentQuestion) == null) choices.add(choice);
-            else choices.set(currentQuestion, choice);
-        } else {
-            deleteChoiceEffect();
         }
     }
 
@@ -156,10 +208,18 @@ public class QuizScreenController extends GameScreenController implements Initia
     }
 
     public void deleteChoiceEffect() {
-        optionA.setStyle("none");
-        optionB.setStyle("none");
-        optionC.setStyle("none");
-        optionD.setStyle("none");
+        optionA.setStyle("-fx-background-color: #FFFFFF");
+        optionB.setStyle("-fx-background-color: #FFFFFF");
+        optionC.setStyle("-fx-background-color: #FFFFFF");
+        optionD.setStyle("-fx-background-color: #FFFFFF");
+    }
+
+    public void evaluate() {
+        for (int i = 0; i < choices.size(); i++) {
+            String[] parts = questions.get(i).getAnswer().split(" ");
+            if (choices.get(i).equals(parts[2])) score++;
+        }
+        title.setText(score + "/" + numberOfQuestions);
     }
 
     @Override
