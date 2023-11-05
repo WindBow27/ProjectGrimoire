@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.web.WebView?>
 
 <BorderPane prefHeight="720.0" prefWidth="1280.0" styleClass="background1" stylesheets="@../css/background.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.graphic.controller.QuizScreenController">
     <center>
@@ -21,31 +22,31 @@
                                 <Insets />
                             </HBox.margin>
                             <children>
-                                <Label fx:id="question" prefHeight="150.0" prefWidth="640.0" visible="false" wrapText="true">
+                                <Label fx:id="question" prefHeight="104.0" prefWidth="640.0" visible="false" wrapText="true">
                                     <VBox.margin>
                                         <Insets top="10.0" />
                                     </VBox.margin>
                                 </Label>
                                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
                                     <children>
-                                        <Label fx:id="optionA" alignment="CENTER" onMouseClicked="#getChoice" prefWidth="235.0" styleClass="quiz-label" stylesheets="@../css/common.css" visible="false" />
+                                        <Label fx:id="optionA" alignment="CENTER" onMouseClicked="#getChoice" prefWidth="250.0" styleClass="quiz-label" stylesheets="@../css/common.css" visible="false" wrapText="true" />
                                         <ImageView fitHeight="85.0" fitWidth="1.0" pickOnBounds="true" preserveRatio="true">
                                             <HBox.margin>
                                                 <Insets top="2.0" />
                                             </HBox.margin>
                                         </ImageView>
-                                        <Label fx:id="optionB" alignment="CENTER" onMouseClicked="#getChoice" prefWidth="235.0" styleClass="quiz-label" stylesheets="@../css/common.css" visible="false" />
+                                        <Label fx:id="optionB" alignment="CENTER" onMouseClicked="#getChoice" prefWidth="250.0" styleClass="quiz-label" stylesheets="@../css/common.css" visible="false" wrapText="true" />
                                     </children>
                                 </HBox>
                                 <HBox alignment="CENTER" layoutX="10.0" layoutY="197.0" spacing="50.0">
                                     <children>
-                                        <Label fx:id="optionC" alignment="CENTER" onMouseClicked="#getChoice" prefWidth="235.0" styleClass="quiz-label" stylesheets="@../css/common.css" visible="false" />
+                                        <Label fx:id="optionC" alignment="CENTER" onMouseClicked="#getChoice" prefWidth="250.0" styleClass="quiz-label" stylesheets="@../css/common.css" visible="false" wrapText="true" />
                                         <ImageView fitHeight="45.0" fitWidth="1.0" pickOnBounds="true" preserveRatio="true">
                                             <HBox.margin>
                                                 <Insets top="3.0" />
                                             </HBox.margin>
                                         </ImageView>
-                                        <Label fx:id="optionD" alignment="CENTER" onMouseClicked="#getChoice" prefWidth="235.0" styleClass="quiz-label" stylesheets="@../css/common.css" visible="false" />
+                                        <Label fx:id="optionD" alignment="CENTER" onMouseClicked="#getChoice" prefWidth="250.0" styleClass="quiz-label" stylesheets="@../css/common.css" visible="false" wrapText="true" />
                                     </children>
                                 </HBox>
                             </children>
@@ -87,7 +88,7 @@
                 <HBox alignment="CENTER" prefHeight="77.0" prefWidth="1280.0" spacing="15.0" BorderPane.alignment="CENTER">
                     <children>
                         <Button fx:id="prev" mnemonicParsing="false" onAction="#prevQuestion" text="Previous" visible="false" />
-                        <Label fx:id="answer" prefHeight="71.0" prefWidth="577.0" visible="false" />
+                  <WebView fx:id="answer" prefHeight="200.0" prefWidth="600.0" stylesheets="@../css/dictionary.css" />
                         <Button fx:id="next" mnemonicParsing="false" onAction="#nextQuestion" text="Next" visible="false">
                             <HBox.margin>
                                 <Insets />

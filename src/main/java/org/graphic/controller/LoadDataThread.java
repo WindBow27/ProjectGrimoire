@@ -70,7 +70,7 @@ public class LoadDataThread extends MatchingGameController implements Runnable {
                 String optionD = fileScanner.hasNextLine() ? fileScanner.nextLine() : "";
                 String answer = fileScanner.hasNextLine() ? fileScanner.nextLine() : "";
                 String explain = (fileScanner.hasNextLine() ? fileScanner.nextLine() : "") +
-                        "\n" +
+                        "<br>" +
                         (fileScanner.hasNextLine() ? fileScanner.nextLine() : "");
                 questionList.add(new Question(question, optionA, optionB, optionC, optionD, answer, explain));
             }
