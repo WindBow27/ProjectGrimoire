@@ -6,7 +6,7 @@ import javafx.scene.control.Label;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class TimerThread extends MatchingGameController implements Runnable {
+public class TimerThread implements Runnable {
     private final Timer timer;
     private final long startTime;
     private final Label label;

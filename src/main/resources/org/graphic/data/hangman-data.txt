@@ -1,0 +1,821 @@
+ABLE Ability
+ABOUT Regarding
+ACCOUNT Financial
+ACID Corrosive
+ACT Performance
+ADDITION Summation
+AFTER Subsequent
+AGAIN Repeatedly
+AGAINST Opposing
+AGREEMENT Accord
+AIR Atmosphere
+ALL Everything
+ALMOST Nearly
+AMONG Amidst
+AMOUNT Quantity
+AMUSEMENT Entertainment
+AND Furthermore
+ANGLE Corner
+ANGRY Irritated
+ANIMAL Creature
+ANSWER Response
+ANT Insect
+ANY Whatever
+APPLE Fruit
+APPROVAL Endorsement
+ARCH Curved structure
+ARGUMENT Dispute
+ARM Limb
+ARMY Military
+ART Creative expression
+AS Like
+AT Location
+ATTACK Offensive
+ATTEMPT Effort
+ATTENTION Focus
+AUTHORITY Power
+AUTOMATIC Self-operating
+AWAKE Conscious
+BABY Infant
+BACK Rear
+BAD Unfavorable
+BAG Sack
+BALANCE Equilibrium
+BALL Sphere
+BAND Musical group
+BASE Foundation
+BASIN Bowl
+BASKET Container
+BATH Bathtub
+BE Exist
+BEAUTIFUL Attractive
+BECAUSE Due to the fact that
+BED Sleep furniture
+BEE Insect
+BEFORE Prior to
+BEHAVIOUR Conduct
+BELIEF Conviction
+BELL Chime
+BENT Curved
+BERRY Small fruit
+BETWEEN Amidst
+BIRD Feathered creature
+BIRTH Delivery
+BIT Small amount
+BITE Nibble
+BITTER Acrid
+BLACK Dark
+BLADE Cutting edge
+BLOOD Red fluid
+BLOW Gust
+BLUE Azure color
+BOARD Plank
+BOAT Watercraft
+BODY Physical structure
+BOILING Agitated
+BONE Skeletal part
+BOOK Volume
+BOOT Footwear
+BOTTLE Container
+BOX Container
+BOY Young male
+BRAIN Cognitive organ
+BRAKE Stopping device
+BRANCH Offshoot
+BRASS Copper-zinc alloy
+BREAD Baked food
+BREATH Inhalation
+BRICK Building material
+BRIDGE Overpass
+BRIGHT Radiant
+BROKEN Shattered
+BROTHER Sibling
+BROWN Dark color
+BRUSH Bristled tool
+BUCKET Pail
+BUILDING Structure
+BULB Light source
+BURN Combust
+BURST Eruption
+BUSINESS Commerce
+BUT However
+BUTTER Dairy product
+BUTTON Fastener
+BY Through the means of
+CAKE Dessert
+CAMERA Photographic device
+CANVAS Fabric
+CARD Playing card
+CARE Concern
+CARRIAGE Vehicle
+CART Wagon
+CAT Feline
+CAUSE Reason
+CERTAIN Specific
+CHAIN Series
+CHALK Soft rock
+CHANCE Opportunity
+CHANGE Alteration
+CHEAP Inexpensive
+CHEESE Dairy product
+CHEMICAL Substance
+CHEST Trunk
+CHIEF Leader
+CHIN Facial feature
+CHURCH Place of worship
+CIRCLE Round shape
+CLEAN Tidy
+CLEAR Transparent
+CLOCK Timepiece
+CLOTH Fabric
+CLOUD Atmospheric moisture
+COAL Combustible mineral
+COAT Garment
+COLD Chilly
+COLLAR Neckband
+COLOUR Hue
+COMB Grooming tool
+COME Arrive
+COMFORT Contentment
+COMMITTEE Group
+COMMON Ordinary
+COMPANY Corporation
+COMPLETE Total
+COMPLEX Complicated
+CONDITION State
+CONSCIOUS Aware
+CONTROL Regulate
+COOK Prepare food
+COPPER Metallic element
+COPY Duplicate
+CORD String
+CORK Bottle stopper
+COTTON Plant fiber
+COUGH Throat clearing
+COUNTRY Nation
+COVER Conceal
+COW Bovine
+CRACK Fracture
+CREDIT Financial trust
+CRIME Offense
+CRUEL Brutal
+CRUSH Compress
+CRY Weep
+CUP Drinking vessel
+CUP Trophie
+CURRENT Flow
+CURTAIN Drapery
+CURVE Bend
+CUSHION Pillow
+DAMAGE Harm
+DANGER Risk
+DARK Dim
+DAUGHTER Female child
+DAY 24 hours
+DEAD Lifeless
+DEAR Beloved
+DEATH Demise
+DEBT Owing
+DECISION Choice
+DEEP Profound
+DEGREE Extent
+DELICATE Fragile
+DEPENDENT Reliant
+DESIGN Plan
+DESIRE Craving
+DETAIL Particular
+DIFFERENT Divergent
+DIGESTION Metabolism
+DIRECTION Course
+DIRTY Soiled
+DISCOVERY Finding
+DISEASE Ailment
+DISGUST Aversion
+DISTANCE Space
+DIVISION Partition
+DO Perform
+DOG Canine
+DOOR Entrance
+DOUBT Uncertainty
+DOWN Descend
+DRAIN Conduit
+DRAWER Storage
+DRESS Garment
+DRINK Beverage
+DRIVING Operating a vehicle
+DROP Descend
+DRY Arid
+DUST Particles
+EAR Auditory organ
+EARLY Premature
+EARTH Planet
+EAST Direction
+EDGE Perimeter
+EDUCATION Learning
+EFFECT Consequence
+EGG Ovum
+ELASTIC Stretchy
+ELECTRIC Powered by electricity
+END Conclusion
+ENGINE Motor
+ENOUGH Adequate
+EQUAL Equivalent
+ERROR Mistake
+EVEN Equitable
+EVENT Occurrence
+EVER Always
+EVERY Each
+EXAMPLE Illustration
+EXCHANGE Swap
+EXISTENCE Being
+EXPANSION Enlargement
+EXPERT Specialist
+EYE Visual organ
+FACE Countenance
+FACT Reality
+FALL Descend
+FALSE Untrue
+FAMILY Relatives
+FAR Distant
+FARM Agricultural land
+FAT Obese
+FATHER Male parent
+FEAR Dread
+FEATHER Plumage
+FEEBLE Frail
+FEELING Emotion
+FEMALE Woman
+FERTILE Productive
+FICTION Imaginative story
+FIELD Agricultural land
+FIGHT Combat
+FINGER Digit
+FIRE Blaze
+FIRST Initial
+FISH Aquatic animal
+FIXED Immovable
+FLAG Banner
+FLAME Fire
+FLAT Level
+FLIGHT Aerial journey
+FLOOR Surface
+FLOWER Blossom
+FLY Insect
+FOLD Crease
+FOOD Edible
+FOOLISH Silly
+FOOT Lower extremity
+FOR In favor of
+FORCE Power
+FORK Eating utensil
+FORM Shape
+FORWARD Onward
+FOWL Bird
+FRAME Structure
+FREE Liberated
+FREQUENT Often
+FRIEND Pal
+FROM Origin
+FRONT Forepart
+FRUIT Edible produce
+FULL Complete
+FUTURE Upcoming
+GARDEN Green space
+GENERAL Widespread
+GET Acquire
+GIRL Young female
+GIVE Provide
+GLASS Transparent material
+GLOVE Hand covering
+GO Move
+GOAT Domestic animal
+GOLD Precious metal
+GOOD Positive
+GRAIN Cereal
+GRASS Plant
+GREAT Wonderful
+GREEN Verdant
+GREY Neutral color
+GRIP Hold
+GROUP Collection
+GROWTH Development
+GUIDE Leader
+GUN Firearm
+HAIR Tresses
+HAMMER Tool
+HAND Limb
+HANGING Suspended
+HAPPY Joyful
+HARBOUR Port
+HARD Firm
+HARMONY Concord
+HAT Headgear
+HATE Detest
+HAVE Possess
+HE Male
+HEAD Cranium
+HEALTHY Well
+HEAR Listen
+HEARING Audition
+HEART Cardiac organ
+HEAT Warmth
+HELP Assist
+HIGH Elevated
+HISTORY Past events
+HOLE Opening
+HOLLOW Empty
+HOOK Fastener
+HOPE Optimism
+HORN Musical instrument
+HORSE Equine
+HOSPITAL Medical facility
+HOUR Time unit
+HOUSE Dwelling
+HOW In what manner
+HUMOUR Comedy
+I Myself
+ICE Frozen water
+IDEA Thought
+IF Provided that
+ILL Ailing
+IMPORTANT Significant
+IMPULSE Sudden urge
+IN Inside
+INCREASE Augmentation
+INDUSTRY Manufacturing
+INK Writing fluid
+INSECT Small creature
+INSURANCE Coverage
+INTEREST Fascination
+INVENTION Innovation
+IRON Metallic element
+ISLAND Land surrounded by water
+JELLY Gelatinous dessert
+JEWEL Precious gem
+JOIN Connect
+JOURNEY Trip
+JUDGE Adjudicator
+JUMP Leap
+KEEP Retain
+KETTLE Boiling vessel
+KEY Lock opener
+KICK Strike with the foot
+KIND Type
+KISS Smooch
+KNEE Joint
+KNIFE Cutting tool
+KNOT Tied
+KNOWLEDGE Information
+LAND Terrain
+LANGUAGE Communication
+LAST Final
+LATE Tardy
+LAUGH Chuckle
+LAW Legal system
+LEAD Guide
+LEAF Foliage
+LEARNING Education
+LEATHER Tanned animal hide
+LEFT Opposite of right
+LEG Limb
+LET Allow
+LETTER Correspondence
+LEVEL Degree
+LIBRARY Repository of books
+LIFT Elevator
+LIKE Similar to
+LIMIT Boundary
+LINE Straight mark
+LINEN Fabric
+LIP Mouth part
+LIQUID Fluid
+LIST Enumeration
+LITTLE Small
+LIVING Alive
+LOCK Secure fastening
+LONG Extended
+LOOK Gaze
+LOOSE Not tight
+LOSS Deficit
+LOUD Noisy
+LOVE Affection
+LOW Not high
+MACHINE Device
+MAKE Create
+MALE Man
+MANAGER Supervisor
+MAP Chart
+MARK Sign
+MARKET Marketplace
+MARRIED Wedded
+MASS Large quantity
+MATCH Pairing
+MATERIAL Substance
+MAY Might
+MEAL Repast
+MEASURE Quantify
+MEAT Flesh
+MEDICAL Healthcare
+MEETING Gathering
+MEMORY Recall
+METAL Metallic
+MIDDLE Center
+MILITARY Armed forces
+MILK Dairy product
+MIND Intellect
+MINE Possess
+MINUTE Sixty seconds
+MIST Fine droplets
+MIXED Blended
+MONEY Currency
+MONKEY Primate
+MONTH 30 days
+MOON Celestial body
+MORNING Early day
+MOTHER Female parent
+MOTION Movement
+MOUNTAIN Highland
+MOUTH Oral cavity
+MOVE Relocate
+MUCH Abundant
+MUSCLE Tissue
+MUSIC Harmonious sounds
+NAIL Fingernail
+NAME Appellation
+NARROW Slim
+NATION Country
+NATURAL Inherent
+NEAR Close
+NECESSARY Required
+NECK Throat
+NEED Requirement
+NEEDLE Sharp tool
+NERVE Neural
+NET Mesh
+NEW Fresh
+NEWS Information
+NIGHT Evening
+NO Negative
+NOISE Sound
+NORMAL Usual
+NORTH Direction
+NOSE Nasal organ
+NOT Negative
+NOTE Written message
+NOW Present time
+NUMBER Numerical
+NUT Edible seed
+OF Belonging to
+OFF Not on
+OFFER Present
+OFFICE Workplace
+OIL Lubricant
+OLD Aged
+ON Upon
+ONLY Solely
+OPEN Unsealed
+OPERATION Procedure
+OPINION Belief
+OPPOSITE Contrary
+OR Otherwise
+ORANGE Citrus color
+ORDER Arrangement
+ORNAMENT Decoration
+OTHER Different
+OUT Exterior
+OVEN Cooking appliance
+OVER Above
+OWNER Possessor
+PAGE Sheet
+PAIN Discomfort
+PAINT Pigment
+PAPER Material for writing
+PARALLEL Side-by-side
+PARCEL Package
+PART Component
+PAST Prior time
+PASTE Adhesive
+PAYMENT Compensation
+PEACE Harmony
+PEN Writing instrument
+PENCIL Writing tool
+PERSON Individual
+PHYSICAL Bodily
+PICTURE Image
+PIG Swine
+PIN Fastener
+PIPE Tube
+PLACE Location
+PLANE Aircraft
+PLANT Vegetation
+PLATE Dish
+PLAY Recreation
+PLEASE Kindly
+PLEASURE Enjoyment
+PLOUGH Farming tool
+POCKET Pouch
+POINT Tip
+POISON Toxin
+POLISH Shine
+POLITICAL Government-related
+POOR Impoverished
+PORTER Carrier
+POSITION Location
+POSSIBLE Feasible
+POT Vessel
+POTATO Edible tuber
+POWDER Fine particles
+POWER Authority
+PRESENT Now
+PRICE Cost
+PRINT Impress
+PRISON Confinement
+PRIVATE Personal
+PROBABLE Likely
+PROCESS Procedure
+PRODUCE Generate
+PROFIT Gain
+PROPERTY Possession
+PROSE Written language
+PROTEST Dissent
+PUBLIC Community
+PULL Tug
+PUMP Device for fluids
+PURPOSE Intention
+PUSH Shove
+PUT Place
+QUALITY Grade
+QUESTION Inquiry
+QUICK Fast
+QUIET Silent
+QUITE Fairly
+RAIL Train track
+RAIN Precipitation
+RANGE Variety
+RAT Rodent
+RATE Speed
+RAY Beam
+REACTION Response
+READING Perusing
+READY Prepared
+REASON Rationality
+RECEIPT Proof of purchase
+RECORD Document
+RED Crimson
+REGRET Remorse
+REGULAR Consistent
+RELATION Connection
+RELIGION Faith
+REQUEST Appeal
+RESPECT Admiration
+REST Repose
+REWARD Prize
+RHYTHM Beat
+RICE Grain
+RIGHT Correct
+RING Circular band
+RIVER Waterway
+ROAD Path
+ROD Bar
+ROLL Rotate
+ROOF Overhead covering
+ROOM Chamber
+ROOT Base
+ROUGH Coarse
+ROUND Circular
+RUB Friction
+RULE Regulation
+RUN Sprint
+SAD Unhappy
+SAFE Secure
+SAIL Nautical trip
+SALT Sodium chloride
+SAME Identical
+SAND Granules
+SAY Express
+SCALE Measurement
+SCHOOL Educational institution
+SCIENCE Scientific knowledge
+SCISSORS Cutting tool
+SCREW Fastener
+SEA Ocean
+SEAT Chair
+SECOND Time unit
+SECRET Confidential
+SECRETARY Administrative assistant
+SEE Perceive
+SEED Reproductive part
+SEEM Appear
+SELECTION Choice
+SELF Individual
+SEND Dispatch
+SENSE Perception
+SEPARATE Isolate
+SERIOUS Grave
+SERVANT Domestic worker
+SEX Reproduction
+SHADE Shadow
+SHAKE Vibrate
+SHAME Disgrace
+SHARP Pointed
+SHEEP Woolly animal
+SHELF Ledge
+SHIP Vessel
+SHIRT Garment
+SHOCK Startle
+SHOE Footwear
+SHORT Brief
+SHUT Close
+SIDE Lateral
+SIGN Symbol
+SILK Fine fabric
+SILVER Precious metal
+SIMPLE Basic
+SISTER Female sibling
+SIZE Dimension
+SKIN Epidermis
+SKIRT Garment
+SKY Atmosphere
+SLEEP Slumber
+SLIP Slide
+SLOPE Incline
+SLOW Not fast
+SMALL Little
+SMASH Crush
+SMELL Odor
+SMILE Grin
+SMOKE Fumes
+SMOOTH Even
+SNAKE Serpent
+SNEEZE Sternutation
+SNOW Frozen precipitation
+SO Therefore
+SOAP Cleansing bar
+SOCIETY Community
+SOCK Footwear
+SOFT Not hard
+SOLID Firm
+SON Male child
+SONG Musical composition
+SORT Category
+SOUND Auditory sensation
+SOUP Liquid food
+SOUTH Direction
+SPADE Digging tool
+SPECIAL Exceptional
+SPONGE Absorbent material
+SPOON Eating utensil
+SPRING Season
+SQUARE Four-sided
+STAGE Platform
+STAMP Impression
+STAR Celestial body
+START Commence
+STATEMENT Declaration
+STATION Facility
+STEAM Vapor
+STEEL Alloy
+STEM Plant stalk
+STEP Foot movement
+STICK Rod
+STICKY Adhesive
+STIFF Rigid
+STILL Motionless
+STITCH Sewing
+STOCKING Hosiery
+STOMACH Abdomen
+STONE Rock
+STOP Halt
+STORE Shop
+STORY Narrative
+STRAIGHT Not curved
+STRANGE Unusual
+STREET Road
+STRETCH Lengthen
+STRONG Powerful
+STRUCTURE Framework
+SUBSTANCE Material
+SUCH Like this
+SUDDEN Abrupt
+SUGAR Sweetener
+SUMMER Warm season
+SUN Star
+SUPPORT Aid
+SURPRISE Astonishment
+SWEET Sugary
+SWIM Float in water
+SYSTEM Arrangement
+TABLE Furniture
+TAIL Rear appendage
+TAKE Grab
+TALK Speak
+TALL High stature
+TASTE Flavor
+TAX Levy
+TEACHING Instruction
+TENDENCY Inclination
+TEST Examination
+THAN Comparison
+THAT Specific
+THE Definite article
+THEN Afterward
+THEORY Hypothesis
+THERE At that place
+THICK Not thin
+THIN Slim
+THING Object
+THIS Present
+THOUGHT Idea
+THREAD Thin string
+THROAT Pharynx
+THROUGH Via
+THUMB Digit
+THUNDER Lightning sound
+TICKET Admission pass
+TIGHT Not loose
+TILL Until
+TIME Duration
+TIN Metallic element
+TIRED Fatigued
+TO Toward
+TOE Digit
+TOGETHER In unison
+TOMORROW Next day
+TONGUE Oral organ
+TOOTH Dental
+TOP Uppermost
+TOUCH Contact
+TOWN Municipality
+TRADE Exchange
+TRAIN Railway vehicle
+TRANSPORT Conveyance
+TRAY Container
+TREE Woody plant
+TRICK Deception
+TROUBLE Problem
+TRUE Accurate
+TURN Rotate
+TWIST Spiral
+UMBRELLA Rain shield
+UNDER Beneath
+UNIT Individual
+UP Aloft
+USE Utilize
+VALUE Worth
+VERSE Poetry
+VERY Extremely
+VESSEL Ship
+VIEW Perspective
+VIOLENT Aggressive
+VOICE Vocalization
+WAITING Anticipating
+WALK Move on foot
+WALL Barrier
+WAR Armed conflict
+WARM Not cold
+WASH Cleanse
+WASTE Discard
+WATCH Timepiece
+WATER Liquid
+WAVE Undulating motion
+WAX Beeswax
+WAY Route
+WEATHER Atmospheric conditions
+WEEK Seven days
+WEIGHT Measurement
+WELL Healthy
+WEST Direction
+WET Moist
+WHEEL Circular object
+WHEN At what time
+WHERE Location
+WHILE During
+WHIP Lash
+WHISTLE High-pitched sound
+WHITE Color
+WHO Person
+WHY Reason
+WIDE Broad
+WILL Intend
+WIND Air movement
+WINDOW Opening in a wall
+WINE Alcoholic beverage
+WING Flying appendage
+WINTER Cold season
+WIRE Thin metal
+WISE Knowledgeable
+WITH Accompanied by
+WOMAN Female
+WOOD Timber
+WOOL Fabric from sheep's fleece
+WORD Linguistic unit
+WORK Labor
+WORM Crawling creature
+WOUND Injury
+WRITING Text creation
+WRONG Incorrect
+YEAR 12 months
+YELLOW Color
+YES Affirmative
+YESTERDAY Previous day
+YOUNG Juvenile

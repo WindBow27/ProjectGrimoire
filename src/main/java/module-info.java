@@ -14,7 +14,6 @@ module com.example.demo {
     requires jlayer;
 
     opens org.graphic to javafx.fxml;
-    //exports org.graphic;
     exports org.graphic.controller;
     opens org.graphic.controller to javafx.fxml;
     exports org.graphic.app;

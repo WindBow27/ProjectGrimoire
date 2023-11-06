@@ -1,20 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Bellota&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Comfortaa&display=swap&subset=vietnamese');
+
 body {
-    font-family: Comfortaa, sans-serif;
+    font-family: 'Comfortaa', sans-serif;
     line-height: 1.5;
 }
 
 h1 {
+    font-family: 'Comfortaa', sans-serif;
     color: #FF5733;
     font-size: 36px;
     font-weight: bold;
 }
 
 h2 {
+    font-family: 'Comfortaa', sans-serif;
     color: #000000;
     font-size: 24px;
 }
 
 h3 {
+    font-family: 'Comfortaa', sans-serif;
     color: #000000;
     font-size: 20px;
 }

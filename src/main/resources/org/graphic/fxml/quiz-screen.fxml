@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.web.WebView?>
 
-<BorderPane prefHeight="720.0" prefWidth="1280.0" styleClass="background1" stylesheets="@../css/background.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.graphic.controller.QuizScreenController">
+<BorderPane prefHeight="720.0" prefWidth="1280.0" styleClass="background1" stylesheets="@../css/background.css" xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.graphic.controller.QuizScreenController">
     <center>
         <BorderPane prefHeight="660.0" prefWidth="1280.0" styleClass="root" stylesheets="@../css/common.css">
             <center>
@@ -59,7 +59,7 @@
                     <children>
                         <Label fx:id="title" alignment="CENTER" styleClass="text-header" stylesheets="@../css/common.css" text="Quiz">
                             <VBox.margin>
-                                <Insets top="100.0" />
+                                <Insets top="50.0" />
                             </VBox.margin>
                         </Label>
                         <Label alignment="CENTER" prefHeight="23.0" prefWidth="335.0" styleClass="text-normal" stylesheets="@../css/common.css" text="Choose the number of questions">
@@ -88,7 +88,7 @@
                 <HBox alignment="CENTER" prefHeight="77.0" prefWidth="1280.0" spacing="15.0" BorderPane.alignment="CENTER">
                     <children>
                         <Button fx:id="prev" mnemonicParsing="false" onAction="#prevQuestion" text="Previous" visible="false" />
-                  <WebView fx:id="answer" prefHeight="200.0" prefWidth="600.0" stylesheets="@../css/dictionary.css" />
+                  <WebView fx:id="answer" prefHeight="200.0" prefWidth="600.0" />
                         <Button fx:id="next" mnemonicParsing="false" onAction="#nextQuestion" text="Next" visible="false">
                             <HBox.margin>
                                 <Insets />

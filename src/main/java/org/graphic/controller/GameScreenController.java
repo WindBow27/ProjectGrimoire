@@ -12,7 +12,7 @@ public class GameScreenController extends ControllersManager {
     @FXML
     private Button quiz;
     @FXML
-    private Button matching;
+    private Button hangman;
     @FXML
     private Button wordle;
 
@@ -25,11 +25,9 @@ public class GameScreenController extends ControllersManager {
             game.startGame();
             return;
         }
-        if (event.getSource() == matching) {
-            loadGameScreen("matching", matching);
-            typeOfData = "Matching";
-            MatchingGameController game = new MatchingGameController();
-            game.startGame();
+        if (event.getSource() == hangman) {
+            loadGameScreen("hangman", hangman);
+            typeOfData = "Hangman";
             return;
         }
         if (event.getSource() == wordle) {

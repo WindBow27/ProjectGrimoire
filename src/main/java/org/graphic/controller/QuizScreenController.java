@@ -67,6 +67,46 @@ public class QuizScreenController extends GameScreenController implements Initia
         displayQuiz();
     }
 
+    public void setWhite() {
+        optionA.setStyle("-fx-background-color: #FFFFFF");
+        optionB.setStyle("-fx-background-color: #FFFFFF");
+        optionC.setStyle("-fx-background-color: #FFFFFF");
+        optionD.setStyle("-fx-background-color: #FFFFFF");
+    }
+
+    public void setText() {
+        optionA.setText(questions.get(currentQuestion).getOptionA());
+        optionB.setText(questions.get(currentQuestion).getOptionB());
+        optionC.setText(questions.get(currentQuestion).getOptionC());
+        optionD.setText(questions.get(currentQuestion).getOptionD());
+    }
+
+    public void setTrue(String switcher) {
+        switch (switcher) {
+            case "A" -> optionA.setStyle("-fx-background-color: #75FF73");
+            case "B" -> optionB.setStyle("-fx-background-color: #75FF73");
+            case "C" -> optionC.setStyle("-fx-background-color: #75FF73");
+            case "D" -> optionD.setStyle("-fx-background-color: #75FF73");
+        }
+    }
+
+    public void setFalse(String switcher, String part) {
+        switch (switcher) {
+            case "A" -> {
+                if (!part.equals("A")) optionA.setStyle("-fx-background-color: #F2746B");
+            }
+            case "B" -> {
+                if (!part.equals("B")) optionB.setStyle("-fx-background-color: #F2746B");
+            }
+            case "C" -> {
+                if (!part.equals("C")) optionC.setStyle("-fx-background-color: #F2746B");
+            }
+            case "D" -> {
+                if (!part.equals("D")) optionD.setStyle("-fx-background-color: #F2746B");
+            }
+        }
+    }
+
     public void nextQuestion() {
         if (choices.isEmpty()) {
             if (choice != null) choices.add(choice);
@@ -77,42 +117,19 @@ public class QuizScreenController extends GameScreenController implements Initia
                 if (currentQuestion + 1 < choices.size()) {
                     deleteChoiceEffect();
                     String[] parts = questions.get(currentQuestion + 1).getAnswer().split(" ");
-                    switch (parts[2]) {
-                        case "A" -> optionA.setStyle("-fx-background-color: #75FF73");
-                        case "B" -> optionB.setStyle("-fx-background-color: #75FF73");
-                        case "C" -> optionC.setStyle("-fx-background-color: #75FF73");
-                        case "D" -> optionD.setStyle("-fx-background-color: #75FF73");
-                    }
-                    switch (choices.get(currentQuestion + 1)) {
-                        case "A" -> {
-                            if (!parts[2].equals("A")) optionA.setStyle("-fx-background-color: #F2746B");
-                        }
-                        case "B" -> {
-                            if (!parts[2].equals("B")) optionB.setStyle("-fx-background-color: #F2746B");
-                        }
-                        case "C" -> {
-                            if (!parts[2].equals("C")) optionC.setStyle("-fx-background-color: #F2746B");
-                        }
-                        case "D" -> {
-                            if (!parts[2].equals("D")) optionD.setStyle("-fx-background-color: #F2746B");
-                        }
-                    }
+                    setTrue(parts[2]);
+                    setFalse(choices.get(currentQuestion + 1), parts[2]);
                     answer.setVisible(true);
-                    StringBuilder tmp = new StringBuilder();
-                    tmp.append(questions.get(currentQuestion + 1).getAnswer() + "<br>");
-                    tmp.append(questions.get(currentQuestion + 1).getExplain() + "<br>");
-                    answer.getEngine().loadContent(tmp.toString());
+                    answer.getEngine().setUserStyleSheetLocation(Objects.requireNonNull(getClass().getResource("/org/graphic/css/dictionary.css")).toString());
+                    String tmp = questions.get(currentQuestion + 1).getAnswer() + "<br>" +
+                            questions.get(currentQuestion + 1).getExplain() + "<br>";
+                    answer.getEngine().loadContent(tmp);
                 }
             }
             else if (review) {
                 if (currentQuestion + 1 < choices.size()) {
                     deleteChoiceEffect();
-                    switch (choices.get(currentQuestion + 1)) {
-                        case "A" -> optionA.setStyle("-fx-background-color: #50ABC7");
-                        case "B" -> optionB.setStyle("-fx-background-color: #50ABC7");
-                        case "C" -> optionC.setStyle("-fx-background-color: #50ABC7");
-                        case "D" -> optionD.setStyle("-fx-background-color: #50ABC7");
-                    }
+                    setTrue(choices.get(currentQuestion + 1));
                 }
                 else {
                     deleteChoiceEffect();
@@ -156,10 +173,7 @@ public class QuizScreenController extends GameScreenController implements Initia
             if (currentQuestion + 1 < numberOfQuestions) currentQuestion++;
             System.out.println("Current question:" + currentQuestion);
             question.setText("Question " + (currentQuestion + 1) + ": " + questions.get(currentQuestion).getQuestion());
-            optionA.setText(questions.get(currentQuestion).getOptionA());
-            optionB.setText(questions.get(currentQuestion).getOptionB());
-            optionC.setText(questions.get(currentQuestion).getOptionC());
-            optionD.setText(questions.get(currentQuestion).getOptionD());
+            setText();
         }
         if (next.getText().equals("Finish") && !viewResult) {
             evaluate();
@@ -176,50 +190,24 @@ public class QuizScreenController extends GameScreenController implements Initia
                 if (currentQuestion - 1 < choices.size()) {
                     deleteChoiceEffect();
                     String[] parts = questions.get(currentQuestion).getAnswer().split(" ");
-                    switch (parts[2]) {
-                        case "A" -> optionA.setStyle("-fx-background-color: #75FF73");
-                        case "B" -> optionB.setStyle("-fx-background-color: #75FF73");
-                        case "C" -> optionC.setStyle("-fx-background-color: #75FF73");
-                        case "D" -> optionD.setStyle("-fx-background-color: #75FF73");
-                    }
-                    switch (choices.get(currentQuestion - 1)) {
-                        case "A" -> {
-                            if (!parts[2].equals("A")) optionA.setStyle("-fx-background-color: #F2746B");
-                        }
-                        case "B" -> {
-                            if (!parts[2].equals("B")) optionB.setStyle("-fx-background-color: #F2746B");
-                        }
-                        case "C" -> {
-                            if (!parts[2].equals("C")) optionC.setStyle("-fx-background-color: #F2746B");
-                        }
-                        case "D" -> {
-                            if (!parts[2].equals("D")) optionD.setStyle("-fx-background-color: #F2746B");
-                        }
-                    }
+                    setTrue(parts[2]);
+                    setFalse(choices.get(currentQuestion), parts[2]);
                     answer.setVisible(true);
-                    StringBuilder tmp = new StringBuilder();
-                    tmp.append(questions.get(currentQuestion).getAnswer() + "<br>");
-                    tmp.append(questions.get(currentQuestion).getExplain() + "<br>");
-                    answer.getEngine().loadContent(tmp.toString());
+                    answer.getEngine().setUserStyleSheetLocation(Objects.requireNonNull(getClass().getResource("/org/graphic/css/dictionary.css")).toString());
+                    String tmp = questions.get(currentQuestion).getAnswer() + "<br>" +
+                            questions.get(currentQuestion).getExplain() + "<br>";
+                    answer.getEngine().loadContent(tmp);
                 }
             }
             else {
                 deleteChoiceEffect();
-                switch (choices.get(currentQuestion - 1)) {
-                    case "A" -> optionA.setStyle("-fx-background-color: #50ABC7");
-                    case "B" -> optionB.setStyle("-fx-background-color: #50ABC7");
-                    case "C" -> optionC.setStyle("-fx-background-color: #50ABC7");
-                    case "D" -> optionD.setStyle("-fx-background-color: #50ABC7");
-                }
+                setTrue(choices.get(currentQuestion - 1));
             }
 
             currentQuestion--;
             System.out.println("Current question:" + currentQuestion);
             question.setText("Question " + (currentQuestion + 1) + ": " + questions.get(currentQuestion).getQuestion());
-            optionA.setText(questions.get(currentQuestion).getOptionA());
-            optionB.setText(questions.get(currentQuestion).getOptionB());
-            optionC.setText(questions.get(currentQuestion).getOptionC());
-            optionD.setText(questions.get(currentQuestion).getOptionD());
+            setText();
         }
     }
 
@@ -241,44 +229,29 @@ public class QuizScreenController extends GameScreenController implements Initia
 
     public void getChoice() {
         optionA.setOnMouseClicked(event -> {
-            optionA.setStyle("-fx-background-color: #FFFFFF");
-            optionB.setStyle("-fx-background-color: #FFFFFF");
-            optionC.setStyle("-fx-background-color: #FFFFFF");
-            optionD.setStyle("-fx-background-color: #FFFFFF");
+            setWhite();
             choice = "A";
-            optionA.setStyle("-fx-background-color: #50ABC7");
+            optionA.setStyle("-fx-background-color: CFE2F3");
         });
         optionB.setOnMouseClicked(event -> {
-            optionA.setStyle("-fx-background-color: #FFFFFF");
-            optionB.setStyle("-fx-background-color: #FFFFFF");
-            optionC.setStyle("-fx-background-color: #FFFFFF");
-            optionD.setStyle("-fx-background-color: #FFFFFF");
+            setWhite();
             choice = "B";
-            optionB.setStyle("-fx-background-color: #50ABC7");
+            optionB.setStyle("-fx-background-color: CFE2F3");
         });
         optionC.setOnMouseClicked(event -> {
-            optionA.setStyle("-fx-background-color: #FFFFFF");
-            optionB.setStyle("-fx-background-color: #FFFFFF");
-            optionC.setStyle("-fx-background-color: #FFFFFF");
-            optionD.setStyle("-fx-background-color: #FFFFFF");
+            setWhite();
             choice = "C";
-            optionC.setStyle("-fx-background-color: #50ABC7");
+            optionC.setStyle("-fx-background-color: CFE2F3");
         });
         optionD.setOnMouseClicked(event -> {
-            optionA.setStyle("-fx-background-color: #FFFFFF");
-            optionB.setStyle("-fx-background-color: #FFFFFF");
-            optionC.setStyle("-fx-background-color: #FFFFFF");
-            optionD.setStyle("-fx-background-color: #FFFFFF");
+            setWhite();
             choice = "D";
-            optionD.setStyle("-fx-background-color: #50ABC7");
+            optionD.setStyle("-fx-background-color: CFE2F3");
         });
     }
 
     public void deleteChoiceEffect() {
-        optionA.setStyle("-fx-background-color: #FFFFFF");
-        optionB.setStyle("-fx-background-color: #FFFFFF");
-        optionC.setStyle("-fx-background-color: #FFFFFF");
-        optionD.setStyle("-fx-background-color: #FFFFFF");
+        setWhite();
     }
 
     public void evaluate() {
@@ -286,7 +259,7 @@ public class QuizScreenController extends GameScreenController implements Initia
             String[] parts = questions.get(i).getAnswer().split(" ");
             if (choices.get(i).equals(parts[2])) score++;
         }
-        String emotion = "";
+        String emotion;
         double accuracy = (double) score / numberOfQuestions;
         if (accuracy < 0.3) {
             emotion = " :(";
@@ -294,7 +267,7 @@ public class QuizScreenController extends GameScreenController implements Initia
         else if (accuracy >= 0.3 && accuracy < 0.6) {
             emotion = " -_-";
         }
-        else emotion = " :)))))))))))))";
+        else emotion = " :)";
         title.setText(score + "/" + numberOfQuestions + emotion);
         review = false;
         viewResult = true;

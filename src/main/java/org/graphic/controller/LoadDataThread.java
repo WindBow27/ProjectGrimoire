@@ -8,9 +8,10 @@ import java.io.FileNotFoundException;
 import java.util.Random;
 import java.util.Scanner;
 
+import static org.graphic.controller.HangmanScreenController.hangmanDataPath;
 import static org.graphic.controller.QuizScreenController.*;
 
-public class LoadDataThread extends MatchingGameController implements Runnable {
+public class LoadDataThread implements Runnable {
     protected final int numberOfWord = 7;
     protected final int numberOfCard = 14;
     private String dataPath;
@@ -22,39 +23,14 @@ public class LoadDataThread extends MatchingGameController implements Runnable {
     @Override
     public void run() {
         System.out.println("Loading data thread is running");
-        if (typeOfData.equals("Matching")) {
-            dataPath = matchingDataPath;
-            getMatchingData();
-            chooseRandomWords();
-            distributeData();
+        if (typeOfData.equals("Hangman")) {
+            dataPath = hangmanDataPath;
         } else {
             dataPath = quizDataPath;
             getQuizData();
             chooseRandomQuestions();
         }
         System.out.println("Loading data thread finished");
-    }
-
-    public void getMatchingData() {
-        if (!words.isEmpty()) return;
-        File file = new File(dataPath);
-        try {
-            Scanner fileScanner = new Scanner(file);
-            while (fileScanner.hasNextLine()) {
-                String line = fileScanner.nextLine();
-                String word = "", meaning = "";
-                for (int i = 0; i < line.length(); i++) {
-                    if (line.charAt(i) == ' ') {
-                        word = line.substring(0, i);
-                        meaning = line.substring(i + 1);
-                        break;
-                    }
-                }
-                words.add(new Word(word, meaning));
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found!");
-        }
     }
 
     public void getQuizData() {
@@ -90,68 +66,14 @@ public class LoadDataThread extends MatchingGameController implements Runnable {
                 curNumOfQues++;
             }
         }
-        for (int i = 0; i < questions.size(); i++) {
-            System.out.println(questions.get(i).getQuestion());
-            System.out.println(questions.get(i).getOptionA());
-            System.out.println(questions.get(i).getOptionB());
-            System.out.println(questions.get(i).getOptionC());
-            System.out.println(questions.get(i).getOptionD());
-            System.out.println(questions.get(i).getAnswer());
-            System.out.println(questions.get(i).getExplain());
-        }
-    }
-
-    public void chooseRandomWords() {
-        Random random = new Random();
-        int curNumOfWord = 0;
-        while (curNumOfWord != numberOfWord) {
-            int randomNum = random.nextInt(0, words.size());
-            if (words.get(randomNum) != null) {
-                targets.add(words.get(randomNum).getWordTarget());
-                definitions.add(words.get(randomNum).getWordExplain());
-                words.remove(randomNum);
-                curNumOfWord++;
-            }
-        }
-        for (String x : targets) System.out.println(x);
-        for (String x : definitions) System.out.println(x);
-    }
-
-    public void distributeData() {
-        Random random = new Random();
-        int curNumOfCard = 0;
-        while (curNumOfCard != numberOfCard) {
-            while (!targets.isEmpty()) {
-                int ranNum = random.nextInt(0, numberOfCard);
-                System.out.println(ranNum);
-                if (cards.get(ranNum) != null) {
-                    if (cards.get(ranNum).getText().equals("")) {
-                        cards.get(ranNum).setText(targets.get(curNumOfCard % targets.size()));
-                        System.out.println(targets.get(curNumOfCard % targets.size()));
-                        targets.remove(curNumOfCard % targets.size());
-                        curNumOfCard++;
-                    }
-                } else {
-                    System.out.println("Card is null");
-                    return;
-                }
-            }
-            while (!definitions.isEmpty()) {
-                int ranNum = random.nextInt(0, numberOfCard);
-                System.out.println(ranNum);
-                if (cards.get(ranNum) != null) {
-                    if (cards.get(ranNum).getText().equals("")) {
-                        cards.get(ranNum).setText(definitions.get(curNumOfCard % definitions.size()));
-                        System.out.println(definitions.get(curNumOfCard % definitions.size()));
-                        definitions.remove(curNumOfCard % definitions.size());
-                        curNumOfCard++;
-                    }
-                } else {
-                    System.out.println(cards.get(ranNum));
-                    System.out.println("Card is null");
-                    return;
-                }
-            }
+        for (Question question : questions) {
+            System.out.println(question.getQuestion());
+            System.out.println(question.getOptionA());
+            System.out.println(question.getOptionB());
+            System.out.println(question.getOptionC());
+            System.out.println(question.getOptionD());
+            System.out.println(question.getAnswer());
+            System.out.println(question.getExplain());
         }
     }
 }

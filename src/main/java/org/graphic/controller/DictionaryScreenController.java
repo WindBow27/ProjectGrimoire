@@ -102,7 +102,7 @@ public class DictionaryScreenController extends ControllersManager {
 
     public void successAction(String message) {
         announceLabel.setText(message);
-        announceLabel.setTextFill(Color.rgb(125, 255, 126));
+        announceLabel.setTextFill(Color.rgb(35,226,0));
     }
 
     public void failAction(String message) {
