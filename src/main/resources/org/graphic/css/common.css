@@ -102,9 +102,8 @@
    -fx-font-family: 'Comfortaa', Sans-serif;
    -fx-font-size: 16px;
    -fx-text-fill: black;
-   -fx-padding: 10px;
    -fx-border-color: #000000;
-   -fx-border-radius: 10px;
+   -fx-border-radius: 0px;
 }
 
 .quiz-label:hover {

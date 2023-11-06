@@ -7,10 +7,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bd7be58-57b9-4d2c-89bd-bb5b23bc1c24" name="Changes" comment="update">
+    <list default="true" id="6bd7be58-57b9-4d2c-89bd-bb5b23bc1c24" name="Changes" comment="done quiz">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/controller/LoadDataThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/controller/LoadDataThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/controller/QuizScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/controller/QuizScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/css/common.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/css/dictionary.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/css/dictionary.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/quiz-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/quiz-screen.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -355,7 +356,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699106822903</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="done quiz">
+      <created>1699153399615</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1699153399615</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -389,7 +397,8 @@
     <MESSAGE value="qol update" />
     <MESSAGE value="polish" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="done quiz" />
+    <option name="LAST_COMMIT_MESSAGE" value="done quiz" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

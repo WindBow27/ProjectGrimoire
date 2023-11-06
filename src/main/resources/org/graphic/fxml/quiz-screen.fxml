@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -59,12 +58,7 @@
                     <children>
                         <Label fx:id="title" alignment="CENTER" styleClass="text-header" stylesheets="@../css/common.css" text="Quiz">
                             <VBox.margin>
-                                <Insets top="100.0" />
-                            </VBox.margin>
-                        </Label>
-                        <Label alignment="CENTER" prefHeight="23.0" prefWidth="335.0" styleClass="text-normal" stylesheets="@../css/common.css" text="Choose the number of questions">
-                            <VBox.margin>
-                                <Insets top="10.0" />
+                                <Insets top="75.0" />
                             </VBox.margin>
                         </Label>
                         <StackPane prefHeight="50.0" prefWidth="1080.0">
@@ -74,13 +68,32 @@
                             <children>
                                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="25.0">
                                     <children>
-                                        <ChoiceBox fx:id="menu" focusTraversable="false" prefHeight="43.0" prefWidth="50.0" />
                                         <Button mnemonicParsing="false" onAction="#generateQuiz" text="Generate" />
                                         <Button fx:id="exit" mnemonicParsing="false" onMouseClicked="#exit" text="Exit" />
                                     </children>
+                           <StackPane.margin>
+                              <Insets top="10.0" />
+                           </StackPane.margin>
                                 </HBox>
                             </children>
                         </StackPane>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="25.0">
+                            <children>
+                                <Label fx:id="lab1" alignment="CENTER" onMouseClicked="#getTargetQuestion" prefWidth="40.0" styleClass="quiz-label" stylesheets="@../css/common.css" text="1" />
+                                <Label fx:id="lab2" alignment="CENTER" layoutX="10.0" layoutY="10.0" onMouseClicked="#getTargetQuestion" prefWidth="40.0" styleClass="quiz-label" stylesheets="@../css/common.css" text="2" />
+                                <Label fx:id="lab3" alignment="CENTER" layoutX="79.0" layoutY="10.0" onMouseClicked="#getTargetQuestion" prefWidth="40.0" styleClass="quiz-label" stylesheets="@../css/common.css" text="3" />
+                                <Label fx:id="lab4" alignment="CENTER" layoutX="79.0" layoutY="10.0" onMouseClicked="#getTargetQuestion" prefWidth="40.0" styleClass="quiz-label" stylesheets="@../css/common.css" text="4" />
+                                <Label fx:id="lab5" alignment="CENTER" layoutX="217.0" layoutY="10.0" onMouseClicked="#getTargetQuestion" prefWidth="40.0" styleClass="quiz-label" stylesheets="@../css/common.css" text="5" />
+                                <Label fx:id="lab6" alignment="CENTER" layoutX="286.0" layoutY="10.0" onMouseClicked="#getTargetQuestion" prefWidth="40.0" styleClass="quiz-label" stylesheets="@../css/common.css" text="6" />
+                                <Label fx:id="lab7" alignment="CENTER" layoutX="355.0" layoutY="10.0" onMouseClicked="#getTargetQuestion" prefWidth="40.0" styleClass="quiz-label" stylesheets="@../css/common.css" text="7" />
+                                <Label fx:id="lab8" alignment="CENTER" layoutX="424.0" layoutY="10.0" onMouseClicked="#getTargetQuestion" prefWidth="40.0" styleClass="quiz-label" stylesheets="@../css/common.css" text="8" />
+                                <Label fx:id="lab9" alignment="CENTER" layoutX="493.0" layoutY="10.0" onMouseClicked="#getTargetQuestion" prefWidth="40.0" styleClass="quiz-label" stylesheets="@../css/common.css" text="9" />
+                                <Label fx:id="lab10" alignment="CENTER" layoutX="562.0" layoutY="10.0" onMouseClicked="#getTargetQuestion" prefWidth="40.0" styleClass="quiz-label" stylesheets="@../css/common.css" text="10" />
+                            </children>
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </HBox>
                     </children>
                 </VBox>
             </top>
@@ -88,7 +101,7 @@
                 <HBox alignment="CENTER" prefHeight="77.0" prefWidth="1280.0" spacing="15.0" BorderPane.alignment="CENTER">
                     <children>
                         <Button fx:id="prev" mnemonicParsing="false" onAction="#prevQuestion" text="Previous" visible="false" />
-                  <WebView fx:id="answer" prefHeight="200.0" prefWidth="600.0" stylesheets="@../css/dictionary.css" />
+                        <WebView fx:id="answer" prefHeight="200.0" prefWidth="600.0" stylesheets="@../css/dictionary.css" />
                         <Button fx:id="next" mnemonicParsing="false" onAction="#nextQuestion" text="Next" visible="false">
                             <HBox.margin>
                                 <Insets />
