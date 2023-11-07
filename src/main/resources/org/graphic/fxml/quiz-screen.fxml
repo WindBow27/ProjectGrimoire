@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.web.WebView?>
 
-<BorderPane prefHeight="720.0" prefWidth="1280.0" styleClass="background1" stylesheets="@../css/background.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.graphic.controller.QuizScreenController">
+<BorderPane prefHeight="720.0" prefWidth="1280.0" styleClass="background1" stylesheets="@../css/background.css" xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.graphic.controller.QuizScreenController">
     <center>
         <BorderPane prefHeight="660.0" prefWidth="1280.0" styleClass="root" stylesheets="@../css/common.css">
             <center>
@@ -69,6 +69,7 @@
                                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="25.0">
                                     <children>
                                         <Button mnemonicParsing="false" onAction="#generateQuiz" text="Generate" />
+                              <ImageView fitHeight="50.0" pickOnBounds="true" preserveRatio="true" />
                                         <Button fx:id="exit" mnemonicParsing="false" onMouseClicked="#exit" text="Exit" />
                                     </children>
                            <StackPane.margin>
@@ -79,6 +80,7 @@
                         </StackPane>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="25.0">
                             <children>
+                        <ImageView fitHeight="49.0" fitWidth="1.0" pickOnBounds="true" preserveRatio="true" />
                                 <Label fx:id="lab1" alignment="CENTER" onMouseClicked="#getTargetQuestion" prefWidth="40.0" styleClass="quiz-label" stylesheets="@../css/common.css" text="1" />
                                 <Label fx:id="lab2" alignment="CENTER" layoutX="10.0" layoutY="10.0" onMouseClicked="#getTargetQuestion" prefWidth="40.0" styleClass="quiz-label" stylesheets="@../css/common.css" text="2" />
                                 <Label fx:id="lab3" alignment="CENTER" layoutX="79.0" layoutY="10.0" onMouseClicked="#getTargetQuestion" prefWidth="40.0" styleClass="quiz-label" stylesheets="@../css/common.css" text="3" />
@@ -89,6 +91,7 @@
                                 <Label fx:id="lab8" alignment="CENTER" layoutX="424.0" layoutY="10.0" onMouseClicked="#getTargetQuestion" prefWidth="40.0" styleClass="quiz-label" stylesheets="@../css/common.css" text="8" />
                                 <Label fx:id="lab9" alignment="CENTER" layoutX="493.0" layoutY="10.0" onMouseClicked="#getTargetQuestion" prefWidth="40.0" styleClass="quiz-label" stylesheets="@../css/common.css" text="9" />
                                 <Label fx:id="lab10" alignment="CENTER" layoutX="562.0" layoutY="10.0" onMouseClicked="#getTargetQuestion" prefWidth="40.0" styleClass="quiz-label" stylesheets="@../css/common.css" text="10" />
+                        <ImageView fitHeight="49.0" fitWidth="1.0" layoutX="325.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" />
                             </children>
                             <VBox.margin>
                                 <Insets top="10.0" />
@@ -101,7 +104,7 @@
                 <HBox alignment="CENTER" prefHeight="77.0" prefWidth="1280.0" spacing="15.0" BorderPane.alignment="CENTER">
                     <children>
                         <Button fx:id="prev" mnemonicParsing="false" onAction="#prevQuestion" text="Previous" visible="false" />
-                        <WebView fx:id="answer" prefHeight="200.0" prefWidth="600.0" stylesheets="@../css/dictionary.css" />
+                        <WebView fx:id="answer" prefHeight="200.0" prefWidth="600.0" />
                         <Button fx:id="next" mnemonicParsing="false" onAction="#nextQuestion" text="Next" visible="false">
                             <HBox.margin>
                                 <Insets />
