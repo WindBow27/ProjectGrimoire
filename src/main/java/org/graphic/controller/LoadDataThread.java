@@ -9,11 +9,10 @@ import java.util.Random;
 import java.util.Scanner;
 
 import static org.graphic.controller.HangmanScreenController.hangmanDataPath;
+import static org.graphic.controller.HangmanScreenController.wordList;
 import static org.graphic.controller.QuizScreenController.*;
 
 public class LoadDataThread implements Runnable {
-    protected final int numberOfWord = 7;
-    protected final int numberOfCard = 14;
     private String dataPath;
 
     public LoadDataThread() {
@@ -25,12 +24,26 @@ public class LoadDataThread implements Runnable {
         System.out.println("Loading data thread is running");
         if (typeOfData.equals("Hangman")) {
             dataPath = hangmanDataPath;
+            getHangmanData();
         } else {
             dataPath = quizDataPath;
             getQuizData();
             chooseRandomQuestions();
         }
         System.out.println("Loading data thread finished");
+    }
+
+    public void getHangmanData() {
+        if (!wordList.isEmpty()) return;
+        try {
+            Scanner fileScanner = new Scanner(new File(dataPath));
+            while (fileScanner.hasNextLine()) {
+                String line = fileScanner.nextLine();
+                wordList.add(line);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found!");
+        }
     }
 
     public void getQuizData() {

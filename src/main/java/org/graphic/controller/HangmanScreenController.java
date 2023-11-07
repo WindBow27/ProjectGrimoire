@@ -7,7 +7,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -16,8 +18,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 
 public class HangmanScreenController extends GameScreenController {
-    @FXML
-    private ImageView img;
+    protected static String hangmanDataPath = "src/main/resources/org/graphic/data/hangman-data.txt";
     private final Image image1 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/org/graphic/image/hangman/1.png")));
     private final Image image2 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/org/graphic/image/hangman/2.png")));
     private final Image image3 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/org/graphic/image/hangman/3.png")));
@@ -26,15 +27,15 @@ public class HangmanScreenController extends GameScreenController {
     private final Image image6 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/org/graphic/image/hangman/6.png")));
     private final Image image7 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/org/graphic/image/hangman/7.png")));
     private final Image image8 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/org/graphic/image/hangman/8.png")));
+    protected static final List<String> wordList = new ArrayList<>();
+    private final List<String> usedLetter = new ArrayList<>();
+    @FXML
+    private ImageView img;
     private String word;
     private String hint_str;
     private int letter_size;
     private int current_letter;
     private int life;
-    private final List<String> data = new ArrayList<>();
-    private final List<String> usedLetter = new ArrayList<>();
-    protected static String hangmanDataPath = "src/main/resources/org/graphic/data/hangman-data.txt";
-
     @FXML
     private Label tf1;
     @FXML
@@ -46,13 +47,13 @@ public class HangmanScreenController extends GameScreenController {
     @FXML
     private Label tf5;
     @FXML
-    private  Label tf6;
+    private Label tf6;
     @FXML
     private Label tf7;
     @FXML
-    private  Label tf8;
+    private Label tf8;
     @FXML
-    private  Label tf9;
+    private Label tf9;
     @FXML
     private Label tf10;
     @FXML
@@ -60,21 +61,36 @@ public class HangmanScreenController extends GameScreenController {
     @FXML
     private Label hint;
     @FXML
-    private  Label used;
+    private Label used;
     @FXML
-    private  Label lives;
+    private Label lives;
     @FXML
     private Label announce;
     @FXML
     private Label announce_big;
     @FXML
-    private  Button exit;
+    private Button exit;
 
-    public void initialize(){
-        getData(data);
+    public void initialize() throws InterruptedException {
+        typeOfData = "Hangman";
+        Font.loadFont(getClass().getResourceAsStream("/org/graphic/fonts/Bellota.ttf"), 20);
+        LoadDataThread loadThread = new LoadDataThread();
+        Thread load = new Thread(loadThread);
+        load.start();
+        load.join();
         setVariable();
         setInvisible();
-        input.requestFocus();
+        input.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.length() > 1) {
+                input.setText(oldValue);
+            }
+        });
+        input.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                checkInput();
+            }
+        });
+        Platform.runLater(() -> input.requestFocus());
     }
 
     public void exit() throws Exception {
@@ -87,17 +103,17 @@ public class HangmanScreenController extends GameScreenController {
         setInvisible();
         resetImage();
         usedLetter.clear();
-        used.setText("Used letter: ");
+        used.setText("Used letters: ");
         hint.setText("");
-        lives.setText("Lives: " + life);
         announce.setText("");
         announce_big.setText("");
     }
 
     public void setText(String text, Label label, int time, String color) {
         switch (color) {
-            case "green" -> label.setTextFill(Color.rgb(35,226,0));
+            case "green" -> label.setTextFill(Color.rgb(35, 226, 0));
             case "red" -> label.setTextFill(Color.rgb(255, 89, 89));
+            case "black" -> label.setTextFill(Color.rgb(0,0,0));
         }
         label.setText(text);
         ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
@@ -106,8 +122,9 @@ public class HangmanScreenController extends GameScreenController {
 
     public void setText(String text, Label label, String color) {
         switch (color) {
-            case "green" -> label.setTextFill(Color.rgb(35,226,0));
+            case "green" -> label.setTextFill(Color.rgb(35, 226, 0));
             case "red" -> label.setTextFill(Color.rgb(255, 89, 89));
+            case "black" -> label.setTextFill(Color.rgb(0,0,0));
         }
         label.setText(text);
     }
@@ -117,7 +134,7 @@ public class HangmanScreenController extends GameScreenController {
         life = 6;
     }
 
-    public void addUsedLetter(){
+    public void addUsedLetter() {
         String str = input.getText();
         str = str.toUpperCase();
         usedLetter.add(str);
@@ -127,59 +144,61 @@ public class HangmanScreenController extends GameScreenController {
         }
     }
 
-    public void getData(List<String> data){
-        if (!data.isEmpty()) return;
-        try {
-            Scanner fileScanner = new Scanner(new File(hangmanDataPath));
-            while (fileScanner.hasNextLine()) {
-                String line = fileScanner.nextLine();
-                data.add(line);
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found!");
-        }
-        System.out.println(data.size());
-    }
+//    public void getData(List<String> data) {
+//        if (!data.isEmpty()) return;
+//        try {
+//            Scanner fileScanner = new Scanner(new File(hangmanDataPath));
+//            while (fileScanner.hasNextLine()) {
+//                String line = fileScanner.nextLine();
+//                data.add(line);
+//            }
+//        } catch (FileNotFoundException e) {
+//            System.out.println("File not found!");
+//        }
+//        System.out.println(data.size());
+//    }
 
     public void setVariable() {
-        int random = new Random().nextInt(data.size());
-        String word_hint = data.get(random);
+        int random = new Random().nextInt(wordList.size());
+        String word_hint = wordList.get(random);
         String[] split = word_hint.split(" ", 2);
         word = split[0];
         hint_str = split[1];
         letter_size = word.length();
         life = 6;
         current_letter = 0;
+        setText("Lives: " + life, lives, "black");
     }
 
-    public void showHint(){
+    public void showHint() {
         if (life < 1) return;
         hint.setText(hint_str);
     }
 
-    public void CheckInput(){
+    public void checkInput() {
         if (life < 1 || !announce_big.getText().isEmpty()) return;
         String str = input.getText();
         str = str.toUpperCase();
         if (str.length() != 1) {
-            setText("Please enter a letter!", announce, 1,"red");
+            setText("Please enter a letter!", announce, 1, "red");
             return;
         }
         if (!Character.isLetter(str.charAt(0))) {
-            setText("Please enter a letter!", announce, 1,"red");
+            setText("Please enter a letter!", announce, 1, "red");
             return;
         }
         if (usedLetter.contains(str)) {
-            setText("You have used this letter!", announce, 1,"red");
+            setText("You have used this letter!", announce, 1, "red");
             return;
         }
         if (word.contains(str)) {
             int index = 0;
-            for(int i=0; i<word.length(); i++) {
+            for (int i = 0; i < word.length(); i++) {
                 char c = word.charAt(i);
                 if (String.valueOf(c).equals(str)) {
                     setLetter(index, Character.toString(c));
                     current_letter++;
+                    System.out.println(current_letter);
                 }
                 index++;
             }
@@ -187,8 +206,7 @@ public class HangmanScreenController extends GameScreenController {
                 setText("You win!", announce_big, "green");
                 img.setImage(image8);
             }
-        }
-        else {
+        } else {
             addUsedLetter();
             setImage();
         }
@@ -196,7 +214,7 @@ public class HangmanScreenController extends GameScreenController {
         input.requestFocus();
     }
 
-    public void setLetter(int index,String str){
+    public void setLetter(int index, String str) {
         switch (index) {
             case 0 -> tf1.setText(str);
             case 1 -> tf2.setText(str);
@@ -211,14 +229,9 @@ public class HangmanScreenController extends GameScreenController {
         }
     }
 
-    public void setImage(){
+    public void setImage() {
         life--;
-        if (life < 1) {
-            setText("You lose!", announce_big, "red");
-            setText("The word is: " + word, hint, "red");
-            return;
-        }
-        lives.setText("Lives: " + life);
+        setText("Lives: " + life, lives, "black");
         switch (life) {
             case 5 -> img.setImage(image2);
             case 4 -> img.setImage(image3);
@@ -227,10 +240,14 @@ public class HangmanScreenController extends GameScreenController {
             case 1 -> img.setImage(image6);
             case 0 -> {
                 img.setImage(image7);
-                lives.setTextFill(Color.rgb(255, 89, 89));
                 setText("You lose!", announce_big, "red");
                 setText("The word is: " + word, hint, "red");
             }
+        }
+        if (life < 1) {
+            setText("GAME OVER !", lives, "red");
+            setText("You lose!", announce_big, "red");
+            setText("The word is: " + word, hint, "black");
         }
     }
 
@@ -258,7 +275,7 @@ public class HangmanScreenController extends GameScreenController {
         input.clear();
     }
 
-    public void setInvisible(){
+    public void setInvisible() {
         //hint.setText(hint_str);
         switch (letter_size) {
             case 9 -> tf10.setVisible(false);

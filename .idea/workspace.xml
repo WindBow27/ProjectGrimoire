@@ -9,7 +9,17 @@
   <component name="ChangeListManager">
     <list default="true" id="6bd7be58-57b9-4d2c-89bd-bb5b23bc1c24" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dict_hh.db" beforeDir="false" afterPath="$PROJECT_DIR$/dict_hh.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/app/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/controller/GameScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/controller/GameScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/controller/HangmanScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/controller/HangmanScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/controller/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/controller/HeaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/controller/LoadDataThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/controller/LoadDataThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/controller/QuizScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/controller/QuizScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/css/common.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/css/dictionary.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/css/dictionary.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/css/header-button.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/css/header-button.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/hangman-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/hangman-screen.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/quiz-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/quiz-screen.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -108,7 +118,7 @@
       <recent name="org.graphic.controllers" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.graphic.app.App" />
       <module name="demo" />
@@ -197,11 +207,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.App" />
         <item itemvalue="Application.org.graphic.Main" />
         <item itemvalue="JUnit.org.graphic in demo" />
         <item itemvalue="JUnit.All in demo" />
-        <item itemvalue="JUnit.org.graphic.fonts in demo" />
       </list>
     </recent_temporary>
   </component>

@@ -1,8 +1,11 @@
 package org.graphic.controller;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Font;
 import javafx.scene.web.WebView;
 import org.graphic.dictionary.Question;
@@ -60,9 +63,14 @@ public class QuizScreenController extends GameScreenController {
     private Label lab10;
     private boolean review = false;
     private boolean viewResult = false;
+    @FXML
+    private BorderPane screen;
 
-    public void startGame() {
+
+    public void initialize() throws InterruptedException {
         typeOfData = "Quiz";
+        Font.loadFont(getClass().getResourceAsStream("/org/graphic/fonts/Bellota.ttf"), 20);
+        generateQuiz();
     }
 
     public void exit() throws Exception {
@@ -77,6 +85,7 @@ public class QuizScreenController extends GameScreenController {
         load.start();
         load.join();
         displayQuiz();
+        next.setVisible(true);
     }
 
     public void jumpToQuestion(int number) {
@@ -216,12 +225,14 @@ public class QuizScreenController extends GameScreenController {
     }
 
     public void displayAnswer(int number) {
-        answer.setVisible(true);
-        StringBuilder tmp = new StringBuilder();
-        tmp.append(questions.get(number).getAnswer()).append("<br>");
-        tmp.append(questions.get(number).getExplain()).append("<br>");
-        answer.getEngine().setUserStyleSheetLocation(Objects.requireNonNull(getClass().getResource("/org/graphic/css/dictionary.css")).toString());
-        answer.getEngine().loadContent(tmp.toString());
+        Platform.runLater(() -> {
+            answer.setVisible(true);
+            StringBuilder tmp = new StringBuilder();
+            tmp.append(questions.get(number).getAnswer()).append("<br>");
+            tmp.append(questions.get(number).getExplain()).append("<br>");
+            answer.getEngine().setUserStyleSheetLocation(Objects.requireNonNull(getClass().getResource("/org/graphic/css/dictionary.css")).toString());
+            answer.getEngine().loadContent(tmp.toString());
+        });
     }
 
     public void addChoice(int number) {
@@ -244,17 +255,16 @@ public class QuizScreenController extends GameScreenController {
         }
     }
 
-    public void nextQuestion() throws InterruptedException {
+    public void nextQuestion() {
         System.out.println("Review: " + review);
         System.out.println("ViewResult: " + viewResult);
-        if (currentQuestion + 1 < numberOfQuestions) jumpToQuestion(++currentQuestion);
-        if (next.getText().equals("Finish") && viewResult) {
-            generateQuiz();
-            return;
-        }
         if (next.getText().equals("Finish") && !viewResult) {
             evaluate();
         }
+        if (currentQuestion == 8 && viewResult) {
+            next.setVisible(false);
+        }
+        if (currentQuestion + 1 < numberOfQuestions) jumpToQuestion(++currentQuestion);
         prev.setVisible(currentQuestion > 0);
     }
 
@@ -265,6 +275,7 @@ public class QuizScreenController extends GameScreenController {
         if (next.getText().equals("Finish") && !viewResult) {
             evaluate();
         }
+        next.setVisible(true);
         prev.setVisible(currentQuestion > 0);
     }
 
@@ -275,54 +286,50 @@ public class QuizScreenController extends GameScreenController {
         optionC.setVisible(true);
         optionD.setVisible(true);
         next.setVisible(true);
-        if (currentQuestion > 0) prev.setVisible(true);
+        prev.setVisible(currentQuestion > 0);
         jumpToQuestion(0);
+    }
+
+    public void setWhite() {
+        optionA.setStyle("-fx-background-color: #FFFFFF");
+        optionB.setStyle("-fx-background-color: #FFFFFF");
+        optionC.setStyle("-fx-background-color: #FFFFFF");
+        optionD.setStyle("-fx-background-color: #FFFFFF");
+    }
+
+    public void setChoice(String c, Label option) {
+        choice = c;
+        option.setStyle("-fx-background-color: #9BEDFF");
+        addChoice(currentQuestion);
+        updateQuestionBar();
     }
 
     public void getChoice() {
         optionA.setOnMouseClicked(event -> {
-            optionA.setStyle("-fx-background-color: #FFFFFF");
-            optionB.setStyle("-fx-background-color: #FFFFFF");
-            optionC.setStyle("-fx-background-color: #FFFFFF");
-            optionD.setStyle("-fx-background-color: #FFFFFF");
-            choice = "A";
-            optionA.setStyle("-fx-background-color: #9BEDFF");
-            addChoice(currentQuestion);
-            updateQuestionBar();
+            setWhite();
+            setChoice("A", optionA);
         });
         optionB.setOnMouseClicked(event -> {
-            optionA.setStyle("-fx-background-color: #FFFFFF");
-            optionB.setStyle("-fx-background-color: #FFFFFF");
-            optionC.setStyle("-fx-background-color: #FFFFFF");
-            optionD.setStyle("-fx-background-color: #FFFFFF");
-            choice = "B";
-            optionB.setStyle("-fx-background-color: #9BEDFF");
-            addChoice(currentQuestion);
-            updateQuestionBar();
+            setWhite();
+            setChoice("B", optionB);
         });
         optionC.setOnMouseClicked(event -> {
-            optionA.setStyle("-fx-background-color: #FFFFFF");
-            optionB.setStyle("-fx-background-color: #FFFFFF");
-            optionC.setStyle("-fx-background-color: #FFFFFF");
-            optionD.setStyle("-fx-background-color: #FFFFFF");
-            choice = "C";
-            optionC.setStyle("-fx-background-color: #9BEDFF");
-            addChoice(currentQuestion);
-            updateQuestionBar();
+            setWhite();
+            setChoice("C", optionC);
         });
         optionD.setOnMouseClicked(event -> {
-            optionA.setStyle("-fx-background-color: #FFFFFF");
-            optionB.setStyle("-fx-background-color: #FFFFFF");
-            optionC.setStyle("-fx-background-color: #FFFFFF");
-            optionD.setStyle("-fx-background-color: #FFFFFF");
-            choice = "D";
-            optionD.setStyle("-fx-background-color: #9BEDFF");
-            addChoice(currentQuestion);
-            updateQuestionBar();
+            setWhite();
+            setChoice("D", optionD);
         });
     }
 
     public void getTargetQuestion() {
+//        screen.setOnKeyPressed(event -> {
+//            if (event.getCode() == KeyCode.ENTER) {
+//                System.out.println("sdfjadshfjaf" + currentQuestion);
+//                nextQuestion();
+//            }
+//        });
         lab1.setOnMouseClicked(event -> {
             currentQuestion = 0;
             jumpToQuestion(currentQuestion);
@@ -387,10 +394,10 @@ public class QuizScreenController extends GameScreenController {
         if (accuracy < 0.3) {
             emotion = " :(";
         }
-        else if (accuracy >= 0.3 && accuracy < 0.6) {
+        else if (accuracy >= 0.3 && accuracy <= 0.6) {
             emotion = " -_-";
         }
-        else emotion = " :)))))))))))))";
+        else emotion = " :))))))";
         title.setText(score + "/" + numberOfQuestions + emotion);
         review = false;
         viewResult = true;

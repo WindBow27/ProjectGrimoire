@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.ColorAdjust?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <BorderPane prefHeight="720.0" prefWidth="1280.0" styleClass="background4" stylesheets="@../css/background.css" xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.graphic.controller.HangmanScreenController">
     <top>
@@ -20,16 +14,16 @@
    <center>
       <VBox alignment="CENTER">
          <children>
-            <HBox alignment="CENTER" spacing="300.0">
+            <HBox alignment="CENTER" spacing="250.0">
                <children>
                   <VBox alignment="CENTER" spacing="20.0">
                      <children>
-                        <Label fx:id="lives" layoutX="10.0" layoutY="96.0" styleClass="label-borderless" stylesheets="@../css/common.css" text="Lives: 6">
+                        <Label fx:id="lives" layoutX="10.0" layoutY="96.0" prefHeight="48.0" prefWidth="235.0" styleClass="label-borderless" stylesheets="@../css/common.css" textFill="#ff5959">
                            <font>
                               <Font size="30.0" />
                            </font>
                         </Label>
-                          <Label fx:id="used" styleClass="label-borderless" stylesheets="@../css/common.css" text="Used Letters:">
+                          <Label fx:id="used" styleClass="label-borderless" stylesheets="@../css/common.css" text="Used letters:">
                               <font>
                                   <Font size="30.0" />
                               </font>
@@ -58,16 +52,16 @@
                             <Font size="31.0" />
                         </font>
                     </Label>
-                  <Label fx:id="tf1" prefWidth="40.0" stylesheets="@../css/common.css" />
-                  <Label fx:id="tf2" layoutX="188.0" layoutY="10.0" prefWidth="40.0" stylesheets="@../css/common.css" />
-                  <Label fx:id="tf3" layoutX="188.0" layoutY="10.0" prefWidth="40.0" stylesheets="@../css/common.css" />
-                  <Label fx:id="tf4" layoutX="228.0" layoutY="10.0" prefWidth="40.0" stylesheets="@../css/common.css" />
-                  <Label fx:id="tf5" layoutX="188.0" layoutY="10.0" prefWidth="40.0" stylesheets="@../css/common.css" />
-                  <Label fx:id="tf6" layoutX="228.0" layoutY="10.0" prefWidth="40.0" stylesheets="@../css/common.css" />
-                  <Label fx:id="tf7" layoutX="268.0" layoutY="10.0" prefWidth="40.0" stylesheets="@../css/common.css" />
-                  <Label fx:id="tf8" layoutX="308.0" layoutY="10.0" prefWidth="40.0" stylesheets="@../css/common.css" />
-                  <Label fx:id="tf9" layoutX="428.0" layoutY="10.0" prefWidth="40.0" stylesheets="@../css/common.css" />
-                  <Label fx:id="tf10" layoutX="468.0" layoutY="10.0" prefWidth="40.0" stylesheets="@../css/common.css" />
+                  <Label fx:id="tf1" alignment="CENTER" prefWidth="40.0" stylesheets="@../css/common.css" />
+                  <Label fx:id="tf2" alignment="CENTER" layoutX="188.0" layoutY="10.0" prefWidth="40.0" stylesheets="@../css/common.css" />
+                  <Label fx:id="tf3" alignment="CENTER" layoutX="188.0" layoutY="10.0" prefWidth="40.0" stylesheets="@../css/common.css" />
+                  <Label fx:id="tf4" alignment="CENTER" layoutX="228.0" layoutY="10.0" prefWidth="40.0" stylesheets="@../css/common.css" />
+                  <Label fx:id="tf5" alignment="CENTER" layoutX="188.0" layoutY="10.0" prefWidth="40.0" stylesheets="@../css/common.css" />
+                  <Label fx:id="tf6" alignment="CENTER" layoutX="228.0" layoutY="10.0" prefWidth="40.0" stylesheets="@../css/common.css" />
+                  <Label fx:id="tf7" alignment="CENTER" layoutX="268.0" layoutY="10.0" prefWidth="40.0" stylesheets="@../css/common.css" />
+                  <Label fx:id="tf8" alignment="CENTER" layoutX="308.0" layoutY="10.0" prefWidth="40.0" stylesheets="@../css/common.css" />
+                  <Label fx:id="tf9" alignment="CENTER" layoutX="428.0" layoutY="10.0" prefWidth="40.0" stylesheets="@../css/common.css" />
+                  <Label fx:id="tf10" alignment="CENTER" layoutX="468.0" layoutY="10.0" prefWidth="40.0" stylesheets="@../css/common.css" />
                   <Button mnemonicParsing="false" onMouseClicked="#showHint" styleClass="button-small" stylesheets="@../css/common.css" text="Hint">
                      <HBox.margin>
                         <Insets left="50.0" />
@@ -80,7 +74,7 @@
             </HBox>
             <HBox alignment="CENTER" spacing="20.0">
                <children>
-                    <Label styleClass="label-borderless" stylesheets="@../css/common.css" text="Enter a Letter :">
+                    <Label styleClass="label-borderless" stylesheets="@../css/common.css" text="Enter a letter :">
                         <font>
                             <Font size="31.0" />
                         </font>
@@ -88,12 +82,12 @@
                         <Insets bottom="10.0" top="10.0" />
                      </HBox.margin>
                     </Label>
-                    <TextField fx:id="input" prefHeight="51.0" prefWidth="57.0" styleClass="text-area" stylesheets="@../css/common.css">
+                    <TextField fx:id="input" focusTraversable="true" prefHeight="51.0" prefWidth="57.0" styleClass="text-area" stylesheets="@../css/common.css">
                         <font>
                             <Font size="24.0" />
                         </font>
                     </TextField>
-                    <Button mnemonicParsing="false" onAction="#CheckInput" prefHeight="51.0" prefWidth="189.0" stylesheets="@../css/common.css" text="Check">
+                    <Button mnemonicParsing="false" onAction="#checkInput" prefHeight="51.0" prefWidth="189.0" stylesheets="@../css/common.css" text="Check">
                         <font>
                             <Font size="24.0" />
                         </font>

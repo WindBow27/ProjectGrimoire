@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 
 public class HeaderController extends ControllersManager {
     @FXML
@@ -24,6 +25,7 @@ public class HeaderController extends ControllersManager {
     private Rectangle game_line;
 
     public void initialize() {
+        Font.loadFont(getClass().getResourceAsStream("/org/graphic/fonts/Bellota.ttf"), 20);
         //Don't use list, it could be null
         home_line.setVisible(false);
         translate_line.setVisible(false);
