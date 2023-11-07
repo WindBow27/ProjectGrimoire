@@ -1,7 +1,6 @@
 package org.graphic.controller;
 
 import org.graphic.dictionary.Question;
-import org.graphic.dictionary.Word;
 
 import java.io.File;
 import java.io.FileNotFoundException;

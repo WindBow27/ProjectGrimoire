@@ -4,11 +4,8 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.image.ImageView;
 
 public class HomeScreenController extends ControllersManager {
-    @FXML
-    private ImageView loading;
     @FXML
     private Button about;
     @FXML

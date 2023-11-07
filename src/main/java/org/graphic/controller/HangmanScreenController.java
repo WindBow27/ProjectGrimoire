@@ -11,13 +11,15 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.Random;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 
 public class HangmanScreenController extends GameScreenController {
+    protected static final List<String> wordList = new ArrayList<>();
     protected static String hangmanDataPath = "src/main/resources/org/graphic/data/hangman-data.txt";
     private final Image image1 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/org/graphic/image/hangman/1.png")));
     private final Image image2 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/org/graphic/image/hangman/2.png")));
@@ -27,7 +29,6 @@ public class HangmanScreenController extends GameScreenController {
     private final Image image6 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/org/graphic/image/hangman/6.png")));
     private final Image image7 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/org/graphic/image/hangman/7.png")));
     private final Image image8 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/org/graphic/image/hangman/8.png")));
-    protected static final List<String> wordList = new ArrayList<>();
     private final List<String> usedLetter = new ArrayList<>();
     @FXML
     private ImageView img;
@@ -113,7 +114,7 @@ public class HangmanScreenController extends GameScreenController {
         switch (color) {
             case "green" -> label.setTextFill(Color.rgb(35, 226, 0));
             case "red" -> label.setTextFill(Color.rgb(255, 89, 89));
-            case "black" -> label.setTextFill(Color.rgb(0,0,0));
+            case "black" -> label.setTextFill(Color.rgb(0, 0, 0));
         }
         label.setText(text);
         ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
@@ -124,7 +125,7 @@ public class HangmanScreenController extends GameScreenController {
         switch (color) {
             case "green" -> label.setTextFill(Color.rgb(35, 226, 0));
             case "red" -> label.setTextFill(Color.rgb(255, 89, 89));
-            case "black" -> label.setTextFill(Color.rgb(0,0,0));
+            case "black" -> label.setTextFill(Color.rgb(0, 0, 0));
         }
         label.setText(text);
     }

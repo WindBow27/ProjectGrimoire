@@ -9,16 +9,17 @@
   <component name="ChangeListManager">
     <list default="true" id="6bd7be58-57b9-4d2c-89bd-bb5b23bc1c24" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dict_hh.db" beforeDir="false" afterPath="$PROJECT_DIR$/dict_hh.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/app/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/controller/DictionaryScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/controller/DictionaryScreenController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/controller/GameScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/controller/GameScreenController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/controller/HangmanScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/controller/HangmanScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/controller/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/controller/HeaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/controller/HomeScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/controller/HomeScreenController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/controller/LoadDataThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/controller/LoadDataThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/controller/QuizScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/controller/QuizScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/css/common.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/css/dictionary.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/css/dictionary.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/css/header-button.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/css/header-button.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/graphic/controller/TimerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/graphic/controller/TimerThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/dictionary-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/dictionary-screen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/game-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/game-screen.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/hangman-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/hangman-screen.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/quiz-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/graphic/fxml/quiz-screen.fxml" afterDir="false" />
     </list>
@@ -117,6 +118,13 @@
       <recent name="org.graphic.controller" />
       <recent name="org.graphic.controllers" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn install" />
+      <command value="mvn clean package" />
+      <command value="mvn clean" />
+    </option>
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">

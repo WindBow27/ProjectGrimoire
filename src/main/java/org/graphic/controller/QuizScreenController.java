@@ -9,18 +9,22 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Font;
 import javafx.scene.web.WebView;
 import org.graphic.dictionary.Question;
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.Objects;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class QuizScreenController extends GameScreenController {
+    private static final boolean[] result = new boolean[10];
     protected static int numberOfQuestions = 10;
     protected static ArrayList<Question> questionList = new ArrayList<>();
     protected static ArrayList<Question> questions = new ArrayList<>();
     protected static String quizDataPath = "src/main/resources/org/graphic/data/quiz-data.txt";
-    private static String[] choices = new String[10];
-    private static final boolean[] result = new boolean[10];
     protected static int currentQuestion = 0;
-    private int score = 0;
+    private static String[] choices = new String[10];
     private static String choice;
+    private int score = 0;
     @FXML
     private Label title;
     @FXML
@@ -66,12 +70,41 @@ public class QuizScreenController extends GameScreenController {
     @FXML
     private BorderPane screen;
 
-
     public void initialize() throws InterruptedException {
+        Platform.runLater(screen::requestFocus);
         typeOfData = "Quiz";
         Font.loadFont(getClass().getResourceAsStream("/org/graphic/fonts/Bellota.ttf"), 20);
         generateQuiz();
+
+        final boolean[] canHandleKeyPress = {true};
+
+        screen.setOnKeyPressed(event -> {
+            if (!canHandleKeyPress[0]) {
+                return;
+            }
+
+            if (event.getCode() == KeyCode.RIGHT) {
+                System.out.println("RIGHT");
+                nextQuestion();
+            } else if (event.getCode() == KeyCode.LEFT) {
+                if (currentQuestion == 0) return;
+                System.out.println("LEFT");
+                prevQuestion();
+            }
+
+            canHandleKeyPress[0] = false;
+
+            Timer timer = new Timer();
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    canHandleKeyPress[0] = true;
+                    timer.cancel();
+                }
+            }, 200);
+        });
     }
+
 
     public void exit() throws Exception {
         loadScreen("game", exit);
@@ -79,6 +112,7 @@ public class QuizScreenController extends GameScreenController {
     }
 
     public void generateQuiz() throws InterruptedException {
+        Platform.runLater(screen::requestFocus);
         resetStatus();
         LoadDataThread loadThread = new LoadDataThread();
         Thread load = new Thread(loadThread);
@@ -100,7 +134,7 @@ public class QuizScreenController extends GameScreenController {
             displayAnswer(number);
             updateQuestionBar();
         }
-        if (currentQuestion == numberOfQuestions-1) next.setText("Finish");
+        if (currentQuestion == numberOfQuestions - 1) next.setText("Finish");
         else next.setText("Next");
     }
 
@@ -120,8 +154,7 @@ public class QuizScreenController extends GameScreenController {
                         case 8 -> lab9.setStyle("-fx-background-color: #75FF73");
                         case 9 -> lab10.setStyle("-fx-background-color: #75FF73");
                     }
-                }
-                else if (!result[i]) {
+                } else if (!result[i]) {
                     switch (i) {
                         case 0 -> lab1.setStyle("-fx-background-color: #F2746B");
                         case 1 -> lab2.setStyle("-fx-background-color: #F2746B");
@@ -208,8 +241,7 @@ public class QuizScreenController extends GameScreenController {
                     }
                 }
             }
-        }
-        else {
+        } else {
             if (number < choices.length) {
                 deleteChoiceEffect();
                 if (choices[number] != null) {
@@ -227,29 +259,24 @@ public class QuizScreenController extends GameScreenController {
     public void displayAnswer(int number) {
         Platform.runLater(() -> {
             answer.setVisible(true);
-            StringBuilder tmp = new StringBuilder();
-            tmp.append(questions.get(number).getAnswer()).append("<br>");
-            tmp.append(questions.get(number).getExplain()).append("<br>");
+            String tmp = questions.get(number).getAnswer() + "<br>" +
+                    questions.get(number).getExplain() + "<br>";
             answer.getEngine().setUserStyleSheetLocation(Objects.requireNonNull(getClass().getResource("/org/graphic/css/dictionary.css")).toString());
-            answer.getEngine().loadContent(tmp.toString());
+            answer.getEngine().loadContent(tmp);
         });
     }
 
     public void addChoice(int number) {
         if (choices.length == 0) {
             if (choice != null) choices[number] = choice;
-        }
-        else {
+        } else {
             if (number == choices.length) {
                 if (choice != null) choices[number] = choice;
-            }
-            else if (number == 0) {
+            } else if (number == 0) {
                 choices[number] = choice;
-            }
-            else if (choices[number] == null) {
+            } else if (choices[number] == null) {
                 if (choice != null) choices[number] = choice;
-            }
-            else {
+            } else {
                 if (choice != null) choices[number] = choice;
             }
         }
@@ -393,11 +420,9 @@ public class QuizScreenController extends GameScreenController {
         double accuracy = (double) score / numberOfQuestions;
         if (accuracy < 0.3) {
             emotion = " :(";
-        }
-        else if (accuracy >= 0.3 && accuracy <= 0.6) {
+        } else if (accuracy >= 0.3 && accuracy <= 0.6) {
             emotion = " -_-";
-        }
-        else emotion = " :))))))";
+        } else emotion = " :))))))";
         title.setText(score + "/" + numberOfQuestions + emotion);
         review = false;
         viewResult = true;
