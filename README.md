@@ -1,14 +1,14 @@
 ## <p align="center">  Project Grimoire
 <p align="center">  </p>
 
-<p align="center"> <img src="https://i.imgur.com/XudIWXZ.png"/ width="450;"> </p>
+<p align="center"> <img src="https://i.imgur.com/yuxBPZy.png"/ width="450;"> </p>
 
 ### Download
 - git clone https://github.com/windbow27/ProjectGrimoire
 
 ### About
-- An English Dictionary using javafx and sqlite3 as database.
-- Made by windbow and cheesedz
+- An English Dictionary using javafx and sqlite3.
+- Made by windbow and Cheesedz.
 
 ### Resources
 - [javafx](https://openjfx.io/)
